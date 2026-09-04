@@ -6,6 +6,7 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 import { MapMock } from "@/components/ui-ext/MapMock";
 import { AlertTriangle } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/government")({
   head: () => ({ meta: [{ title: "Government — TerraTrust AI" }] }),

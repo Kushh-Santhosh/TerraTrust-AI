@@ -4,11 +4,19 @@ import { cn } from "@/lib/utils";
 import { LayoutDashboard, FileBadge, Bell, User, HelpCircle, LogOut, Search } from "lucide-react";
 import { type ReactNode } from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { notifications } from "@/lib/mock-data";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import type { Role } from "@/lib/types";
-import { roleLabels, useAuth } from "@/lib/auth";
+import { roleHome, roleLabels, useAuth } from "@/lib/auth";
+import { useNotifications } from "@/lib/notifications";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navByRole: Record<
   Role,
@@ -131,7 +139,7 @@ export function AppShell({
 }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const navigate = useNavigate();
-  const unread = notifications.filter((n) => !n.read).length;
+  const { unreadCount } = useNotifications();
   const { profile, user, signOut } = useAuth();
   const role = profile?.role ?? "citizen";
   const routeRole = pathname.startsWith("/surveyor")
@@ -187,9 +195,9 @@ export function AppShell({
                         )}
                       />
                       <span className="truncate">{item.label}</span>
-                      {item.to === "/notifications" && unread > 0 && (
+                      {item.to === "/notifications" && unreadCount > 0 && (
                         <span className="ml-auto rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-medium text-primary-foreground">
-                          {unread}
+                          {unreadCount}
                         </span>
                       )}
                     </Link>
@@ -221,25 +229,49 @@ export function AppShell({
             <Input className="h-9 pl-9" placeholder="Search properties, passport IDs, regions…" />
           </div>
           <div className="ml-auto flex items-center gap-3">
-            <Link to="/notifications" className="relative rounded-full p-2 hover:bg-muted">
+            <Link to="/notifications" aria-label="Notifications" className="relative rounded-full p-2 hover:bg-muted">
               <Bell className="h-4 w-4" />
-              {unread > 0 && (
+              {unreadCount > 0 && (
                 <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-destructive" />
               )}
             </Link>
-            <div className="flex items-center gap-2 rounded-full border border-border bg-surface px-2 py-1 pr-3">
-              <Avatar className="h-7 w-7">
-                <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                  AO
-                </AvatarFallback>
-              </Avatar>
-              <div className="hidden text-left md:block">
-                <p className="text-xs font-medium leading-tight">
-                  {profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}
-                </p>
-                <p className="text-[10px] text-muted-foreground">{roleLabels[activeRole]}</p>
-              </div>
-            </div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex max-w-[220px] items-center gap-2 rounded-full border border-border bg-surface px-2 py-1 pr-3 text-left outline-none focus-visible:ring-1 focus-visible:ring-ring">
+                  <Avatar className="h-7 w-7 shrink-0">
+                    <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+                      {initials(profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user")}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="hidden min-w-0 md:block">
+                    <span className="block truncate text-xs font-medium leading-tight">
+                      {profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}
+                    </span>
+                    <span className="block truncate text-[10px] text-muted-foreground">{roleLabels[activeRole]}</span>
+                  </span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-64">
+                <DropdownMenuLabel className="font-normal">
+                  <p className="truncate font-medium">{profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}</p>
+                  <p className="truncate text-xs font-normal text-muted-foreground">{profile?.email ?? user?.email}</p>
+                  <p className="mt-1 text-xs font-normal text-muted-foreground">{roleLabels[activeRole]}</p>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild><Link to="/profile"><User /> My Profile</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link to="/notifications"><Bell /> Notifications{unreadCount > 0 ? ` (${unreadCount})` : ""}</Link></DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  onSelect={async (event) => {
+                    event.preventDefault();
+                    const result = await signOut();
+                    if (!result.error) await navigate({ to: "/login" });
+                  }}
+                >
+                  <LogOut /> Sign out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </header>
 
@@ -257,6 +289,16 @@ export function AppShell({
       </div>
     </div>
   );
+}
+
+function initials(name: string) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 }
 
 export function StatusBadge({ status }: { status: "verified" | "pending" | "disputed" | "draft" }) {

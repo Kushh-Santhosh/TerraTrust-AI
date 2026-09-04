@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { Toaster } from "@/components/ui/sonner";
 import { DemoModeProvider } from "@/lib/demo-mode";
 import { AuthProvider, roleHome, useAuth } from "@/lib/auth";
+import { NotificationsProvider } from "@/lib/notifications";
 
 function NotFoundComponent() {
   return (
@@ -123,10 +124,12 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <DemoModeProvider>
-          <AuthGate />
-          <Toaster position="top-right" />
-        </DemoModeProvider>
+        <NotificationsProvider>
+          <DemoModeProvider>
+            <AuthGate />
+            <Toaster position="top-right" />
+          </DemoModeProvider>
+        </NotificationsProvider>
       </AuthProvider>
     </QueryClientProvider>
   );
