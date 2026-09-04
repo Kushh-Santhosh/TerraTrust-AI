@@ -13,7 +13,11 @@ async function ownedProperty(propertyId: string, userId: string) {
     ? await query.eq("id", propertyId).maybeSingle()
     : await query.eq("passport_id", propertyId).maybeSingle();
   if (error) return { error: error.message, propertyId: undefined };
-  if (!data) return { error: "This property is not available to the signed-in account.", propertyId: undefined };
+  if (!data)
+    return {
+      error: "This property is not available to the signed-in account.",
+      propertyId: undefined,
+    };
   return { error: null, propertyId: data.id };
 }
 

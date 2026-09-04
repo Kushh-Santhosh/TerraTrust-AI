@@ -229,7 +229,11 @@ export function AppShell({
             <Input className="h-9 pl-9" placeholder="Search properties, passport IDs, regions…" />
           </div>
           <div className="ml-auto flex items-center gap-3">
-            <Link to="/notifications" aria-label="Notifications" className="relative rounded-full p-2 hover:bg-muted">
+            <Link
+              to="/notifications"
+              aria-label="Notifications"
+              className="relative rounded-full p-2 hover:bg-muted"
+            >
               <Bell className="h-4 w-4" />
               {unreadCount > 0 && (
                 <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-destructive" />
@@ -240,26 +244,44 @@ export function AppShell({
                 <button className="flex max-w-[220px] items-center gap-2 rounded-full border border-border bg-surface px-2 py-1 pr-3 text-left outline-none focus-visible:ring-1 focus-visible:ring-ring">
                   <Avatar className="h-7 w-7 shrink-0">
                     <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                      {initials(profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user")}
+                      {initials(
+                        profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user",
+                      )}
                     </AvatarFallback>
                   </Avatar>
                   <span className="hidden min-w-0 md:block">
                     <span className="block truncate text-xs font-medium leading-tight">
                       {profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}
                     </span>
-                    <span className="block truncate text-[10px] text-muted-foreground">{roleLabels[activeRole]}</span>
+                    <span className="block truncate text-[10px] text-muted-foreground">
+                      {roleLabels[activeRole]}
+                    </span>
                   </span>
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-64">
                 <DropdownMenuLabel className="font-normal">
-                  <p className="truncate font-medium">{profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}</p>
-                  <p className="truncate text-xs font-normal text-muted-foreground">{profile?.email ?? user?.email}</p>
-                  <p className="mt-1 text-xs font-normal text-muted-foreground">{roleLabels[activeRole]}</p>
+                  <p className="truncate font-medium">
+                    {profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user"}
+                  </p>
+                  <p className="truncate text-xs font-normal text-muted-foreground">
+                    {profile?.email ?? user?.email}
+                  </p>
+                  <p className="mt-1 text-xs font-normal text-muted-foreground">
+                    {roleLabels[activeRole]}
+                  </p>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild><Link to="/profile"><User /> My Profile</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link to="/notifications"><Bell /> Notifications{unreadCount > 0 ? ` (${unreadCount})` : ""}</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/profile">
+                    <User /> My Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/notifications">
+                    <Bell /> Notifications{unreadCount > 0 ? ` (${unreadCount})` : ""}
+                  </Link>
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
                   onSelect={async (event) => {

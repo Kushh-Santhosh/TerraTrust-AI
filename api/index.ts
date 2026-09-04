@@ -14,10 +14,7 @@ type VercelResponse = {
   end: (body?: string | Uint8Array) => void;
 };
 
-export default async function handler(
-  request: VercelRequest,
-  response: VercelResponse,
-) {
+export default async function handler(request: VercelRequest, response: VercelResponse) {
   const protocol = headerValue(request.headers["x-forwarded-proto"]) ?? "https";
   const host = headerValue(request.headers.host) ?? "localhost";
   const forwardedPath = queryValue(request.query?.__path) ?? "/";
