@@ -3,7 +3,7 @@ import { AppShell, StatusBadge } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { properties } from "@/lib/mock-data";
-import { Filter, Grid3x3, List, Plus, Search, MapPin } from "lucide-react";
+import { Grid3x3, List, Plus, Search, MapPin } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -33,9 +33,6 @@ function PropertiesPage() {
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input className="h-10 pl-9" placeholder="Search by address, passport ID, owner…" />
         </div>
-        <Button variant="outline" className="h-10">
-          <Filter className="h-4 w-4" /> Filter
-        </Button>
         <div className="ml-auto flex rounded-md border border-border bg-surface p-1">
           <button
             onClick={() => setView("grid")}

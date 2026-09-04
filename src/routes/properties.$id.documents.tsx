@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useRef, useState } from "react";
 import { AppShell } from "@/components/layout/AppShell";
 import { Crumbs, Pill } from "@/components/ui-ext/Scaffold";
 import { Button } from "@/components/ui/button";
 import { Upload, FileText, ShieldCheck, AlertTriangle } from "lucide-react";
+import { useAuth } from "@/lib/auth";
+import { persistPropertyDocument } from "@/lib/supabase-persistence";
 
 export const Route = createFileRoute("/properties/$id/documents")({
   head: () => ({ meta: [{ title: "Documents — TerraTrust AI" }] }),
@@ -46,12 +49,45 @@ const docs = [
 
 function Page() {
   const { id } = Route.useParams();
+  const { user } = useAuth();
+  const fileInput = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadMessage, setUploadMessage] = useState<string | null>(null);
+
+  const uploadDocument = async (file: File) => {
+    if (!user) {
+      setUploadMessage("Sign in before uploading a document.");
+      return;
+    }
+    setUploading(true);
+    setUploadMessage(null);
+    const kind = file.name.toLowerCase().includes("survey")
+      ? "survey"
+      : file.name.toLowerCase().includes("tax")
+        ? "tax"
+        : file.name.toLowerCase().includes("id")
+          ? "id"
+          : "other";
+    const outcome = await persistPropertyDocument({
+      propertyId: id,
+      userId: user.id,
+      name: file.name,
+      kind,
+    });
+    setUploading(false);
+    setUploadMessage(
+      outcome.persisted
+        ? `${file.name} was added to the property record.`
+        : `Document record was not saved: ${outcome.error}`,
+    );
+  };
+
   return (
     <AppShell
       title="Property documents"
       subtitle="Upload, verify, and manage records for this Property Passport."
       actions={
-        <Button>
+        <Button onClick={() => fileInput.current?.click()} disabled={uploading}>
           <Upload className="h-4 w-4" /> Upload document
         </Button>
       }
@@ -64,6 +100,17 @@ function Page() {
         ]}
       />
       <div className="surface-card grid h-48 place-items-center rounded-xl border-2 border-dashed border-border bg-muted/20 text-center">
+        <input
+          ref={fileInput}
+          type="file"
+          accept=".pdf,.jpg,.jpeg,.png"
+          className="hidden"
+          onChange={(event) => {
+            const file = event.target.files?.[0];
+            if (file) void uploadDocument(file);
+            event.target.value = "";
+          }}
+        />
         <div>
           <p className="text-sm font-medium">Drop files here</p>
           <p className="text-xs text-muted-foreground">
@@ -71,6 +118,7 @@ function Page() {
           </p>
         </div>
       </div>
+      {uploadMessage && <p className="mt-3 text-sm text-muted-foreground">{uploadMessage}</p>}
       <div className="mt-6 space-y-2">
         {docs.map((d) => (
           <div key={d.name} className="surface-card flex items-center gap-4 p-4">

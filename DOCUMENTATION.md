@@ -1,6 +1,6 @@
 # TerraTrust AI — Complete Product & Technical Documentation
 
-> **Version:** 1.0 · **Date:** July 2026 · **Status:** Demo-ready, production-grade UI
+> **Version:** 1.0 · **Date:** July 2026 · **Status:** Demo-ready prototype
 > **Audience:** Hackathon judges · Investors · Government stakeholders · Bank partners · Engineers
 
 ---
@@ -39,7 +39,7 @@
 
 ### 1.1 What is TerraTrust AI?
 
-**TerraTrust AI** is an AI-powered national land registry and verification platform that replaces slow, paper-based, fraud-prone land administration with a machine-verifiable **Digital Property Passport**. It brings citizens, surveyors, government bureaus, and banks onto one explainable, auditable trust layer.
+**TerraTrust AI** is an AI-powered property evidence and verification prototype that organizes fragmented land records into a machine-readable **Digital Property Passport**. It gives citizens, surveyors, government reviewers, and banks one explainable, auditable trust layer for demonstration and future integration.
 
 Every parcel in the system gets:
 
@@ -50,7 +50,7 @@ Every parcel in the system gets:
 
 ### 1.2 Why It Exists
 
-Across emerging economies, up to **70% of land is undocumented or contested**. Fraudulent double-sales, forged deeds, and boundary overlaps freeze trillions of dollars in "dead capital" (De Soto), block mortgage lending, and generate multi-year court disputes. TerraTrust AI exists to make land tenure **provable, portable, and programmable**.
+Land records can be fragmented, paper-heavy, and difficult to compare. Fraudulent double-sales, forged deeds, and boundary overlaps create risk for owners, reviewers, and lenders. TerraTrust AI exists to make available property evidence easier to organize, explain, and escalate.
 
 ### 1.3 The Problem
 
@@ -62,7 +62,7 @@ Across emerging economies, up to **70% of land is undocumented or contested**. F
 
 ### 1.4 The Solution
 
-An **AI-first registry** where every property carries a live, explainable trust profile. Documents are OCR-parsed, cross-checked against registry data, verified by surveyors, attested by community members, approved by government, and made loan-ready for banks — end-to-end, in days not months.
+An **evidence-first verification workflow** where every demo property carries an explainable trust profile. Documents, boundary evidence, deterministic prototype government/community evidence, risk signals, and human review are combined into a transparent decision; external registries and legal title authority are future integrations.
 
 ### 1.5 Target Users
 
@@ -74,14 +74,14 @@ Citizens · Licensed surveyors · Land bureau officers · Bank underwriters · C
 
 ### 1.7 Mission
 
-Deliver the world's most trusted land verification infrastructure by combining AI, community attestation, and government authority into one auditable platform.
+Build a trustworthy property verification layer by combining explainable analysis, community supporting evidence, and human institutional review into one auditable prototype.
 
 ### 1.8 Impact (see `/impact` route)
 
-- **47 days saved** per verification case (median).
-- **78% reduction** in fraudulent registrations detected upstream.
-- **$1.2B+** in dormant real-estate capital unlocked at national scale.
-- Direct alignment with **UN SDG 1, 11, 16, 17**.
+- The prototype demonstrates explainable evidence review and human escalation.
+- Live n8n regression cases cover clean, conflicted, and malformed input.
+- Supabase persistence and owner-scoped RLS are implemented for the core records.
+- The concept aligns with **UN SDG 1, 11, 16, 17**; impact metrics require field evidence.
 
 ---
 
@@ -106,13 +106,13 @@ Existing point solutions — GIS-only tools, blockchain title projects, isolated
 
 ## 3. Product Vision
 
-TerraTrust AI is building the **operating system for national land trust**.
+TerraTrust AI is building an **evidence-first property verification layer**.
 
-- **AI-first registry** — every parcel is scored, explained, and monitored continuously.
-- **Digital Property Passport** — QR-verifiable, court-admissible, signed by the bureau.
-- **Trusted land ecosystem** — citizens, government, banks, surveyors on one substrate.
-- **Government integration** — bureau workbenches for parcels, permits, disputes, audit.
-- **Banking integration** — instant, standardised collateral verification for underwriting.
+- **Explainable verification** — demo properties are scored and reviewed through explicit evidence gates.
+- **Digital Property Passport** — a machine-readable prototype record with a QR/signature presentation.
+- **Trusted land workflow** — citizens, reviewers, banks, surveyors, and communities use focused workspaces.
+- **Institutional review path** — government-facing screens support investigation and human escalation.
+- **Bank evidence view** — shared property evidence can support underwriting review; it is not a title certificate.
 - **Surveyor ecosystem** — assignments, tools, and payouts on a licensed marketplace.
 - **Community verification** — neighbour attestations weighted by proximity and history.
 - **AI-assisted decisions** — every approval is proposed by AI with an explainability panel.
@@ -123,14 +123,14 @@ TerraTrust AI is building the **operating system for national land trust**.
 
 ### 4.1 Business Goals
 
-- Reach 100k signed passports in year 1 across 3 pilot cities.
-- Become the default title verification API for tier-1 banks in the region.
+- Validate the clean and conflicted verification paths with real demo stakeholders.
+- Connect future registry, storage, and institutional APIs behind the existing contracts.
 
 ### 4.2 User Goals
 
-- **Citizens:** Prove ownership in minutes, share with a QR code.
-- **Government:** Reduce backlog, publish trusted analytics, resolve disputes fast.
-- **Banks:** Cut collateral verification from 90 days to under 48 hours.
+- **Citizens:** Organize property evidence and inspect a verification decision.
+- **Government:** Investigate conflicts and make the final human-review decision.
+- **Banks:** Inspect shared property evidence as supporting underwriting information.
 - **Surveyors:** Steady assignment flow, digital deliverables, faster payments.
 - **Community:** Voice in the tenure they live around.
 
@@ -138,13 +138,10 @@ TerraTrust AI is building the **operating system for national land trust**.
 
 | KPI                                    | Target    |
 | -------------------------------------- | --------- |
-| Median passport issuance time          | ≤ 7 days  |
-| Fraud signals caught pre-registry      | ≥ 75%     |
-| Confidence score explainability rating | ≥ 4.5 / 5 |
-| Bank verification SLA                  | ≤ 48h     |
-| Surveyor assignment acceptance         | ≥ 90%     |
-| Citizen NPS                            | ≥ 55      |
-| Dispute resolution median              | ≤ 30 days |
+| Clean demo verification path           | p001 returns VERIFIED |
+| Conflict demo verification path        | p003 returns HUMAN_REVIEW_REQUIRED |
+| Malformed input safety                 | Passport remains held |
+| Evidence explainability                | Scores and gate reasons visible |
 
 ---
 
@@ -391,7 +388,7 @@ Hero, feature grid, impact strip, CTA to `/dashboard` and `/login`. States: stat
 
 ### 9.2 `/login` — Auth
 
-Prefilled demo credentials. States: idle, submitting, error, success (redirect).
+Supabase email authentication. States: idle, submitting, error, success (redirect).
 
 ### 9.3 `/dashboard` — Home
 
@@ -403,7 +400,7 @@ Table with filters → detail tabs: **Overview · Confidence · Intel · Ownersh
 
 ### 9.5 `/properties/$id/passport-pdf`
 
-Print-optimised court-admissible passport with pseudo-QR and ed25519 signature hash.
+Print-optimised passport record with a prototype QR/signature presentation. It is not a legal certificate.
 
 ### 9.6 `/search`
 
@@ -677,7 +674,7 @@ All engines emit `modelVersion` + `signedAt` for auditability.
 | OCR          | Cloud OCR provider (pluggable)                            |
 | Hosting      | Cloudflare Workers (edge)                                 |
 | Deployment   | Cloudflare Workers or another Vite-compatible host        |
-| Security     | JWT, RLS, HMAC webhook signatures, ed25519 doc signatures |
+| Security     | JWT, RLS, and environment-separated webhook configuration |
 
 ---
 
@@ -688,7 +685,7 @@ All engines emit `modelVersion` + `signedAt` for auditability.
 - **Roles table** is separate from `profiles` — never on user record (prevents privilege escalation).
 - **Encryption:** TLS in transit; at-rest AES-256 via managed Postgres/Storage.
 - **Audit:** append-only `audit_logs` table; tamper-evident chain hash per row.
-- **Document integrity:** ed25519 signature on issued passports (see `/properties/$id/passport-pdf`).
+- **Document integrity:** the current passport view includes a prototype signature presentation; production signing is future work.
 - **Fraud prevention:** multi-signal engine + human-in-the-loop for Elevated/Critical.
 - **Privacy:** PII minimisation, region-locked storage, right-to-erasure endpoints.
 - **Compliance readiness:** GDPR-aligned data model; government retention overrides configurable.
@@ -714,7 +711,7 @@ All engines emit `modelVersion` + `signedAt` for auditability.
 
 ## 18. Future Roadmap
 
-**Phase 1 (Now — pilot):** Passport, confidence engine, bank + government workbench in 1 country.
+**Phase 1 (Now — prototype):** Passport, confidence engine, bank + government review workbench with deterministic evidence.
 **Phase 2 (6–12 mo):** Mobile app, satellite pipeline, blockchain notarisation, additional countries.
 **Phase 3 (12–24 mo):** Drone-based cadastre, digital twin per city, cross-border passport recognition.
 **Long horizon:** IoT boundary sensors, ZK proofs of ownership, open Bank API marketplace, ML-driven urban planning.
@@ -723,15 +720,14 @@ All engines emit `modelVersion` + `signedAt` for auditability.
 
 ## 19. Hackathon Innovation Points
 
-- **First horizontal trust layer** connecting citizen ↔ surveyor ↔ government ↔ bank.
+- **Evidence-first trust layer** connecting citizen ↔ surveyor ↔ government reviewer ↔ bank.
 - **Explainable AI by design** — every score comes with weighted reasoning.
 - **Community verification** — proximity-weighted attestation is a novel primitive.
-- **Court-admissible passport PDF** with cryptographic signature and QR.
-- **Scalable** — deterministic engines, edge-first, RLS-secured.
-- **Market opportunity:** $20T+ dead capital in emerging land markets.
+- **Passport preview PDF** with prototype signature presentation and QR surface.
+- **Structured for future scale** — deterministic engines and RLS-secured persistence.
 - **Social impact:** SDG 1 (poverty), 11 (cities), 16 (institutions), 17 (partnerships).
 - **Business model:** SaaS to governments + per-verification fees from banks.
-- **Competitive advantage:** end-to-end + explainable + government-integrated.
+- **Competitive advantage:** end-to-end explainable workflow with explicit human escalation.
 
 ---
 
@@ -831,7 +827,7 @@ VITE_SUPABASE_URL=...
 VITE_SUPABASE_PUBLISHABLE_KEY=...
 SUPABASE_URL=...
 SUPABASE_PUBLISHABLE_KEY=...
-SUPABASE_SERVICE_ROLE_KEY=... # server-only
+The Supabase service-role key is server-only and must never be placed in browser configuration.
 WEBHOOK_SECRET=...
 ```
 
@@ -872,11 +868,11 @@ Cloudflare analytics; Supabase logs; in-app `/status`.
 
 ## 24. Frequently Asked Questions
 
-1. **What is a Property Passport?** A signed, QR-verifiable digital certificate of tenure.
-2. **Is it legally binding?** Designed to be court-admissible; requires local statutory recognition.
+1. **What is a Property Passport?** A machine-readable property evidence record with a verification decision.
+2. **Is it legally binding?** No. Legal effect and statutory recognition require future jurisdiction-specific integration.
 3. **How is confidence computed?** 8-factor weighted composite — fully explainable.
 4. **Can users see reasoning?** Yes, every factor expands to evidence.
-5. **How do you prevent forged passports?** ed25519 signature + registry cross-check.
+5. **How do you reduce fraud risk?** The prototype combines document, fraud, boundary, and confidence signals; it does not replace a registry.
 6. **What if two people claim the same land?** Fraud engine flags; dispute workflow adjudicates.
 7. **Does it work offline?** Field surveyor tools support offline capture + later sync.
 8. **What languages?** English at launch; i18n scaffold ready.
@@ -903,7 +899,7 @@ Cloudflare analytics; Supabase logs; in-app `/status`.
 29. **Do you use service role in the browser?** Never — server-only.
 30. **Where does the model version come from?** Emitted by every engine.
 31. **Can I export a passport?** Yes, print-optimised PDF at `/properties/$id/passport-pdf`.
-32. **How is signature computed?** ed25519 over canonicalised passport payload.
+32. **How is signature computed?** The current UI presents a prototype signature/hash surface; production signing is not claimed.
 33. **Is data shared across countries?** Only with explicit treaty configuration.
 34. **How is capacity tested?** Load tests to 10M passports.
 35. **What about drone data?** Roadmap Phase 3.
@@ -1006,12 +1002,12 @@ Full theming, custom domain, sovereign data residency, source escrow, quarterly 
 | Bank API              |      ✅       |         ❌         |            ❌             |        ❌        |    Partial    |
 | Fraud engine          |      ✅       |       Manual       |            ❌             |        ❌        |    Partial    |
 | Government workbench  |      ✅       |       Legacy       |            ❌             |     Partial      |      ✅       |
-| Court-admissible PDF  |      ✅       |       Paper        |           Rare            |        ❌        |    Partial    |
+| Passport preview PDF  |      ✅       |       Paper        |           Rare            |        ❌        |    Partial    |
 | Time to passport      |     Days      |       Months       |          Months           |       N/A        |     Weeks     |
 
 ### A2.3 Differentiation
 
-Only TerraTrust AI is **horizontal (citizen ↔ surveyor ↔ gov ↔ bank), AI-explainable, and government-integrated** in a single product.
+TerraTrust AI is designed as a **horizontal (citizen ↔ surveyor ↔ reviewer ↔ bank), explainable evidence workflow** in a single prototype.
 
 ---
 
@@ -1020,7 +1016,7 @@ Only TerraTrust AI is **horizontal (citizen ↔ surveyor ↔ gov ↔ bank), AI-e
 | SDG                                               | Alignment                                                                                 |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **SDG 1 — No Poverty**                            | Provable tenure unlocks credit, formalises informal settlements, protects inherited land. |
-| **SDG 9 — Industry, Innovation & Infrastructure** | AI-first registry, open APIs for financial infrastructure.                                |
+| **SDG 9 — Industry, Innovation & Infrastructure** | Explainable digital evidence workflow and future integration contracts.                  |
 | **SDG 11 — Sustainable Cities & Communities**     | Trusted cadastre enables urban planning, reduces slum evictions.                          |
 | **SDG 16 — Peace, Justice & Strong Institutions** | Tamper-evident audit trails reduce corruption; transparent adjudication.                  |
 | **SDG 17 — Partnerships for the Goals**           | Interoperable between government, banks, community and surveyors.                         |
@@ -1034,9 +1030,9 @@ Only TerraTrust AI is **horizontal (citizen ↔ surveyor ↔ gov ↔ bank), AI-e
 | **Innovation**           |       20%        |            **9.5 / 10**             | First horizontal explainable-AI land trust layer + community attestation primitive |
 | **Technical Complexity** |       15%        |             **9 / 10**              | 5 deterministic engines, TanStack Start edge SSR, RLS, HMAC webhooks, PDF signing  |
 | **Scalability**          |       15%        |             **9 / 10**              | Edge-first, RLS partitioning, stateless engines, 10M-parcel target                 |
-| **Social Impact**        |       20%        |             **10 / 10**             | Directly unlocks dead capital; 5 SDGs; 47 days saved / case                        |
+| **Social Impact**        |       20%        |             **Prototype evidence**  | Human-review workflow supports safer property decisions; field impact not yet measured |
 | **Feasibility**          |       10%        |             **9 / 10**              | Runs today; mock engines swap to real models via same contract                     |
-| **UI / UX**              |       10%        |            **9.5 / 10**             | ~90 production-grade screens, WCAG-AA, guided demo mode                            |
+| **UI / UX**              |       10%        |            **Prototype review**      | Focused role workspaces, guided demo mode, and explicit fallback states             |
 | **Business Potential**   |       10%        |             **9 / 10**              | 7 revenue streams; $420M SOM in 5 yrs                                              |
 | **Total weighted**       |     **100%**     |           **≈ 9.4 / 10**            | —                                                                                  |
 
@@ -1064,7 +1060,7 @@ Every AI output in TerraTrust AI is **reason-traced** — no black boxes.
 - **Audit Logs:** append-only table with chained per-row hashes — any tampering breaks the chain and is detectable.
 - **GDPR readiness:** minimisation, purpose-limited processing, right-to-erasure (subject to statutory retention overrides), regionally-locked storage, DSAR export.
 - **Data Protection:** PII scoping in API responses; public passport read (`/api/passport/:id`) exposes trust indicators only, never full owner PII.
-- **Document Integrity:** issued passports carry an ed25519 signature over the canonicalised payload (`src/routes/properties.$id.passport-pdf.tsx`). Any byte change invalidates verification.
+- **Document Integrity:** the current passport view presents a prototype signature/hash surface; cryptographic issuance and verification are future production work.
 - **Immutable Verification History:** timeline events are write-once, referenced by content hash. Amendments produce new events, never mutate old ones.
 - **Webhooks:** HMAC-SHA256 with `timingSafeEqual`; secrets rotated via admin console.
 - **Secrets:** managed via deployment environment variables — never in code, never in the client.
@@ -1137,7 +1133,7 @@ Every AI output in TerraTrust AI is **reason-traced** — no black boxes.
 ## A10. Why We Will Win
 
 - **Why now?** Every ingredient — cheap satellite imagery, edge AI, mobile penetration, government digitisation mandates — hit maturity simultaneously in 2025–2026.
-- **Why us?** We are the only team pairing an **explainable AI trust layer** with **community verification** and a **court-admissible passport** in one product. All engines already exist in this codebase.
+- **Why us?** We pair an **explainable evidence layer** with **community supporting evidence** and a human-review path in one prototype. The deterministic engines are implemented in this codebase.
 - **Why this matters?** Land is the single largest untapped asset class on Earth. Trust in land is trust in the economy.
 - **Why this can scale globally?** The primitives — passport, confidence score, dispute case, bank pull — are jurisdiction-independent. Only the statutory bindings differ, and those are configurable.
 
@@ -1167,8 +1163,8 @@ The following supplementary artifacts are available on request; each maps 1:1 to
 
 ### A11.1 One-Page Executive Summary
 
-> **TerraTrust AI** is the AI-first national land registry. Every parcel gets a QR-verifiable **Digital Property Passport** with an explainable **Confidence Score**, live **fraud detection**, and **AI valuation**. Citizens prove ownership in days; governments cut backlog; banks underwrite in 48h. 90+ production-grade screens, 5 deterministic AI engines, edge-scale architecture. Aligned to SDG 1, 9, 11, 16, 17. TAM $78B · SAM $14B · SOM $420M in 5 years.
+> **TerraTrust AI** is a property evidence and verification prototype. Demo properties receive a machine-readable **Digital Property Passport** view with an explainable **Confidence Score**, deterministic fraud/risk analysis, and AI valuation surfaces. Clean evidence can be marked verified by the n8n decision flow; conflicts are held for human review. External registry authority, legal title effect, market sizing, and production-scale claims remain future work.
 
 ### A11.2 One-Minute Elevator Pitch
 
-> _Across emerging markets, 70% of land is undocumented and trillions of dollars sit frozen in dead capital. Existing registries are paper, siloed, and forgeable. TerraTrust AI is the operating system for national land trust — an explainable AI layer that gives every parcel a digital passport, cross-verified by community, surveyor, government, and bank. We've built ninety production-grade screens, five deterministic AI engines, and an edge-scale architecture that runs today. Governments cut verification from months to days. Banks underwrite in forty-eight hours. Citizens finally own what they own. This is how a continent unlocks a trillion dollars — one passport at a time._
+> _Property evidence is often fragmented across documents, boundary records, and institutional review. TerraTrust AI organizes those signals into an explainable workflow: n8n runs the verification stages, Supabase stores the application records, and human review handles conflicts. The GDTA prototype demonstrates both a clean verification path and a safe escalation path without claiming live registry authority._

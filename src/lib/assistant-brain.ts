@@ -99,7 +99,7 @@ export function answer(q: string): AssistantResponse {
     return {
       text: missing.length
         ? `**${target.title}** is missing: ${missing.map((m) => `*${m}*`).join(", ")}. ` +
-          `Uploading these typically lifts trust by **+${missing.length * 7} points** within 48h.`
+          `Uploading these may improve the evidence review once verification is run again.`
         : `**${target.title}** has the full base document set. OCR confidence across files averages ${85 + (target.aiConfidence % 8)}%.`,
       citations: [{ label: target.title, passportId: target.passportId }],
     };

@@ -42,11 +42,8 @@ function AdminPage() {
       </div>
 
       <div className="mt-6 surface-card overflow-hidden">
-        <div className="flex items-center justify-between border-b border-border p-4">
+        <div className="border-b border-border p-4">
           <p className="font-medium">Users & roles</p>
-          <Button size="sm" variant="outline">
-            Invite user
-          </Button>
         </div>
         <table className="w-full text-sm">
           <thead className="bg-muted/40 text-xs text-muted-foreground">
@@ -89,11 +86,7 @@ function AdminPage() {
                     {u.s}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-right">
-                  <Button size="sm" variant="ghost">
-                    Manage
-                  </Button>
-                </td>
+                <td />
               </tr>
             ))}
           </tbody>

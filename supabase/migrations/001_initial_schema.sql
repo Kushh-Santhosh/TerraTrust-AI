@@ -92,9 +92,12 @@ create policy "Owners can update their properties" on public.properties for upda
 
 create policy "Owners can read property documents" on public.property_documents for select using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
 create policy "Owners can create property documents" on public.property_documents for insert with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
+create policy "Owners can update property documents" on public.property_documents for update using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid())) with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
 
 create policy "Owners can read verification results" on public.verification_results for select using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
 create policy "Owners can create verification results" on public.verification_results for insert with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
+create policy "Owners can update verification results" on public.verification_results for update using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid())) with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
 
 create policy "Owners can read review cases" on public.review_cases for select using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
 create policy "Owners can create review cases" on public.review_cases for insert with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));
+create policy "Owners can update review cases" on public.review_cases for update using (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid())) with check (exists (select 1 from public.properties p where p.id = property_id and p.owner_id = auth.uid()));

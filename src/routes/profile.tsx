@@ -52,9 +52,6 @@ function ProfilePage() {
           <div className="mt-4 inline-flex items-center gap-1 rounded-full bg-success/10 px-3 py-1 text-xs text-success">
             <ShieldCheck className="h-3 w-3" /> Identity verified
           </div>
-          <Button variant="outline" size="sm" className="mt-6 w-full">
-            Change photo
-          </Button>
         </div>
         <div className="surface-card p-6">
           <p className="font-medium">Account information</p>

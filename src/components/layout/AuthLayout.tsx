@@ -33,8 +33,8 @@ export function AuthLayout({
         <div className="absolute inset-0 grid-bg" />
         <div className="relative flex h-full flex-col justify-between p-12">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" /> Trusted by 4
-            government land bureaus
+            <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" /> GDTA Phase 2
+            prototype
           </div>
           <div>
             <h2 className="font-display max-w-md text-5xl text-foreground">
@@ -51,8 +51,7 @@ export function AuthLayout({
             </div>
           </div>
           <p className="max-w-md text-xs text-muted-foreground">
-            "We resolved 612 disputed parcels in our first quarter on TerraTrust." — Director, Lagos
-            Land Bureau
+            "Evidence-first verification with human review for conflicts." — TerraTrust AI demo
           </p>
         </div>
       </div>

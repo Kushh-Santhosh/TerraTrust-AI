@@ -266,7 +266,7 @@ function Trustbar() {
     <section className="border-y border-border bg-surface-elevated/50 py-8">
       <div className="mx-auto max-w-7xl px-6">
         <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-          Trusted by governments and institutions
+          Built for institutional property verification
         </p>
         <div className="mt-5 grid grid-cols-2 gap-6 text-sm text-muted-foreground md:grid-cols-6">
           {labels.map((l) => (
@@ -292,7 +292,7 @@ function Problem() {
     },
     {
       t: "Fraud and forgery",
-      d: "An estimated 30–70% of land documents in emerging markets are tampered with or duplicated.",
+      d: "Inconsistent or duplicated documents make property review difficult and increase fraud risk.",
     },
     {
       t: "Opaque valuations",

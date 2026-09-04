@@ -33,7 +33,7 @@ function Page() {
             </p>
             <h1 className="font-display mt-2 text-5xl">Tell us about your land.</h1>
             <p className="mt-3 text-muted-foreground">
-              Whether you have one parcel or a national registry, we want to talk.
+              Whether you have one parcel or a regional land programme, we want to talk.
             </p>
             <div className="mt-8 space-y-3 text-sm">
               <p className="flex items-center gap-2">

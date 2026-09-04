@@ -300,7 +300,7 @@ function PassportPDF() {
               <p className="mt-1 text-sm font-medium capitalize">{p.status}</p>
               <p className="mt-1 text-[11px] text-[#0a1224]/60">
                 {p.status === "verified"
-                  ? "Tenure recognised by the national registry."
+                  ? "Verification evidence cleared the prototype decision gates."
                   : p.status === "disputed"
                     ? "Active dispute on file — see case docket."
                     : "Awaiting completion of verification steps."}
@@ -313,11 +313,11 @@ function PassportPDF() {
         <div className="border-t border-[#0a1224]/10 bg-[#f8fafc] px-10 py-5 text-[11px] text-[#0a1224]/60">
           <p>
             {passportIssued
-              ? "This document is a court-admissible representation of the digital Property Passport."
+              ? "This document is a prototype representation of the digital Property Passport record."
               : "This document is a preview of the Property Passport record and is not an issued certificate."}
             For real-time status, scan the QR code or visit terratrust.ai/p/{p.passportId}.
             {passportIssued
-              ? ` Issued under the authority of the National Land Authority via TerraTrust AI · Doc ref ${p.passportId}-${signatureHash.slice(0, 4)}.`
+              ? ` Generated from the TerraTrust AI verification result · Doc ref ${p.passportId}-${signatureHash.slice(0, 4)}.`
               : " Issuance requires completion of the verification workflow and human review."}
           </p>
         </div>

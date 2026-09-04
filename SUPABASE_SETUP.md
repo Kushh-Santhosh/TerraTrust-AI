@@ -1,22 +1,20 @@
 # Supabase setup
 
-1. Open your Supabase project and copy the Project URL and the Publishable Key from the API / Connect settings.
-2. Put the browser-safe values in `.env.local`:
+1. Open the Supabase project and copy its Project URL and Publishable Key from the API / Connect settings.
+2. Create a local `.env.local` file with browser-safe values only:
 
 ```env
-VITE_SUPABASE_URL=https://iixsxywjsclzbjfzlnvq.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_Vp893beApMLxMug7adBoag_OM-MpDdV
-VITE_N8N_WEBHOOK_URL=https://kushhhsanthosh.app.n8n.cloud/webhook/terratrust/verify
+VITE_SUPABASE_URL=https://your-project-ref.supabase.co
+VITE_SUPABASE_PUBLISHABLE_KEY=your_publishable_key_here
+VITE_N8N_WEBHOOK_URL=https://your-n8n-host/webhook/terratrust/verify
 ```
 
-3. Keep the secret/service-role key server-side only. Never put it in `.env.local`, never expose it in frontend code, and never commit it to GitHub.
-4. If you want a temporary testing account, create it in Supabase Auth > Users, then log in with that real Supabase account in the app.
-5. If you use Google login, configure Google in Supabase Dashboard > Authentication > Providers > Google. Add the app redirect URL from your Supabase project settings when prompted.
-6. Copy `supabase/migrations/001_initial_schema.sql` into the Supabase SQL Editor and run it.
-7. In Authentication, choose the email provider and decide whether email confirmation is required.
-8. Add the local app URL, normally `http://localhost:8080`, to the Authentication URL configuration.
-9. Run the application with `npm run dev`.
-10. Create an account, select a role, and complete the profile.
-11. Test the role workspace, property creation, and n8n verification for `p_001` and `p_003`.
+3. In Supabase SQL Editor, run `supabase/migrations/001_initial_schema.sql`.
+4. Verify that `profiles`, `properties`, `property_documents`, `verification_results`, and `review_cases` exist and have RLS enabled.
+5. Create a real test user in Authentication > Users. The application does not ship with test credentials.
+6. Confirm the user has a profile and the intended role. The signup trigger creates a profile; role changes should be performed through a protected administrative process.
+7. Configure email confirmation and the local URL, normally `http://localhost:8080`, under Authentication URL settings.
+8. Google login is not implemented in the current UI. If it is added later, configure the Google provider and redirect URL in Supabase before describing it as live.
+9. Start the app with `bun run dev`, then test sign-in, role routing, property creation, and the n8n verification flow.
 
-Only the publishable browser key belongs in `.env.local`. Never put a service-role or secret key in frontend code.
+Never put `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_SECRET_KEY`, database passwords, OAuth client secrets, or private API credentials in `.env.local`, frontend code, or Git. Only the publishable browser key belongs in the Vite client configuration.

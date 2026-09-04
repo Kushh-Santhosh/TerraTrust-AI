@@ -5,6 +5,8 @@ import { Crumbs, Pill, SectionTitle } from "@/components/ui-ext/Scaffold";
 import { Button } from "@/components/ui/button";
 import { VerificationWorkflowPanel } from "@/components/ui-ext/VerificationWorkflowPanel";
 import { HowTerraTrustWorks } from "@/components/ui-ext/HowTerraTrustWorks";
+import { useAuth } from "@/lib/auth";
+import { persistVerificationOutcome } from "@/lib/supabase-persistence";
 import { properties } from "@/lib/mock-data";
 import {
   STEP_NAMES,
@@ -37,11 +39,13 @@ export const Route = createFileRoute("/properties/$id/verify")({
 
 function Page() {
   const { property } = Route.useLoaderData();
+  const { user } = useAuth();
   const provider = activeProvider();
   const [running, setRunning] = useState(false);
   const [visible, setVisible] = useState<WorkflowStep[]>([]);
   const [result, setResult] = useState<VerificationResult | null>(null);
   const [fallbackReason, setFallbackReason] = useState<string | undefined>();
+  const [persistenceMessage, setPersistenceMessage] = useState<string | undefined>();
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
@@ -53,9 +57,28 @@ function Page() {
     setResult(null);
     setVisible([]);
     setFallbackReason(undefined);
+    setPersistenceMessage(undefined);
 
     const outcome = await runVerification(property);
     setFallbackReason(outcome.fallbackReason);
+    if (user && !outcome.fallbackReason) {
+      const persisted = await persistVerificationOutcome({
+        propertyId: property.id,
+        userId: user.id,
+        result: outcome.result,
+      });
+      setPersistenceMessage(
+        persisted.persisted
+          ? "Verification result and property status saved to Supabase."
+          : `Verification completed, but Supabase did not save the result: ${persisted.error}`,
+      );
+    } else if (outcome.fallbackReason) {
+      setPersistenceMessage("Live verification was unavailable, so the demo result was not saved.");
+    } else {
+      setPersistenceMessage(
+        "Verification completed, but it was not saved because no user is signed in.",
+      );
+    }
 
     outcome.result.steps.forEach((step, i) => {
       timers.current.push(
@@ -71,7 +94,7 @@ function Page() {
         ),
       );
     });
-  }, [property]);
+  }, [property, user]);
 
   const shown = result ? result.steps : visible;
 
@@ -155,6 +178,9 @@ function Page() {
           liveSteps={shown}
         />
       </div>
+      {persistenceMessage && (
+        <p className="mt-3 text-sm text-muted-foreground">{persistenceMessage}</p>
+      )}
 
       {!result && !running && shown.length === 0 && (
         <div className="mt-6 surface-card p-5">

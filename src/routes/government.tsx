@@ -1,11 +1,10 @@
 import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
 import { StatCard } from "@/components/ui-ext/StatCard";
-import { Button } from "@/components/ui/button";
 import { govKpis, regions, properties } from "@/lib/mock-data";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { MapMock } from "@/components/ui-ext/MapMock";
-import { Building2, AlertTriangle } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/government")({
@@ -20,17 +19,7 @@ function GovernmentPage() {
   return (
     <AppShell
       title="Government workbench"
-      subtitle="Live registry health, dispute queue, and policy analytics."
-      actions={
-        <>
-          <Button variant="outline" className="rounded-full">
-            Export report
-          </Button>
-          <Button className="rounded-full">
-            <Building2 className="h-4 w-4" /> Bulk ingest
-          </Button>
-        </>
-      }
+      subtitle="Final institutional review for conflicting or high-risk properties."
     >
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {govKpis.map((k) => (

@@ -301,7 +301,7 @@ const ACTIONS = [
   "uploaded survey report",
   "rejected document",
   "escalated dispute to bureau",
-  "synced parcel with national registry",
+  "synced parcel with prototype registry evidence",
   "verified community attestation",
   "flagged boundary overlap",
 ];

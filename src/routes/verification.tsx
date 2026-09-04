@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { AppShell, StatusBadge } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/button";
 import { properties } from "@/lib/mock-data";
@@ -11,6 +12,7 @@ export const Route = createFileRoute("/verification")({
 
 function VerificationPage() {
   const queue = properties.filter((p) => p.status !== "verified");
+  const [decisions, setDecisions] = useState<Record<string, "attested" | "objected">>({});
   return (
     <AppShell
       title="Community Verification"
@@ -38,13 +40,27 @@ function VerificationPage() {
                 Requested: confirm occupancy and boundary for past 5+ years.
               </p>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline" className="rounded-full">
-                <XCircle className="h-4 w-4" /> Dispute
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="outline"
+                className="rounded-full"
+                onClick={() => setDecisions((current) => ({ ...current, [p.id]: "objected" }))}
+                disabled={decisions[p.id] !== undefined}
+              >
+                <XCircle className="h-4 w-4" /> Object
               </Button>
-              <Button className="rounded-full">
+              <Button
+                className="rounded-full"
+                onClick={() => setDecisions((current) => ({ ...current, [p.id]: "attested" }))}
+                disabled={decisions[p.id] !== undefined}
+              >
                 <CheckCircle2 className="h-4 w-4" /> Attest
               </Button>
+              {decisions[p.id] && (
+                <span className="self-center text-xs text-muted-foreground">
+                  {decisions[p.id] === "attested" ? "Attestation recorded" : "Objection recorded"}
+                </span>
+              )}
             </div>
           </div>
         ))}

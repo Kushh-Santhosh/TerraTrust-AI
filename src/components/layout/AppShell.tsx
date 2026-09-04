@@ -54,7 +54,6 @@ const navByRole: Record<
       items: [
         { to: "/government", label: "Dashboard", icon: LayoutDashboard },
         { to: "/government/disputes", label: "Review Queue", icon: FileBadge },
-        { to: "/government/parcels", label: "Verified Properties", icon: FileBadge },
       ],
     },
     {
@@ -62,6 +61,7 @@ const navByRole: Record<
       items: [
         { to: "/notifications", label: "Notifications", icon: Bell },
         { to: "/profile", label: "Profile", icon: User },
+        { to: "/help", label: "Help", icon: HelpCircle },
       ],
     },
   ],
@@ -70,8 +70,7 @@ const navByRole: Record<
       group: "Workspace",
       items: [
         { to: "/verification", label: "Dashboard", icon: LayoutDashboard },
-        { to: "/verification", label: "Verification Requests", icon: FileBadge },
-        { to: "/attestations", label: "My Attestations", icon: FileBadge },
+        { to: "/community", label: "Verification Requests", icon: FileBadge },
       ],
     },
     {
@@ -79,6 +78,7 @@ const navByRole: Record<
       items: [
         { to: "/notifications", label: "Notifications", icon: Bell },
         { to: "/profile", label: "Profile", icon: User },
+        { to: "/help", label: "Help", icon: HelpCircle },
       ],
     },
   ],
@@ -89,7 +89,13 @@ const navByRole: Record<
         { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
         { to: "/admin/users", label: "Users", icon: User },
         { to: "/admin/audit", label: "Audit / Activity", icon: FileBadge },
-        { to: "/settings", label: "Settings", icon: HelpCircle },
+      ],
+    },
+    {
+      group: "Account",
+      items: [
+        { to: "/profile", label: "Profile", icon: User },
+        { to: "/help", label: "Help", icon: HelpCircle },
       ],
     },
   ],
@@ -99,10 +105,16 @@ const navByRole: Record<
       items: [
         { to: "/bank", label: "Dashboard", icon: LayoutDashboard },
         { to: "/bank", label: "Shared Passports", icon: FileBadge },
-        { to: "/bank/loans", label: "Verification Evidence", icon: FileBadge },
       ],
     },
-    { group: "Account", items: [{ to: "/profile", label: "Profile", icon: User }] },
+    {
+      group: "Account",
+      items: [
+        { to: "/notifications", label: "Notifications", icon: Bell },
+        { to: "/profile", label: "Profile", icon: User },
+        { to: "/help", label: "Help", icon: HelpCircle },
+      ],
+    },
   ],
 };
 

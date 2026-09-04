@@ -78,6 +78,7 @@ export function VerificationWorkflowPanel({
   liveSteps?: WorkflowStep[];
 }) {
   const live = provider === "n8n" && !fallbackReason;
+  const liveResult = Boolean(result && !fallbackReason && result.provider === "n8n");
   const display = (value: number | boolean | string | null | undefined, suffix = "") =>
     value == null ? "Unavailable" : `${value}${suffix}`;
   return (
@@ -148,20 +149,24 @@ export function VerificationWorkflowPanel({
             <div className="mt-5">
               <VerdictBanner
                 verdict={
-                  result.status === "verified"
-                    ? "trusted"
-                    : result.status === "manual_review"
-                      ? "review"
-                      : "flagged"
+                  !liveResult
+                    ? "review"
+                    : result.status === "verified"
+                      ? "trusted"
+                      : result.status === "manual_review"
+                        ? "review"
+                        : "flagged"
                 }
                 headline={
-                  result.status === "verified"
-                    ? "Verified — Digital Property Passport ready to issue"
-                    : result.status === "manual_review"
-                      ? "Human review required — verification conflict detected"
-                      : "Automated approval rejected — investigation required"
+                  !liveResult
+                    ? "Live verification unavailable — demo simulation only"
+                    : result.status === "verified"
+                      ? "Verified — Digital Property Passport ready to issue"
+                      : result.status === "manual_review"
+                        ? "Human review required — verification conflict detected"
+                        : "Automated approval rejected — investigation required"
                 }
-                detail={result.decisionReason}
+                detail={fallbackReason ?? result.decisionReason}
               />
             </div>
 
@@ -187,17 +192,19 @@ export function VerificationWorkflowPanel({
 
             <div className="mt-4 flex flex-wrap items-center gap-2">
               <span
-                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs ring-1 ${result.passportStatus === "ready" ? "bg-success/10 text-success ring-success/25" : "bg-muted text-muted-foreground ring-border"}`}
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs ring-1 ${liveResult && result.passportStatus === "ready" ? "bg-success/10 text-success ring-success/25" : "bg-muted text-muted-foreground ring-border"}`}
               >
                 <BadgeCheck className="h-3.5 w-3.5" /> Digital Property Passport:{" "}
-                {result.passportStatus === "ready"
-                  ? "Ready to issue"
-                  : "Held pending human sign-off"}
+                {!liveResult
+                  ? "Not issued in live mode"
+                  : result.passportStatus === "ready"
+                    ? "Ready to issue"
+                    : "Held pending human sign-off"}
               </span>
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {result.status === "verified" ? (
+              {liveResult && result.status === "verified" ? (
                 <>
                   <Button asChild className="rounded-full">
                     <Link to="/properties/$id" params={{ id: propertyId }}>
