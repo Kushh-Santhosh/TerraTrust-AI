@@ -149,8 +149,8 @@ export function AppShell({
   const nav = navByRole[activeRole];
 
   return (
-    <div className="grid min-h-screen w-full grid-cols-[260px_1fr] bg-background">
-      <aside className="sticky top-0 h-screen border-r border-border bg-surface-elevated">
+    <div className="grid min-h-screen w-full grid-cols-1 bg-background lg:grid-cols-[260px_1fr]">
+      <aside className="sticky top-0 hidden h-screen border-r border-border bg-surface-elevated lg:block">
         <div className="flex h-16 items-center px-5">
           <Link to="/">
             <Logo />
