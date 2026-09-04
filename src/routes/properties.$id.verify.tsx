@@ -64,6 +64,7 @@ function Page() {
     if (user && !outcome.fallbackReason) {
       const persisted = await persistVerificationOutcome({
         propertyId: property.id,
+        passportId: property.passportId,
         userId: user.id,
         result: outcome.result,
       });

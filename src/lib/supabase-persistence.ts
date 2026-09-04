@@ -19,11 +19,12 @@ async function ownedProperty(propertyId: string, userId: string) {
 
 export async function persistPropertyDocument(input: {
   propertyId: string;
+  passportId?: string;
   userId: string;
   name: string;
   kind: string;
 }): Promise<PersistenceOutcome> {
-  const ownership = await ownedProperty(input.propertyId, input.userId);
+  const ownership = await ownedProperty(input.passportId ?? input.propertyId, input.userId);
   if (ownership.error) return { error: ownership.error, persisted: false };
   const { error } = await supabase.from("property_documents").insert({
     property_id: ownership.propertyId,
@@ -98,10 +99,11 @@ async function resolveActiveReviewCases(propertyId: string) {
 
 export async function persistVerificationOutcome(input: {
   propertyId: string;
+  passportId?: string;
   userId: string;
   result: VerificationResult;
 }): Promise<PersistenceOutcome> {
-  const ownership = await ownedProperty(input.propertyId, input.userId);
+  const ownership = await ownedProperty(input.passportId ?? input.propertyId, input.userId);
   if (ownership.error) return { error: ownership.error, persisted: false };
 
   const propertyId = ownership.propertyId!;

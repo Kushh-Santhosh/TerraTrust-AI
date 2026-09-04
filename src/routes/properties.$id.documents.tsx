@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Upload, FileText, ShieldCheck, AlertTriangle } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { persistPropertyDocument } from "@/lib/supabase-persistence";
+import { properties } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/properties/$id/documents")({
   head: () => ({ meta: [{ title: "Documents — TerraTrust AI" }] }),
@@ -70,6 +71,7 @@ function Page() {
           : "other";
     const outcome = await persistPropertyDocument({
       propertyId: id,
+      passportId: properties.find((property) => property.id === id)?.passportId,
       userId: user.id,
       name: file.name,
       kind,
