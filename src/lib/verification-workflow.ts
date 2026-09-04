@@ -313,6 +313,39 @@ function coerceResult(raw: unknown, p: Property): VerificationResult {
   };
 }
 
+function failedLiveResult(p: Property, reason: string): VerificationResult {
+  return {
+    workflowId: `WF-N8N-${p.passportId}`,
+    provider: "n8n",
+    propertyId: p.id,
+    passportId: p.passportId,
+    status: "manual_review",
+    confidenceScore: null,
+    fraudScore: null,
+    fraudBand: null,
+    boundaryScore: null,
+    riskScore: null,
+    ocrConfidence: null,
+    documentsVerified: null,
+    boundaryVerified: null,
+    registryCrossCheck: null,
+    decisionReason: `Live n8n verification could not be completed: ${reason}`,
+    reviewReasons: ["Live verification did not return a usable decision."],
+    governmentScore: null,
+    governmentCleared: null,
+    communityScore: null,
+    communityAttestations: null,
+    communityCleared: null,
+    passportStatus: "held",
+    completedAt: new Date().toISOString(),
+    steps: STEP_NAMES.map((name, index) => ({
+      name,
+      status: index === 0 ? "completed" : "failed",
+      detail: index === 0 ? `${p.passportId} submitted` : "Awaiting a live n8n response",
+    })),
+  };
+}
+
 export interface RunOutcome {
   result: VerificationResult;
   /** Set when the live webhook was configured but could not be reached. */
@@ -333,15 +366,22 @@ export async function runVerification(p: Property, signal?: AbortSignal): Promis
     });
     if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
     const json = await res.json();
-    if (!json || (Array.isArray(json) && !json.length) || typeof json !== "object") {
+    const candidate = Array.isArray(json) ? json[0] : json;
+    if (
+      !candidate ||
+      typeof candidate !== "object" ||
+      !("propertyId" in candidate) ||
+      !("passportId" in candidate) ||
+      (!("decision" in candidate) && !("status" in candidate))
+    ) {
       throw new Error("Webhook returned an invalid verification result");
     }
     return { result: coerceResult(json, p) };
   } catch (err) {
     const reason = err instanceof Error ? err.message : "Webhook unreachable";
     return {
-      result: computeVerification(p, "demo"),
-      fallbackReason: `Demo simulation — live n8n verification unavailable (${reason}).`,
+      result: failedLiveResult(p, reason),
+      fallbackReason: `Live n8n verification unavailable (${reason}).`,
     };
   }
 }
