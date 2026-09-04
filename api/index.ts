@@ -37,7 +37,7 @@ export default async function handler(
   );
 
   response.status(result.status);
-  result.headers.forEach((value, name: string) => response.setHeader(name, value));
+  result.headers.forEach((value: string, name: string) => response.setHeader(name, value));
   response.end(new Uint8Array(await result.arrayBuffer()));
 }
 
