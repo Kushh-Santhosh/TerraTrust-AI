@@ -1,0 +1,10 @@
+{
+  "installCommand": "npm install --no-audit --no-fund",
+  "buildCommand": "rm -rf dist && vite build",
+  "outputDirectory": "dist/client",
+  "routes": [
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/api?__path=/$1" }
+  ]
+}

@@ -148,7 +148,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         options: { data: { full_name: fullName, role, region } },
       });
       if (error) return { needsEmailConfirmation: false, error: error.message };
-      if (data.user) {
+      if (data.user && data.session) {
         await supabase.from("profiles").upsert({
           id: data.user.id,
           full_name: fullName,
@@ -170,7 +170,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     },
     async signOut() {
       if (!supabaseConfigured) return { error: configError };
-      const { error } = await supabase.auth.signOut();
+      const { error } = await supabase.auth.signOut({ scope: "local" });
       if (!error) {
         setSession(null);
         setProfile(null);

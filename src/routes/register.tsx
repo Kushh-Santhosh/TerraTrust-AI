@@ -32,7 +32,7 @@ function RegisterPage() {
     setBusy(false);
     if (result.error) setError(result.error);
     else if (result.needsEmailConfirmation) setConfirmation(true);
-    else navigate({ to: "/role-select" });
+    else navigate({ to: roleHome("citizen") as never });
   };
   return (
     <AuthLayout

@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, FileBadge, Bell, User, HelpCircle, LogOut, Search } from "lucide-react";
@@ -130,6 +130,7 @@ export function AppShell({
   actions?: ReactNode;
 }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
   const unread = notifications.filter((n) => !n.read).length;
   const { profile, user, signOut } = useAuth();
   const role = profile?.role ?? "citizen";
@@ -201,7 +202,11 @@ export function AppShell({
         <div className="border-t border-border p-3">
           <Link
             to="/login"
-            onClick={() => void signOut()}
+            onClick={async (event) => {
+              event.preventDefault();
+              const result = await signOut();
+              if (!result.error) await navigate({ to: "/login" });
+            }}
             className="flex items-center gap-2 rounded-lg px-2 py-2 text-sm text-muted-foreground hover:bg-muted"
           >
             <LogOut className="h-4 w-4" /> Sign out
