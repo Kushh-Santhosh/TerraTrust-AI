@@ -44,4 +44,4 @@ TerraTrust organizes evidence, explains the decision, and escalates conflicts to
 
 ## Safe fallback
 
-If the live n8n webhook is unavailable, the verification screen must say **Live verification unavailable** and label any local result as **Demo Simulation**. It must not show Passport Ready or save the fallback as a live verification result.
+If the live n8n webhook is unavailable, the verification screen must say **Live verification unavailable** and show a held/manual-review state with no fabricated scores. It must not show Passport Ready or save the fallback as a live verification result.
