@@ -1,27 +1,85 @@
 // Mock data for AI-powered feature screens.
 
 export const valuationFactors = [
-  { label: "Location desirability (Lekki Phase 1)", weight: 32, direction: "up" as const, note: "Top 5% premium corridor in Lagos coastal zone." },
-  { label: "Recent comparable sales (12 nearby)", weight: 24, direction: "up" as const, note: "Median sale ₦125M · 90-day window." },
-  { label: "Verified title chain", weight: 14, direction: "up" as const, note: "Unbroken transfer history since 2002." },
-  { label: "Macro headwinds (FX volatility)", weight: -9, direction: "down" as const, note: "USD/NGN swings reduce dollar-equivalent value." },
-  { label: "Distance to flood risk zone", weight: -4, direction: "down" as const, note: "1.8km from 100-year floodplain." },
-  { label: "Infrastructure (road + utilities)", weight: 11, direction: "up" as const, note: "Tarred dual carriageway, public water grid." },
+  {
+    label: "Location desirability (Lekki Phase 1)",
+    weight: 32,
+    direction: "up" as const,
+    note: "Top 5% premium corridor in Lagos coastal zone.",
+  },
+  {
+    label: "Recent comparable sales (12 nearby)",
+    weight: 24,
+    direction: "up" as const,
+    note: "Median sale ₦125M · 90-day window.",
+  },
+  {
+    label: "Verified title chain",
+    weight: 14,
+    direction: "up" as const,
+    note: "Unbroken transfer history since 2002.",
+  },
+  {
+    label: "Macro headwinds (FX volatility)",
+    weight: -9,
+    direction: "down" as const,
+    note: "USD/NGN swings reduce dollar-equivalent value.",
+  },
+  {
+    label: "Distance to flood risk zone",
+    weight: -4,
+    direction: "down" as const,
+    note: "1.8km from 100-year floodplain.",
+  },
+  {
+    label: "Infrastructure (road + utilities)",
+    weight: 11,
+    direction: "up" as const,
+    note: "Tarred dual carriageway, public water grid.",
+  },
 ];
 
 export const fraudSignals = [
-  { label: "Duplicate boundary overlap", weight: 38, direction: "down" as const, note: "Polygon shares 12% area with TT-7710-LG (filed 2021)." },
-  { label: "Document fingerprint mismatch", weight: 21, direction: "down" as const, note: "Survey plan watermark inconsistent with bureau template v2023." },
-  { label: "Signature anomaly score", weight: 14, direction: "down" as const, note: "92% match to known forgery cluster #FC-204." },
-  { label: "Bureau cross-validation", weight: 10, direction: "up" as const, note: "Lagos Bureau acknowledges parcel exists." },
+  {
+    label: "Duplicate boundary overlap",
+    weight: 38,
+    direction: "down" as const,
+    note: "Polygon shares 12% area with TT-7710-LG (filed 2021).",
+  },
+  {
+    label: "Document fingerprint mismatch",
+    weight: 21,
+    direction: "down" as const,
+    note: "Survey plan watermark inconsistent with bureau template v2023.",
+  },
+  {
+    label: "Signature anomaly score",
+    weight: 14,
+    direction: "down" as const,
+    note: "92% match to known forgery cluster #FC-204.",
+  },
+  {
+    label: "Bureau cross-validation",
+    weight: 10,
+    direction: "up" as const,
+    note: "Lagos Bureau acknowledges parcel exists.",
+  },
   { label: "Owner verified ID", weight: 8, direction: "up" as const, note: "NIN + BVN matched." },
 ];
 
 export const valuationHistory = [
-  { m: "Jan", value: 248 }, { m: "Feb", value: 252 }, { m: "Mar", value: 261 },
-  { m: "Apr", value: 258 }, { m: "May", value: 269 }, { m: "Jun", value: 274 },
-  { m: "Jul", value: 281 }, { m: "Aug", value: 285 }, { m: "Sep", value: 290 },
-  { m: "Oct", value: 295 }, { m: "Nov", value: 301 }, { m: "Dec", value: 312 },
+  { m: "Jan", value: 248 },
+  { m: "Feb", value: 252 },
+  { m: "Mar", value: 261 },
+  { m: "Apr", value: 258 },
+  { m: "May", value: 269 },
+  { m: "Jun", value: 274 },
+  { m: "Jul", value: 281 },
+  { m: "Aug", value: 285 },
+  { m: "Sep", value: 290 },
+  { m: "Oct", value: 295 },
+  { m: "Nov", value: 301 },
+  { m: "Dec", value: 312 },
 ];
 
 export const ndviSeries = [
@@ -47,11 +105,46 @@ export const ownershipChain = [
 ];
 
 export const aiRecommendations = [
-  { id: "r1", priority: "high" as const, title: "Upload tax clearance for Kaduna Farmland", impact: "+13 trust pts", reason: "Closes the documentation gap and unlocks bank-collateral eligibility.", cta: "Upload now" },
-  { id: "r2", priority: "high" as const, title: "Resolve 0.4m boundary overlap with TT-2210-KD", impact: "Removes dispute risk", reason: "AI detected polygon intersection with neighbor parcel — re-survey recommended.", cta: "Open survey request" },
-  { id: "r3", priority: "medium" as const, title: "Refresh satellite scan (last: 47 days ago)", impact: "+4 confidence pts", reason: "Newer imagery improves boundary detection accuracy by ~6%.", cta: "Refresh imagery" },
-  { id: "r4", priority: "medium" as const, title: "Add second attestor to Abuja plot", impact: "Reaches community gold tier", reason: "Properties with ≥3 community attestations clear bureau review 2.3× faster.", cta: "Invite attestor" },
-  { id: "r5", priority: "low" as const, title: "Enable monthly AI passport refresh", impact: "Automated trust drift alerts", reason: "Get notified when any score drops more than 5 points.", cta: "Enable" },
+  {
+    id: "r1",
+    priority: "high" as const,
+    title: "Upload tax clearance for Kaduna Farmland",
+    impact: "+13 trust pts",
+    reason: "Closes the documentation gap and unlocks bank-collateral eligibility.",
+    cta: "Upload now",
+  },
+  {
+    id: "r2",
+    priority: "high" as const,
+    title: "Resolve 0.4m boundary overlap with TT-2210-KD",
+    impact: "Removes dispute risk",
+    reason: "AI detected polygon intersection with neighbor parcel — re-survey recommended.",
+    cta: "Open survey request",
+  },
+  {
+    id: "r3",
+    priority: "medium" as const,
+    title: "Refresh satellite scan (last: 47 days ago)",
+    impact: "+4 confidence pts",
+    reason: "Newer imagery improves boundary detection accuracy by ~6%.",
+    cta: "Refresh imagery",
+  },
+  {
+    id: "r4",
+    priority: "medium" as const,
+    title: "Add second attestor to Abuja plot",
+    impact: "Reaches community gold tier",
+    reason: "Properties with ≥3 community attestations clear bureau review 2.3× faster.",
+    cta: "Invite attestor",
+  },
+  {
+    id: "r5",
+    priority: "low" as const,
+    title: "Enable monthly AI passport refresh",
+    impact: "Automated trust drift alerts",
+    reason: "Get notified when any score drops more than 5 points.",
+    cta: "Enable",
+  },
 ];
 
 export const ocrFields = [
@@ -66,11 +159,36 @@ export const ocrFields = [
 ];
 
 export const verificationSuggestions = [
-  { id: "v1", action: "Cross-check coordinates with Bureau dataset", confidence: 96, status: "Auto-passed" as const },
-  { id: "v2", action: "Request community attestation (≥2 neighbors)", confidence: 81, status: "Suggested" as const },
-  { id: "v3", action: "Surveyor field re-measurement", confidence: 72, status: "Suggested" as const },
-  { id: "v4", action: "Re-issue survey plan with watermark v2024", confidence: 64, status: "Optional" as const },
-  { id: "v5", action: "Tax clearance reconciliation", confidence: 88, status: "Auto-passed" as const },
+  {
+    id: "v1",
+    action: "Cross-check coordinates with Bureau dataset",
+    confidence: 96,
+    status: "Auto-passed" as const,
+  },
+  {
+    id: "v2",
+    action: "Request community attestation (≥2 neighbors)",
+    confidence: 81,
+    status: "Suggested" as const,
+  },
+  {
+    id: "v3",
+    action: "Surveyor field re-measurement",
+    confidence: 72,
+    status: "Suggested" as const,
+  },
+  {
+    id: "v4",
+    action: "Re-issue survey plan with watermark v2024",
+    confidence: 64,
+    status: "Optional" as const,
+  },
+  {
+    id: "v5",
+    action: "Tax clearance reconciliation",
+    confidence: 88,
+    status: "Auto-passed" as const,
+  },
 ];
 
 export const riskBreakdown = [
@@ -82,8 +200,13 @@ export const riskBreakdown = [
 ];
 
 export const landHealth = {
-  ndvi: 0.71, moisture: 0.58, erosion: 0.12, slope: 4.2, soilCarbon: 1.8,
-  treeCover: 0.34, builtupRatio: 0.62,
+  ndvi: 0.71,
+  moisture: 0.58,
+  erosion: 0.12,
+  slope: 4.2,
+  soilCarbon: 1.8,
+  treeCover: 0.34,
+  builtupRatio: 0.62,
 };
 
 export const recommendationsForDoc = [

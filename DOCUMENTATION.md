@@ -747,7 +747,7 @@ flowchart TB
   subgraph Edge
     SF[Server Functions] --- Web[Webhooks /api/public/*]
   end
-  subgraph Cloud[Lovable Cloud]
+  subgraph Cloud[Cloud Infrastructure]
     DB[(Postgres + RLS)]
     Store[(Storage)]
     Auth[Auth]
@@ -843,7 +843,7 @@ bun run dev   # Vite dev on :8080
 
 ### 22.4 Production
 
-Lovable one-click publish → Cloudflare Workers edge. Custom domain via project settings.
+Deploy to Cloudflare Workers edge with the configured environment variables and custom domain.
 
 ### 22.5 CI/CD
 
@@ -919,7 +919,7 @@ Cloudflare analytics; Supabase logs; in-app `/status`.
 45. **Where do I test?** Preview URL in `<project_urls>`; login `amara@terratrust.ai` / `demo-password`.
 46. **Does search work offline?** Client cache supports last-10 recents.
 47. **Are there webhooks?** Yes, `/api/public/webhook` HMAC-signed.
-48. **How are secrets managed?** Lovable Cloud secret store.
+48. **How are secrets managed?** Environment variables managed by the deployment platform and never checked into source control.
 49. **Is the code open-source?** MIT for the reference client; server components licensed to deployers.
 50. **What is next after the hackathon?** Country pilot, bank integration, mobile app.
 
@@ -1067,7 +1067,7 @@ Every AI output in TerraTrust AI is **reason-traced** — no black boxes.
 - **Document Integrity:** issued passports carry an ed25519 signature over the canonicalised payload (`src/routes/properties.$id.passport-pdf.tsx`). Any byte change invalidates verification.
 - **Immutable Verification History:** timeline events are write-once, referenced by content hash. Amendments produce new events, never mutate old ones.
 - **Webhooks:** HMAC-SHA256 with `timingSafeEqual`; secrets rotated via admin console.
-- **Secrets:** managed through Lovable Cloud secret store — never in code, never in the client.
+- **Secrets:** managed via deployment environment variables — never in code, never in the client.
 
 ---
 

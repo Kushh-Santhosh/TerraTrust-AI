@@ -3,7 +3,15 @@ import { AppShell } from "@/components/layout/AppShell";
 import { AIBadge, AIInsightCard, ConfidenceMeter } from "@/components/ai/AIPrimitives";
 import { SectionTitle, Pill } from "@/components/ui-ext/Scaffold";
 import { Satellite, Calendar, Layers } from "lucide-react";
-import { Line, LineChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Line,
+  LineChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 export const Route = createFileRoute("/ai-satellite")({
   head: () => ({ meta: [{ title: "AI Satellite Comparison — TerraTrust AI" }] }),
@@ -22,7 +30,8 @@ const epochs = [
   { d: "2026-Q2", change: 13 },
 ];
 
-const tile = "https://images.unsplash.com/photo-1542601906-1f3f4d1c5b2d?auto=format&fit=crop&w=720&q=70";
+const tile =
+  "https://images.unsplash.com/photo-1542601906-1f3f4d1c5b2d?auto=format&fit=crop&w=720&q=70";
 
 function SatellitePage() {
   return (
@@ -32,10 +41,33 @@ function SatellitePage() {
       actions={<AIBadge>12 epochs · 8 years</AIBadge>}
     >
       <div className="grid gap-4 md:grid-cols-4">
-        <AIInsightCard icon={<Satellite className="h-3 w-3 text-primary" />} title="Latest epoch" value="25 Jun 2026" hint="Pleiades 0.5m" tone="primary" />
-        <AIInsightCard icon={<Calendar className="h-3 w-3 text-primary" />} title="Coverage span" value="8.2 yrs" hint="2018 → 2026" tone="accent" />
-        <AIInsightCard icon={<Layers className="h-3 w-3 text-primary" />} title="Built-up Δ" value="+13%" hint="vs 2018 baseline" tone="warning" />
-        <AIInsightCard title="Encroachment events" value="0" hint="No unauthorized changes" tone="success" />
+        <AIInsightCard
+          icon={<Satellite className="h-3 w-3 text-primary" />}
+          title="Latest epoch"
+          value="25 Jun 2026"
+          hint="Pleiades 0.5m"
+          tone="primary"
+        />
+        <AIInsightCard
+          icon={<Calendar className="h-3 w-3 text-primary" />}
+          title="Coverage span"
+          value="8.2 yrs"
+          hint="2018 → 2026"
+          tone="accent"
+        />
+        <AIInsightCard
+          icon={<Layers className="h-3 w-3 text-primary" />}
+          title="Built-up Δ"
+          value="+13%"
+          hint="vs 2018 baseline"
+          tone="warning"
+        />
+        <AIInsightCard
+          title="Encroachment events"
+          value="0"
+          hint="No unauthorized changes"
+          tone="success"
+        />
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -46,11 +78,35 @@ function SatellitePage() {
         ].map((t, i) => (
           <div key={i} className="surface-card overflow-hidden p-0">
             <div className="relative aspect-square w-full overflow-hidden">
-              <img src={tile} alt="Satellite tile" className="absolute inset-0 h-full w-full object-cover" style={{ filter: i === 0 ? "saturate(0.65) hue-rotate(-10deg) brightness(0.95)" : i === 1 ? "saturate(0.85)" : undefined }} />
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon points="35,30 70,32 72,68 33,66" fill="oklch(0.55 0.1 180 / 0.18)" stroke="oklch(0.45 0.08 195)" strokeWidth="0.6" strokeDasharray="2 1.5" />
+              <img
+                src={tile}
+                alt="Satellite tile"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{
+                  filter:
+                    i === 0
+                      ? "saturate(0.65) hue-rotate(-10deg) brightness(0.95)"
+                      : i === 1
+                        ? "saturate(0.85)"
+                        : undefined,
+                }}
+              />
+              <svg
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                <polygon
+                  points="35,30 70,32 72,68 33,66"
+                  fill="oklch(0.55 0.1 180 / 0.18)"
+                  stroke="oklch(0.45 0.08 195)"
+                  strokeWidth="0.6"
+                  strokeDasharray="2 1.5"
+                />
               </svg>
-              <div className="absolute left-3 top-3"><Pill tone={t.tone === "primary" ? "primary" : "default"}>{t.label}</Pill></div>
+              <div className="absolute left-3 top-3">
+                <Pill tone={t.tone === "primary" ? "primary" : "default"}>{t.label}</Pill>
+              </div>
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] text-white drop-shadow">
                 <span className="rounded bg-black/40 px-1.5 py-0.5">{t.date}</span>
                 <span className="rounded bg-black/40 px-1.5 py-0.5">cloud {t.cloud}</span>
@@ -70,11 +126,20 @@ function SatellitePage() {
                 <XAxis dataKey="d" tickLine={false} axisLine={false} className="text-xs" />
                 <YAxis tickLine={false} axisLine={false} className="text-xs" />
                 <Tooltip />
-                <Line type="monotone" dataKey="change" stroke="oklch(0.45 0.08 195)" strokeWidth={2} dot={{ r: 4, fill: "oklch(0.45 0.08 195)" }} />
+                <Line
+                  type="monotone"
+                  dataKey="change"
+                  stroke="oklch(0.45 0.08 195)"
+                  strokeWidth={2}
+                  dot={{ r: 4, fill: "oklch(0.45 0.08 195)" }}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">Built-up coverage rose from baseline → 13% expansion. All changes inside parcel boundary — no encroachment detected.</p>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Built-up coverage rose from baseline → 13% expansion. All changes inside parcel boundary
+            — no encroachment detected.
+          </p>
         </div>
         <div className="surface-card p-5">
           <SectionTitle eyebrow="Per-epoch confidence" title="Imagery quality" />

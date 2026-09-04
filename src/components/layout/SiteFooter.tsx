@@ -11,9 +11,33 @@ export function SiteFooter() {
             The AI-powered Digital Property Trust Platform. A passport for every parcel.
           </p>
         </div>
-        <FooterCol title="Platform" items={[["Property Passport", "/properties"], ["GIS Map", "/map"], ["AI Valuation", "/valuation"], ["Verification", "/verification"]]} />
-        <FooterCol title="For" items={[["Citizens", "/dashboard"], ["Surveyors", "/surveyor"], ["Government", "/government"], ["Banks (coming)", "/#"]]} />
-        <FooterCol title="Company" items={[["Help center", "/help"], ["Privacy", "/#"], ["Terms", "/#"], ["Contact", "/#contact"]]} />
+        <FooterCol
+          title="Platform"
+          items={[
+            ["Property Passport", "/properties"],
+            ["GIS Map", "/map"],
+            ["AI Valuation", "/valuation"],
+            ["Verification", "/verification"],
+          ]}
+        />
+        <FooterCol
+          title="For"
+          items={[
+            ["Citizens", "/dashboard"],
+            ["Surveyors", "/surveyor"],
+            ["Government", "/government"],
+            ["Banks (coming)", "/#"],
+          ]}
+        />
+        <FooterCol
+          title="Company"
+          items={[
+            ["Help center", "/help"],
+            ["Privacy", "/#"],
+            ["Terms", "/#"],
+            ["Contact", "/#contact"],
+          ]}
+        />
       </div>
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-3 px-6 py-5 text-xs text-muted-foreground md:flex-row md:items-center">
@@ -32,7 +56,12 @@ function FooterCol({ title, items }: { title: string; items: [string, string][] 
       <ul className="mt-4 space-y-2">
         {items.map(([label, href]) => (
           <li key={label}>
-            <Link to={href} className="text-sm text-muted-foreground transition hover:text-foreground">{label}</Link>
+            <Link
+              to={href}
+              className="text-sm text-muted-foreground transition hover:text-foreground"
+            >
+              {label}
+            </Link>
           </li>
         ))}
       </ul>

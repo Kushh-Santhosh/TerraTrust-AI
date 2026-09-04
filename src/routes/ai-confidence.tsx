@@ -1,6 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
-import { AIBadge, ScoreRing, ConfidenceMeter, AIInsightCard, ExplainabilityPanel } from "@/components/ai/AIPrimitives";
+import {
+  AIBadge,
+  ScoreRing,
+  ConfidenceMeter,
+  AIInsightCard,
+  ExplainabilityPanel,
+} from "@/components/ai/AIPrimitives";
 import { SectionTitle } from "@/components/ui-ext/Scaffold";
 import { ShieldCheck } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
@@ -37,7 +43,9 @@ function ConfidencePage() {
       <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
         <div className="surface-card flex flex-col items-center p-6">
           <ScoreRing value={92} label="Confidence" sublabel="High certainty" />
-          <p className="mt-4 max-w-[220px] text-center text-xs text-muted-foreground">Brier score 0.034 · ECE 1.8% on holdout of 4,200 parcels.</p>
+          <p className="mt-4 max-w-[220px] text-center text-xs text-muted-foreground">
+            Brier score 0.034 · ECE 1.8% on holdout of 4,200 parcels.
+          </p>
           <div className="mt-6 flex w-full items-center gap-2 rounded-xl bg-success/10 p-3 text-xs ring-1 ring-success/25">
             <ShieldCheck className="h-4 w-4 text-success" />
             <span>Safe to use as bank collateral or court evidence.</span>
@@ -46,8 +54,18 @@ function ConfidencePage() {
 
         <div className="space-y-6">
           <div className="grid gap-4 md:grid-cols-3">
-            <AIInsightCard title="ECE (calibration error)" value="1.8%" hint="Lower is better" tone="success" />
-            <AIInsightCard title="Brier score" value="0.034" hint="On 4.2k holdout parcels" tone="primary" />
+            <AIInsightCard
+              title="ECE (calibration error)"
+              value="1.8%"
+              hint="Lower is better"
+              tone="success"
+            />
+            <AIInsightCard
+              title="Brier score"
+              value="0.034"
+              hint="On 4.2k holdout parcels"
+              tone="primary"
+            />
             <AIInsightCard title="Drift (30d)" value="+0.4%" hint="Model stable" tone="success" />
           </div>
 
@@ -65,7 +83,9 @@ function ConfidencePage() {
               </ResponsiveContainer>
             </div>
             <div className="mt-4 grid gap-3 md:grid-cols-2">
-              {sources.map(s => <ConfidenceMeter key={s.src} value={s.v} label={s.src} />)}
+              {sources.map((s) => (
+                <ConfidenceMeter key={s.src} value={s.v} label={s.src} />
+              ))}
             </div>
           </div>
 
@@ -84,15 +104,45 @@ function ConfidencePage() {
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              <p className="mt-2 text-[11px] text-muted-foreground">Observed accuracy closely tracks predicted probability — model is well calibrated.</p>
+              <p className="mt-2 text-[11px] text-muted-foreground">
+                Observed accuracy closely tracks predicted probability — model is well calibrated.
+              </p>
             </div>
-            <ExplainabilityPanel title="Why 92%" factors={[
-              { label: "All 3 documents on-file & verified", weight: 22, direction: "up", note: "Drives bulk of certainty." },
-              { label: "Bureau registry exact match", weight: 18, direction: "up", note: "Parcel ID + owner match." },
-              { label: "High-res satellite agrees", weight: 14, direction: "up", note: "Polygon within ±1m." },
-              { label: "Comparable density low (3 comps)", weight: -6, direction: "down", note: "More comps → tighter intervals." },
-              { label: "Macro volatility this quarter", weight: -4, direction: "down", note: "FX spread widens value band." },
-            ]} />
+            <ExplainabilityPanel
+              title="Why 92%"
+              factors={[
+                {
+                  label: "All 3 documents on-file & verified",
+                  weight: 22,
+                  direction: "up",
+                  note: "Drives bulk of certainty.",
+                },
+                {
+                  label: "Bureau registry exact match",
+                  weight: 18,
+                  direction: "up",
+                  note: "Parcel ID + owner match.",
+                },
+                {
+                  label: "High-res satellite agrees",
+                  weight: 14,
+                  direction: "up",
+                  note: "Polygon within ±1m.",
+                },
+                {
+                  label: "Comparable density low (3 comps)",
+                  weight: -6,
+                  direction: "down",
+                  note: "More comps → tighter intervals.",
+                },
+                {
+                  label: "Macro volatility this quarter",
+                  weight: -4,
+                  direction: "down",
+                  note: "FX spread widens value band.",
+                },
+              ]}
+            />
           </div>
         </div>
       </div>

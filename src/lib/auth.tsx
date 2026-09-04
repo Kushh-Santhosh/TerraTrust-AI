@@ -149,15 +149,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
       if (error) return { needsEmailConfirmation: false, error: error.message };
       if (data.user) {
-        await supabase
-          .from("profiles")
-          .upsert({
-            id: data.user.id,
-            full_name: fullName,
-            email,
-            role: roleForDatabase(role),
-            region,
-          });
+        await supabase.from("profiles").upsert({
+          id: data.user.id,
+          full_name: fullName,
+          email,
+          role: roleForDatabase(role),
+          region,
+        });
       }
       return { needsEmailConfirmation: !data.session, error: null };
     },

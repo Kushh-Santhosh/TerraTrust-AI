@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { ReactNode } from "react";
 
 export function PageTransition({ children }: { children: ReactNode }) {
-  const pathname = useRouterState({ select: s => s.location.pathname });
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <AnimatePresence mode="wait">
       <motion.div

@@ -38,8 +38,11 @@ export function MapMock({
         <rect width="800" height="480" fill="url(#glow)" />
         <rect width="800" height="480" fill="url(#grid)" />
         {/* faux river */}
-        <path d="M-20 320 C 180 280, 320 360, 520 300 S 820 260, 860 300 L 860 480 L -20 480 Z"
-          fill="url(#river)" opacity="0.35" />
+        <path
+          d="M-20 320 C 180 280, 320 360, 520 300 S 820 260, 860 300 L 860 480 L -20 480 Z"
+          fill="url(#river)"
+          opacity="0.35"
+        />
         {/* faux roads */}
         <path d="M0 240 H800" stroke="oklch(0.85 0.01 250)" strokeWidth="2" strokeDasharray="2 6" />
         <path d="M380 0 V480" stroke="oklch(0.85 0.01 250)" strokeWidth="2" strokeDasharray="2 6" />
@@ -52,25 +55,54 @@ export function MapMock({
           const h = 70 + (i % 2) * 14;
           const active = highlightId === p.id;
           const fill =
-            p.status === "verified" ? "oklch(0.62 0.14 155 / 0.25)" :
-            p.status === "pending" ? "oklch(0.78 0.13 75 / 0.3)" :
-            p.status === "disputed" ? "oklch(0.6 0.22 27 / 0.25)" :
-            "oklch(0.7 0.01 250 / 0.2)";
+            p.status === "verified"
+              ? "oklch(0.62 0.14 155 / 0.25)"
+              : p.status === "pending"
+                ? "oklch(0.78 0.13 75 / 0.3)"
+                : p.status === "disputed"
+                  ? "oklch(0.6 0.22 27 / 0.25)"
+                  : "oklch(0.7 0.01 250 / 0.2)";
           const stroke =
-            p.status === "verified" ? "oklch(0.55 0.14 155)" :
-            p.status === "pending" ? "oklch(0.6 0.15 75)" :
-            p.status === "disputed" ? "oklch(0.55 0.22 27)" :
-            "oklch(0.55 0.01 250)";
+            p.status === "verified"
+              ? "oklch(0.55 0.14 155)"
+              : p.status === "pending"
+                ? "oklch(0.6 0.15 75)"
+                : p.status === "disputed"
+                  ? "oklch(0.55 0.22 27)"
+                  : "oklch(0.55 0.01 250)";
           return (
             <g key={p.id} className="cursor-pointer" onClick={() => onSelect?.(p)}>
               <rect
-                x={x} y={y} width={w} height={h} rx="6"
-                fill={fill} stroke={stroke} strokeWidth={active ? 2.5 : 1.4}
+                x={x}
+                y={y}
+                width={w}
+                height={h}
+                rx="6"
+                fill={fill}
+                stroke={stroke}
+                strokeWidth={active ? 2.5 : 1.4}
                 className={cn("transition-all", active && "drop-shadow-md")}
               />
               <circle cx={x + w / 2} cy={y + h / 2} r={active ? 5 : 3} fill={stroke} />
-              {active && <circle cx={x + w / 2} cy={y + h / 2} r="14" fill="none" stroke={stroke} className="animate-pulse-ring" />}
-              <text x={x + 6} y={y + 14} fontSize="9" fill="oklch(0.3 0.02 250)" className="font-medium">{p.passportId}</text>
+              {active && (
+                <circle
+                  cx={x + w / 2}
+                  cy={y + h / 2}
+                  r="14"
+                  fill="none"
+                  stroke={stroke}
+                  className="animate-pulse-ring"
+                />
+              )}
+              <text
+                x={x + 6}
+                y={y + 14}
+                fontSize="9"
+                fill="oklch(0.3 0.02 250)"
+                className="font-medium"
+              >
+                {p.passportId}
+              </text>
             </g>
           );
         })}

@@ -1,22 +1,49 @@
 import { cn } from "@/lib/utils";
 
-export function TrustScore({ value, size = 96, label = true }: { value: number; size?: number; label?: boolean }) {
+export function TrustScore({
+  value,
+  size = 96,
+  label = true,
+}: {
+  value: number;
+  size?: number;
+  label?: boolean;
+}) {
   const radius = (size - 12) / 2;
   const c = 2 * Math.PI * radius;
   const offset = c - (value / 100) * c;
   const tone =
-    value >= 85 ? "text-success" : value >= 65 ? "text-primary" : value >= 45 ? "text-warning" : "text-destructive";
+    value >= 85
+      ? "text-success"
+      : value >= 65
+        ? "text-primary"
+        : value >= 45
+          ? "text-warning"
+          : "text-destructive";
 
   return (
     <div className="inline-flex flex-col items-center gap-1">
       <div className="relative" style={{ width: size, height: size }}>
         <svg width={size} height={size} className="-rotate-90">
-          <circle cx={size / 2} cy={size / 2} r={radius} stroke="currentColor" className="text-muted/60" strokeWidth="6" fill="none" />
           <circle
-            cx={size / 2} cy={size / 2} r={radius}
-            stroke="currentColor" strokeWidth="6" fill="none"
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            stroke="currentColor"
+            className="text-muted/60"
+            strokeWidth="6"
+            fill="none"
+          />
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            stroke="currentColor"
+            strokeWidth="6"
+            fill="none"
             strokeLinecap="round"
-            strokeDasharray={c} strokeDashoffset={offset}
+            strokeDasharray={c}
+            strokeDashoffset={offset}
             className={cn("transition-all duration-700", tone)}
           />
         </svg>

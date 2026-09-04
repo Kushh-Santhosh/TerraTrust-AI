@@ -15,33 +15,36 @@ export interface AssistantResponse {
 }
 
 const KEYWORDS = {
-  score:    ["trust score", "confidence", "score", "rating"],
-  fraud:    ["fraud", "forgery", "duplicate", "overlap", "suspicious", "fake"],
-  value:    ["value", "valuation", "worth", "price", "estimate"],
-  docs:     ["document", "missing", "papers", "upload", "ocr"],
-  dispute:  ["dispute", "conflict", "claim", "litigation"],
-  steps:    ["next step", "what should i do", "recommend", "suggest", "how do i"],
-  risk:     ["risk", "exposure", "encumbrance", "lien", "mortgage"],
+  score: ["trust score", "confidence", "score", "rating"],
+  fraud: ["fraud", "forgery", "duplicate", "overlap", "suspicious", "fake"],
+  value: ["value", "valuation", "worth", "price", "estimate"],
+  docs: ["document", "missing", "papers", "upload", "ocr"],
+  dispute: ["dispute", "conflict", "claim", "litigation"],
+  steps: ["next step", "what should i do", "recommend", "suggest", "how do i"],
+  risk: ["risk", "exposure", "encumbrance", "lien", "mortgage"],
 };
 
 function pickProperty(q: string): Property | undefined {
   const lo = q.toLowerCase();
-  return properties.find(p =>
-    lo.includes(p.title.toLowerCase()) ||
-    lo.includes(p.passportId.toLowerCase()) ||
-    lo.includes(p.region.toLowerCase()) ||
-    (p.tags ?? []).some(t => lo.includes(t.toLowerCase()))
+  return properties.find(
+    (p) =>
+      lo.includes(p.title.toLowerCase()) ||
+      lo.includes(p.passportId.toLowerCase()) ||
+      lo.includes(p.region.toLowerCase()) ||
+      (p.tags ?? []).some((t) => lo.includes(t.toLowerCase())),
   );
 }
 
 function topMissing(p: Property): string[] {
-  const have = new Set(p.documents.map(d => d.kind));
-  const need = (["deed", "survey", "tax", "id"] as const).filter(k => !have.has(k));
+  const have = new Set(p.documents.map((d) => d.kind));
+  const need = (["deed", "survey", "tax", "id"] as const).filter((k) => !have.has(k));
   const map: Record<string, string> = {
-    deed: "Deed of assignment", survey: "Survey plan",
-    tax: "Tax clearance / land use charge", id: "Owner government ID",
+    deed: "Deed of assignment",
+    survey: "Survey plan",
+    tax: "Tax clearance / land use charge",
+    id: "Owner government ID",
   };
-  return need.map(k => map[k]);
+  return need.map((k) => map[k]);
 }
 
 export function answer(q: string): AssistantResponse {
@@ -54,7 +57,7 @@ export function answer(q: string): AssistantResponse {
   const encs = getEncumbrances(target);
 
   // Trust / confidence
-  if (KEYWORDS.score.some(k => lo.includes(k))) {
+  if (KEYWORDS.score.some((k) => lo.includes(k))) {
     const worst = [...conf.factors].sort((a, b) => a.raw - b.raw)[0];
     return {
       text:
@@ -67,7 +70,7 @@ export function answer(q: string): AssistantResponse {
   }
 
   // Fraud
-  if (KEYWORDS.fraud.some(k => lo.includes(k))) {
+  if (KEYWORDS.fraud.some((k) => lo.includes(k))) {
     const top = fraud.signals[0];
     return {
       text:
@@ -79,7 +82,7 @@ export function answer(q: string): AssistantResponse {
   }
 
   // Valuation
-  if (KEYWORDS.value.some(k => lo.includes(k))) {
+  if (KEYWORDS.value.some((k) => lo.includes(k))) {
     return {
       text:
         `**AI valuation** for ${target.title}: **$${val.estimate.toLocaleString()}** ` +
@@ -91,11 +94,11 @@ export function answer(q: string): AssistantResponse {
   }
 
   // Documents
-  if (KEYWORDS.docs.some(k => lo.includes(k))) {
+  if (KEYWORDS.docs.some((k) => lo.includes(k))) {
     const missing = topMissing(target);
     return {
       text: missing.length
-        ? `**${target.title}** is missing: ${missing.map(m => `*${m}*`).join(", ")}. ` +
+        ? `**${target.title}** is missing: ${missing.map((m) => `*${m}*`).join(", ")}. ` +
           `Uploading these typically lifts trust by **+${missing.length * 7} points** within 48h.`
         : `**${target.title}** has the full base document set. OCR confidence across files averages ${85 + (target.aiConfidence % 8)}%.`,
       citations: [{ label: target.title, passportId: target.passportId }],
@@ -103,7 +106,7 @@ export function answer(q: string): AssistantResponse {
   }
 
   // Dispute
-  if (KEYWORDS.dispute.some(k => lo.includes(k))) {
+  if (KEYWORDS.dispute.some((k) => lo.includes(k))) {
     return {
       text:
         target.status === "disputed"
@@ -113,24 +116,26 @@ export function answer(q: string): AssistantResponse {
   }
 
   // Risk / encumbrance
-  if (KEYWORDS.risk.some(k => lo.includes(k))) {
+  if (KEYWORDS.risk.some((k) => lo.includes(k))) {
     const top = [...risks].sort((a, b) => b.score - a.score)[0];
     return {
       text:
         `Risk profile for **${target.title}**: top exposure is *${top.label}* (${top.score}/100, ${top.severity}). ${top.reasoning}\n\n` +
         (encs.length
-          ? `Encumbrances on file: ${encs.map(e => `${e.kind} (${e.status})`).join(", ")}.`
+          ? `Encumbrances on file: ${encs.map((e) => `${e.kind} (${e.status})`).join(", ")}.`
           : `No encumbrances on file.`),
     };
   }
 
   // Next-steps
-  if (KEYWORDS.steps.some(k => lo.includes(k))) {
+  if (KEYWORDS.steps.some((k) => lo.includes(k))) {
     const worst = [...conf.factors].sort((a, b) => a.raw - b.raw).slice(0, 2);
     return {
       text:
         `Two highest-leverage actions for **${target.title}**:\n\n` +
-        worst.map((w, i) => `${i + 1}. Lift *${w.label}* (${w.raw}/100) — ${w.reasoning}`).join("\n"),
+        worst
+          .map((w, i) => `${i + 1}. Lift *${w.label}* (${w.raw}/100) — ${w.reasoning}`)
+          .join("\n"),
       suggestions: ["Walk me through step 1", "How long will this take?"],
     };
   }

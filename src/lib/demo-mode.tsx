@@ -11,13 +11,32 @@ interface DemoStep {
 }
 
 const STEPS: DemoStep[] = [
-  { to: "/dashboard",          title: "Citizen dashboard",         body: "Every property in one portfolio. KPIs roll up from real registry signals — no spreadsheets, no missing fields." },
-  { to: "/properties",         title: "My properties",             body: "Open any property to inspect its digital Property Passport and verification status." },
-  { to: "/properties/p_001",   title: "Property Passport",         body: "The machine-verifiable identity of a parcel: trust score, AI valuation, ownership history, encumbrances, nearby infrastructure." },
-  { to: "/properties/p_001/verify", title: "Run verification",      body: "Run the n8n-orchestrated checks and see whether this clean parcel is ready for its passport." },
-  { to: "/properties/p_003/verify", title: "Human review path",     body: "A disputed parcel shows how fraud, boundary, and confidence signals route a property to review." },
+  {
+    to: "/dashboard",
+    title: "Citizen dashboard",
+    body: "Every property in one portfolio. KPIs roll up from real registry signals — no spreadsheets, no missing fields.",
+  },
+  {
+    to: "/properties",
+    title: "My properties",
+    body: "Open any property to inspect its digital Property Passport and verification status.",
+  },
+  {
+    to: "/properties/p_001",
+    title: "Property Passport",
+    body: "The machine-verifiable identity of a parcel: trust score, AI valuation, ownership history, encumbrances, nearby infrastructure.",
+  },
+  {
+    to: "/properties/p_001/verify",
+    title: "Run verification",
+    body: "Run the n8n-orchestrated checks and see whether this clean parcel is ready for its passport.",
+  },
+  {
+    to: "/properties/p_003/verify",
+    title: "Human review path",
+    body: "A disputed parcel shows how fraud, boundary, and confidence signals route a property to review.",
+  },
 ];
-
 
 interface Ctx {
   active: boolean;
@@ -61,18 +80,33 @@ export function DemoModeProvider({ children }: { children: ReactNode }) {
   };
   const next = () => {
     const i = Math.min(STEPS.length - 1, step + 1);
-    setStep(i); navigate(i);
+    setStep(i);
+    navigate(i);
   };
   const prev = () => {
     const i = Math.max(0, step - 1);
-    setStep(i); navigate(i);
+    setStep(i);
+    navigate(i);
   };
-  const go = (i: number) => { setStep(i); navigate(i); };
+  const go = (i: number) => {
+    setStep(i);
+    navigate(i);
+  };
 
-  const value: Ctx = useMemo(() => ({
-    active, step, total: STEPS.length, current: active ? STEPS[step] : null,
-    start, stop, next, prev, go,
-  }), [active, step]);
+  const value: Ctx = useMemo(
+    () => ({
+      active,
+      step,
+      total: STEPS.length,
+      current: active ? STEPS[step] : null,
+      start,
+      stop,
+      next,
+      prev,
+      go,
+    }),
+    [active, step],
+  );
 
   return (
     <DemoCtx.Provider value={value}>
@@ -100,19 +134,44 @@ function DemoTourOverlay() {
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-              <span>Guided demo</span><span>·</span><span>{step + 1} / {total}</span>
+              <span>Guided demo</span>
+              <span>·</span>
+              <span>
+                {step + 1} / {total}
+              </span>
             </div>
             <p className="mt-1 font-display text-xl leading-tight">{current.title}</p>
             <p className="mt-1 text-sm text-muted-foreground">{current.body}</p>
             <div className="mt-3 h-1 rounded-full bg-muted">
-              <div className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all" style={{ width: `${((step + 1) / total) * 100}%` }} />
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all"
+                style={{ width: `${((step + 1) / total) * 100}%` }}
+              />
             </div>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <button onClick={stop} className="rounded-full p-1.5 text-muted-foreground hover:bg-muted" aria-label="End demo"><X className="h-4 w-4" /></button>
+            <button
+              onClick={stop}
+              className="rounded-full p-1.5 text-muted-foreground hover:bg-muted"
+              aria-label="End demo"
+            >
+              <X className="h-4 w-4" />
+            </button>
             <div className="flex items-center gap-1.5">
-              <button onClick={prev} disabled={step === 0} className="rounded-full border border-border bg-surface p-1.5 disabled:opacity-40"><ChevronLeft className="h-3.5 w-3.5" /></button>
-              <button onClick={next} disabled={step === total - 1} className="rounded-full bg-primary p-1.5 text-primary-foreground disabled:opacity-40"><ChevronRight className="h-3.5 w-3.5" /></button>
+              <button
+                onClick={prev}
+                disabled={step === 0}
+                className="rounded-full border border-border bg-surface p-1.5 disabled:opacity-40"
+              >
+                <ChevronLeft className="h-3.5 w-3.5" />
+              </button>
+              <button
+                onClick={next}
+                disabled={step === total - 1}
+                className="rounded-full bg-primary p-1.5 text-primary-foreground disabled:opacity-40"
+              >
+                <ChevronRight className="h-3.5 w-3.5" />
+              </button>
             </div>
           </div>
         </div>
@@ -124,12 +183,30 @@ function DemoTourOverlay() {
 export function StartDemoButton({ className }: { className?: string }) {
   const { start } = useDemo();
   return (
-    <button onClick={start} className={className ?? "inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90"}>
+    <button
+      onClick={start}
+      className={
+        className ??
+        "inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background hover:opacity-90"
+      }
+    >
       <Play className="h-3.5 w-3.5" /> Try the guided demo
     </button>
   );
 }
 
-export function DemoLink({ to, children, className }: { to: string; children: ReactNode; className?: string }) {
-  return <Link to={to} className={className}>{children}</Link>;
+export function DemoLink({
+  to,
+  children,
+  className,
+}: {
+  to: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link to={to} className={className}>
+      {children}
+    </Link>
+  );
 }

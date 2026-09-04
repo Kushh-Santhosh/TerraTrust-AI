@@ -20,11 +20,15 @@ export const Route = createFileRoute("/properties/$id/verify")({
   head: () => ({
     meta: [
       { title: "Live Verification — TerraTrust AI" },
-      { name: "description", content: "Run the n8n-orchestrated verification workflow: OCR, fraud, boundary, risk, confidence, decision." },
+      {
+        name: "description",
+        content:
+          "Run the n8n-orchestrated verification workflow: OCR, fraud, boundary, risk, confidence, decision.",
+      },
     ],
   }),
   loader: ({ params }) => {
-    const p = properties.find(x => x.id === params.id);
+    const p = properties.find((x) => x.id === params.id);
     if (!p) throw notFound();
     return { property: p };
   },
@@ -55,13 +59,16 @@ function Page() {
 
     outcome.result.steps.forEach((step, i) => {
       timers.current.push(
-        setTimeout(() => {
-          setVisible(prev => [...prev, step]);
-          if (i === outcome.result.steps.length - 1) {
-            setResult(outcome.result);
-            setRunning(false);
-          }
-        }, 420 * (i + 1)),
+        setTimeout(
+          () => {
+            setVisible((prev) => [...prev, step]);
+            if (i === outcome.result.steps.length - 1) {
+              setResult(outcome.result);
+              setRunning(false);
+            }
+          },
+          420 * (i + 1),
+        ),
       );
     });
   }, [property]);
@@ -81,33 +88,59 @@ function Page() {
             <Play className="h-4 w-4" /> {running ? "Running…" : "Run Live Verification"}
           </Button>
         </>
-      }>
-      <Crumbs items={[{ label: "Properties", to: "/properties" }, { label: property.passportId, to: "/properties/$id" }, { label: "Live verification" }]} />
+      }
+    >
+      <Crumbs
+        items={[
+          { label: "Properties", to: "/properties" },
+          { label: property.passportId, to: "/properties/$id" },
+          { label: "Live verification" },
+        ]}
+      />
 
       <div className="mt-4 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
         <Workflow className="h-4 w-4 text-primary" />
         <span>Orchestrator:</span>
-        {provider === "n8n" ? <Pill tone="success">n8n webhook configured</Pill> : <Pill tone="warning">Demo mode — VITE_N8N_WEBHOOK_URL not set</Pill>}
+        {provider === "n8n" ? (
+          <Pill tone="success">n8n webhook configured</Pill>
+        ) : (
+          <Pill tone="warning">Demo mode — VITE_N8N_WEBHOOK_URL not set</Pill>
+        )}
         <span>· {STEP_NAMES.length} nodes · human-in-the-loop gate on step 7</span>
       </div>
 
       <div className="mt-4 surface-card p-5">
         <div className="grid gap-4 md:grid-cols-4">
           <div>
-            <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Property ID</p>
-            <p className="mt-1 font-mono text-sm">{property.id} · {property.passportId}</p>
+            <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
+              Property ID
+            </p>
+            <p className="mt-1 font-mono text-sm">
+              {property.id} · {property.passportId}
+            </p>
           </div>
           <div>
             <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Location</p>
-            <p className="mt-1 flex items-center gap-1.5 text-sm"><MapPin className="h-3.5 w-3.5 text-primary" />{property.address}, {property.region}</p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm">
+              <MapPin className="h-3.5 w-3.5 text-primary" />
+              {property.address}, {property.region}
+            </p>
           </div>
           <div>
             <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Parcel</p>
-            <p className="mt-1 flex items-center gap-1.5 text-sm capitalize"><Ruler className="h-3.5 w-3.5 text-primary" />{property.type} · {property.area.toLocaleString()} m²</p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm capitalize">
+              <Ruler className="h-3.5 w-3.5 text-primary" />
+              {property.type} · {property.area.toLocaleString()} m²
+            </p>
           </div>
           <div>
-            <p className="text-[11px] uppercase tracking-wider text-muted-foreground">Owner of record</p>
-            <p className="mt-1 flex items-center gap-1.5 text-sm"><User2 className="h-3.5 w-3.5 text-primary" />{property.owner}</p>
+            <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
+              Owner of record
+            </p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm">
+              <User2 className="h-3.5 w-3.5 text-primary" />
+              {property.owner}
+            </p>
           </div>
         </div>
       </div>
@@ -125,17 +158,39 @@ function Page() {
 
       {!result && !running && shown.length === 0 && (
         <div className="mt-6 surface-card p-5">
-          <SectionTitle eyebrow="Ready" title="Start the orchestrated run" description="The workflow calls the existing TerraTrust engines in sequence and returns a signed, auditable decision." />
-          <p className="text-sm text-muted-foreground">Try <Link to="/properties/$id/verify" params={{ id: "p_001" }} className="text-primary">TT-8421-LG</Link> for a clean auto-approval, or <Link to="/properties/$id/verify" params={{ id: "p_003" }} className="text-primary">TT-5512-AB</Link> to see the human-review path.</p>
+          <SectionTitle
+            eyebrow="Ready"
+            title="Start the orchestrated run"
+            description="The workflow calls the existing TerraTrust engines in sequence and returns a signed, auditable decision."
+          />
+          <p className="text-sm text-muted-foreground">
+            Try{" "}
+            <Link to="/properties/$id/verify" params={{ id: "p_001" }} className="text-primary">
+              TT-8421-LG
+            </Link>{" "}
+            for a clean auto-approval, or{" "}
+            <Link to="/properties/$id/verify" params={{ id: "p_003" }} className="text-primary">
+              TT-5512-AB
+            </Link>{" "}
+            to see the human-review path.
+          </p>
         </div>
       )}
 
-      <div className="mt-6"><HowTerraTrustWorks /></div>
+      <div className="mt-6">
+        <HowTerraTrustWorks />
+      </div>
 
       <details className="mt-6 surface-card overflow-hidden">
-        <summary className="cursor-pointer bg-muted/40 px-4 py-3 text-sm font-medium">Technical details</summary>
-        <div className="border-t border-border px-4 py-2 font-mono text-xs">POST $VITE_N8N_WEBHOOK_URL · request payload</div>
-        <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed"><code>{JSON.stringify(buildPayload(property), null, 2)}</code></pre>
+        <summary className="cursor-pointer bg-muted/40 px-4 py-3 text-sm font-medium">
+          Technical details
+        </summary>
+        <div className="border-t border-border px-4 py-2 font-mono text-xs">
+          POST $VITE_N8N_WEBHOOK_URL · request payload
+        </div>
+        <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed">
+          <code>{JSON.stringify(buildPayload(property), null, 2)}</code>
+        </pre>
       </details>
     </AppShell>
   );

@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppShell } from "@/components/layout/AppShell";
-import { AIBadge, AIInsightCard, ConfidenceMeter, VerdictBanner } from "@/components/ai/AIPrimitives";
+import {
+  AIBadge,
+  AIInsightCard,
+  ConfidenceMeter,
+  VerdictBanner,
+} from "@/components/ai/AIPrimitives";
 import { SectionTitle, Pill } from "@/components/ui-ext/Scaffold";
 import { Button } from "@/components/ui/button";
 import { FileText, Copy, Download, BookOpen } from "lucide-react";
@@ -31,19 +36,53 @@ function SummaryPage() {
     <AppShell
       title="AI Document Summary"
       subtitle="Plain-English briefings for any uploaded title document."
-      actions={<><Button variant="outline"><Copy className="h-4 w-4" /> Copy</Button><Button><Download className="h-4 w-4" /> Export PDF</Button></>}
+      actions={
+        <>
+          <Button variant="outline">
+            <Copy className="h-4 w-4" /> Copy
+          </Button>
+          <Button>
+            <Download className="h-4 w-4" /> Export PDF
+          </Button>
+        </>
+      }
     >
       <div className="grid gap-4 md:grid-cols-4">
-        <AIInsightCard icon={<FileText className="h-3 w-3 text-primary" />} title="Doc type" value="C-of-O" hint="Statutory right of occupancy" tone="primary" />
-        <AIInsightCard title="Reading level" value="Plain English" hint="Grade 9 · Hemingway equivalent" tone="accent" />
-        <AIInsightCard title="Key clauses found" value="11" hint="Surfaced & explained below" tone="primary" />
-        <AIInsightCard title="Summary confidence" value="96%" hint="Cross-checked vs full text" tone="success" />
+        <AIInsightCard
+          icon={<FileText className="h-3 w-3 text-primary" />}
+          title="Doc type"
+          value="C-of-O"
+          hint="Statutory right of occupancy"
+          tone="primary"
+        />
+        <AIInsightCard
+          title="Reading level"
+          value="Plain English"
+          hint="Grade 9 · Hemingway equivalent"
+          tone="accent"
+        />
+        <AIInsightCard
+          title="Key clauses found"
+          value="11"
+          hint="Surfaced & explained below"
+          tone="primary"
+        />
+        <AIInsightCard
+          title="Summary confidence"
+          value="96%"
+          hint="Cross-checked vs full text"
+          tone="success"
+        />
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-6">
           <div className="surface-card p-6">
-            <SectionTitle eyebrow="Plain-English summary" title="Certificate of Occupancy.pdf" action={<AIBadge>Summary v2.3</AIBadge>} />
+            <SectionTitle
+              eyebrow="Plain-English summary"
+              title="Certificate of Occupancy.pdf"
+              action={<AIBadge>Summary v2.3</AIBadge>}
+            />
             <p className="text-[15px] leading-relaxed text-foreground">{summary}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <Pill tone="primary">Residential</Pill>
@@ -66,15 +105,22 @@ function SummaryPage() {
             </ul>
           </div>
 
-          <VerdictBanner verdict="trusted" headline="No red flags detected in this document." detail="All clauses parse cleanly, references match bureau records, and dates fall inside valid issuance windows." />
+          <VerdictBanner
+            verdict="trusted"
+            headline="No red flags detected in this document."
+            detail="All clauses parse cleanly, references match bureau records, and dates fall inside valid issuance windows."
+          />
         </div>
 
         <div className="space-y-6">
           <div className="surface-card p-5">
             <SectionTitle eyebrow="Risk audit" title="Auto-check results" />
             <ul className="space-y-2 text-sm">
-              {risks.map(r => (
-                <li key={r.label} className="flex items-center justify-between rounded-lg bg-surface p-2.5 ring-1 ring-border">
+              {risks.map((r) => (
+                <li
+                  key={r.label}
+                  className="flex items-center justify-between rounded-lg bg-surface p-2.5 ring-1 ring-border"
+                >
                   <span className="text-foreground">{r.label}</span>
                   <Pill tone={r.tone}>{r.status}</Pill>
                 </li>

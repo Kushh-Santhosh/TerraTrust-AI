@@ -108,8 +108,8 @@ TerraTrust AI is a **full-stack React 19 application on TanStack Start v1**, des
         ▼                     ▼                     ▼
 ┌──────────────┐      ┌──────────────┐      ┌──────────────────┐
 │   Database   │      │  AI Gateway  │      │  GIS / Imagery   │
-│ (Lovable Cloud│      │  (LLM, OCR,  │      │ (tiles, raster,  │
-│  / Postgres) │      │   vision)    │      │   vector)        │
+│  (Postgres)  │      │  (LLM, OCR,  │      │ (tiles, raster,  │
+│   + Auth     │      │   vision)    │      │   vector)        │
 └──────────────┘      └──────────────┘      └──────────────────┘
 ```
 
@@ -496,7 +496,7 @@ Public webhook endpoints (e.g. external imagery callbacks) live under `src/route
 
 ```
                 ┌──────────────────────────────────────────┐
-                │            Lovable AI Gateway            │
+                │           TerraTrust AI Gateway          │
                 │  chat · vision · OCR · embeddings · TTS  │
                 └────────────┬───────────────┬─────────────┘
                              │               │
@@ -527,7 +527,7 @@ Public webhook endpoints (e.g. external imagery callbacks) live under `src/route
 
 **Model classes**
 
-- **LLM** (Lovable AI Gateway) — assistant chat, document summarization, recommendations.
+- **LLM** — assistant chat, document summarization, recommendations.
 - **Vision** — boundary detection, satellite change detection, stamp/signature anomaly.
 - **OCR** — multilingual, with field-level confidence and bureau cross-validation.
 - **Tabular** — valuation regression with comparable sales attribution.
@@ -566,19 +566,15 @@ For production deployment, the same component contract upgrades to **MapLibre GL
 
 ## 20. Deployment Guide
 
-TerraTrust AI deploys to **Cloudflare Workers** (edge) via Lovable.
+TerraTrust AI deploys to **Cloudflare Workers** (edge) with environment-driven configuration.
 
-1. **Connect** the project to Lovable.
-2. **Enable Lovable Cloud** — provisions Postgres, auth, storage, AI gateway.
-3. **Set environment variables** (see §21).
-4. **Click Publish** in the Lovable editor — frontend goes live at `*.lovable.app`.
-5. **Backend** (server functions, migrations) deploys automatically on every change.
-6. **Custom domain** — configure via _Project Settings → Domains_.
+1. **Set environment variables** (see §21).
+2. **Provision the required infrastructure** for Postgres, auth, storage, and the AI gateway.
+3. **Build and deploy** the worker bundle to your target environment.
+4. **Configure the custom domain** in your hosting environment.
+5. **Backend** (server functions, migrations) deploys with the application release.
 
-Stable URLs:
-
-- `project--{id}.lovable.app` — production.
-- `project--{id}-dev.lovable.app` — preview.
+Stable URLs are environment-specific and managed by your deployment platform.
 
 ---
 
@@ -589,7 +585,7 @@ Stable URLs:
 | `SUPABASE_URL`              | server | Cloud DB URL             |
 | `SUPABASE_PUBLISHABLE_KEY`  | server | Public anon key          |
 | `SUPABASE_SERVICE_ROLE_KEY` | server | Admin (server-only)      |
-| `LOVABLE_API_KEY`           | server | AI Gateway key           |
+| `AI_GATEWAY_API_KEY`        | server | AI Gateway key           |
 | `WEBHOOK_SECRET`            | server | HMAC for `/api/public/*` |
 | `VITE_APP_NAME`             | client | Branding override        |
 | `VITE_MAP_STYLE_URL`        | client | Map tile style           |
@@ -696,7 +692,7 @@ bunx playwright test
 - **Postgres + PostGIS**: partition by `region_id` for national-scale parcel counts.
 - **Read replicas** + **materialized views** for analytics surfaces.
 - **AI Gateway** abstracts model providers — failover and capacity routing.
-- **Object storage** for documents (Lovable Cloud Storage) with signed URLs.
+- **Object storage** for documents with signed URLs.
 - **CDN-cached** marketing routes; authenticated routes SSR per request.
 
 ---
