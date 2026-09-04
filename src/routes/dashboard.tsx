@@ -43,7 +43,7 @@ function Dashboard() {
       </div>
 
       <div className="mt-6 grid gap-4 lg:grid-cols-3">
-        <div className="surface-card p-5 lg:col-span-2">
+        <div className="surface-card min-w-0 p-5 lg:col-span-2">
           <div className="flex items-center justify-between">
             <div>
               <p className="font-medium">Verifications over time</p>
@@ -157,7 +157,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="surface-card p-5">
+        <div className="surface-card min-w-0 p-5">
           <div className="mb-3 flex items-center justify-between">
             <p className="font-medium">Notifications</p>
             <Link to="/notifications" className="text-xs text-primary">
