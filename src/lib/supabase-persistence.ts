@@ -8,18 +8,13 @@ function isUuid(value: string): boolean {
 export type PersistenceOutcome = { error: string | null; persisted: boolean };
 
 async function ownedProperty(propertyId: string, userId: string) {
-  if (!isUuid(propertyId)) {
-    return { error: "This demo property is not backed by a Supabase property record." };
-  }
-  const { data, error } = await supabase
-    .from("properties")
-    .select("id")
-    .eq("id", propertyId)
-    .eq("owner_id", userId)
-    .maybeSingle();
-  if (error) return { error: error.message };
-  if (!data) return { error: "This property is not available to the signed-in account." };
-  return { error: null };
+  const query = supabase.from("properties").select("id").eq("owner_id", userId);
+  const { data, error } = isUuid(propertyId)
+    ? await query.eq("id", propertyId).maybeSingle()
+    : await query.eq("passport_id", propertyId).maybeSingle();
+  if (error) return { error: error.message, propertyId: undefined };
+  if (!data) return { error: "This property is not available to the signed-in account.", propertyId: undefined };
+  return { error: null, propertyId: data.id };
 }
 
 export async function persistPropertyDocument(input: {
@@ -31,7 +26,7 @@ export async function persistPropertyDocument(input: {
   const ownership = await ownedProperty(input.propertyId, input.userId);
   if (ownership.error) return { error: ownership.error, persisted: false };
   const { error } = await supabase.from("property_documents").insert({
-    property_id: input.propertyId,
+    property_id: ownership.propertyId,
     name: input.name,
     kind: input.kind,
   });
@@ -109,14 +104,15 @@ export async function persistVerificationOutcome(input: {
   const ownership = await ownedProperty(input.propertyId, input.userId);
   if (ownership.error) return { error: ownership.error, persisted: false };
 
-  const resultError = await saveVerificationResult(input.propertyId, input.result);
+  const propertyId = ownership.propertyId!;
+  const resultError = await saveVerificationResult(propertyId, input.result);
   if (resultError) return { error: resultError, persisted: false };
 
   if (input.result.status === "manual_review") {
-    const reviewError = await saveReviewCase(input.propertyId, input.result);
+    const reviewError = await saveReviewCase(propertyId, input.result);
     if (reviewError) return { error: reviewError, persisted: false };
   } else {
-    const reviewError = await resolveActiveReviewCases(input.propertyId);
+    const reviewError = await resolveActiveReviewCases(propertyId);
     if (reviewError) return { error: reviewError, persisted: false };
   }
 
@@ -127,7 +123,7 @@ export async function persistVerificationOutcome(input: {
       trust_score: input.result.confidenceScore ?? 0,
       updated_at: new Date().toISOString(),
     })
-    .eq("id", input.propertyId)
+    .eq("id", propertyId)
     .eq("owner_id", input.userId);
   return { error: propertyError?.message ?? null, persisted: !propertyError };
 }
