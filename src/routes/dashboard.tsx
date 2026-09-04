@@ -15,6 +15,7 @@ import {
 } from "recharts";
 import { ArrowRight, Plus, Sparkles, Bell } from "lucide-react";
 import { MapMock } from "@/components/ui-ext/MapMock";
+import { useAuth } from "@/lib/auth";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({ meta: [{ title: "Dashboard — TerraTrust AI" }] }),
@@ -22,9 +23,11 @@ export const Route = createFileRoute("/dashboard")({
 });
 
 function Dashboard() {
+  const { profile, user } = useAuth();
+  const userName = profile?.full_name ?? user?.user_metadata.full_name ?? "TerraTrust user";
   return (
     <AppShell
-      title="Good morning, Amara"
+      title={`Good morning, ${userName}`}
       subtitle="Your digital property passports for verified ownership, boundaries, and trust."
       actions={
         <>
