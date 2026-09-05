@@ -14,7 +14,7 @@ export const Route = createFileRoute("/help")({
   component: () => (
     <AppShell title="Help center" subtitle="Guides, answers, and a way to reach a human.">
       <div className="surface-card relative overflow-hidden p-8 hero-gradient">
-        <h2 className="font-display text-3xl">How can we help, Amara?</h2>
+        <h2 className="font-display text-3xl">How can we help, Ananya?</h2>
         <div className="relative mt-4 max-w-xl">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <Input

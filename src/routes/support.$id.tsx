@@ -18,7 +18,7 @@ const thread = [
   {
     who: "TerraTrust Support · Joy",
     at: "2024-09-23 10:48",
-    text: "Hi Amara — thanks for the report. We just rolled out a fix for files over 12MB. Could you retry and let us know?",
+    text: "Hi Ananya — thanks for the report. The upload issue is ready for another try. Could you retry and let us know?",
   },
   {
     who: "You",

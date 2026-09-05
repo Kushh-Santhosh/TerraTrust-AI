@@ -588,7 +588,7 @@ All endpoints are Bearer-authenticated (Supabase JWT) unless marked public.
 ```json
 {
   "id": "TT-1029-LG",
-  "owner": "Amara Okafor",
+  "owner": "Ananya Sharma",
   "status": "verified",
   "confidence": 87,
   "valuation": 245000
@@ -1167,4 +1167,4 @@ The following supplementary artifacts are available on request; each maps 1:1 to
 
 ### A11.2 One-Minute Elevator Pitch
 
-> _Property evidence is often fragmented across documents, boundary records, and institutional review. TerraTrust AI organizes those signals into an explainable workflow: n8n runs the verification stages, Supabase stores the application records, and human review handles conflicts. The GDTA prototype demonstrates both a clean verification path and a safe escalation path without claiming live registry authority._
+> _Property evidence is often fragmented across documents, boundary records, and institutional review. TerraTrust AI organizes those signals into an explainable workflow: n8n runs the verification stages, Supabase stores the application records, and human review handles conflicts. The TerraTrust prototype demonstrates both a clean verification path and a safe escalation path without claiming live registry authority._

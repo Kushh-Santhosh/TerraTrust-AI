@@ -588,7 +588,7 @@ function Impact() {
 function Testimonials() {
   const items = [
     {
-      q: "We resolved 612 disputed parcels in our first quarter on TerraTrust. The conflict-detection alone has paid for the rollout.",
+      q: "TerraTrust helped our review team organize conflicting property evidence. The explainable workflow made the next step clear.",
       a: "Director, Karnataka Revenue Office",
     },
     {

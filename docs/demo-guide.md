@@ -1,6 +1,6 @@
 # TerraTrust AI Demo Guide
 
-This walkthrough is designed for a two-minute GDTA presentation. Use a real Supabase test account; the repository does not contain demo credentials.
+This walkthrough is designed for a two-minute TerraTrust prototype presentation. Use a real Supabase test account; the repository does not contain demo credentials.
 
 ## Demo A: Successful verification
 

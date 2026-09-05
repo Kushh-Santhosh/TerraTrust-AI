@@ -1,4 +1,4 @@
-# Temporary GDTA Demo Accounts
+# Temporary TerraTrust Demo Accounts
 
 These are temporary presentation account identifiers for the TerraTrust AI prototype. Passwords are intentionally not stored in this public repository. Use credentials shared privately by the project team, and remove or rotate the accounts after the presentation.
 
@@ -102,7 +102,7 @@ Government and Community stages in the n8n workflow are deterministic prototype 
 
 ## Cleanup after the demo
 
-These accounts are temporary presentation credentials. After the GDTA demo:
+These accounts are temporary presentation credentials. After the TerraTrust demo:
 
 1. Delete the six users from **Authentication** > **Users**, or disable them and rotate the password.
 2. Remove or update their profile rows if your retention policy requires it.
