@@ -13,20 +13,20 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const { signIn, updatePassword, session, configError } = useAuth();
+  const { signIn, updatePassword, session, isRecoverySession, configError } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [recovery, setRecovery] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [recoverySuccess, setRecoverySuccess] = useState(false);
+  const [recoveryRequested, setRecoveryRequested] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    setRecovery(params.get("recovery") === "1");
+    setRecoveryRequested(params.get("recovery") === "1");
     setConfirmed(params.get("confirmed") === "1");
   }, []);
 
@@ -58,7 +58,7 @@ function LoginPage() {
   };
   return (
     <AuthLayout
-      title="Welcome back"
+      title={recoveryRequested && isRecoverySession ? "Create New Password" : "Welcome back"}
       subtitle="Prototype access for the TerraTrust Property Passport demo."
       footer={
         <>
@@ -69,7 +69,7 @@ function LoginPage() {
         </>
       }
     >
-      {recovery && session ? (
+      {recoveryRequested && isRecoverySession && session ? (
         <form onSubmit={updatePasswordSubmit} className="grid gap-4">
           <div className="grid gap-2">
             <Label>New password</Label>

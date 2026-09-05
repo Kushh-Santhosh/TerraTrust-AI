@@ -44,6 +44,7 @@ interface AuthContextValue {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
+  isRecoverySession: boolean;
   configError: string | null;
   signIn: (email: string, password: string) => Promise<{ error: string | null; role: Role | null }>;
   signUp: (input: {
@@ -85,6 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isRecoverySession, setIsRecoverySession] = useState(false);
   const configError = supabaseConfigured
     ? null
     : "Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY to .env.local.";
@@ -118,14 +120,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     let mounted = true;
+    const { data: listener } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      if (event === "PASSWORD_RECOVERY") setIsRecoverySession(true);
+      if (event === "SIGNED_OUT") setIsRecoverySession(false);
+      setSession(nextSession);
+      loadProfile(nextSession?.user ?? null).finally(() => mounted && setLoading(false));
+    });
     supabase.auth.getSession().then(({ data }) => {
       if (!mounted) return;
       setSession(data.session);
       loadProfile(data.session?.user ?? null).finally(() => mounted && setLoading(false));
-    });
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-      setSession(nextSession);
-      loadProfile(nextSession?.user ?? null).finally(() => setLoading(false));
     });
     return () => {
       mounted = false;
@@ -138,6 +142,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     user: session?.user ?? null,
     profile,
     loading,
+    isRecoverySession,
     configError,
     async signIn(email, password) {
       if (configError) return { error: configError, role: null };
@@ -196,6 +201,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (!error) {
         setSession(null);
         setProfile(null);
+        setIsRecoverySession(false);
       }
       return { error: error?.message ?? null };
     },
