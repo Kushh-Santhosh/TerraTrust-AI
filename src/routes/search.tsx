@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { properties } from "@/lib/mock-data";
 import { Pill } from "@/components/ui-ext/Scaffold";
+import { formatInr } from "@/lib/utils";
 import { useMemo, useState } from "react";
 
 export const Route = createFileRoute("/search")({
@@ -189,6 +190,7 @@ function SearchPage() {
             <div className="text-right">
               <p className="text-[10px] uppercase text-muted-foreground">Valuation</p>
               <p className="font-display text-xl">${(p.valuation / 1000).toFixed(0)}k</p>
+              <p className="font-display text-xl">{formatInr(p.valuation)}</p>
             </div>
           </Link>
         ))}

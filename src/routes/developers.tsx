@@ -34,7 +34,7 @@ const webhookRequest = `{
     "status": "verified", "boundaryVertices": 6
   },
   "documents": [
-    { "id": "d1", "name": "Certificate of Occupancy.pdf",
+    { "id": "d1", "name": "Registered Sale Deed.pdf",
       "kind": "deed", "verified": true }
   ],
   "existingScores": {

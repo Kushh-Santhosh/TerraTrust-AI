@@ -10,7 +10,7 @@ export const Route = createFileRoute("/government/audit")({
 const rows = [
   {
     at: "2024-09-25 14:21",
-    actor: "Officer K. Bello",
+    actor: "Officer Kavya Rao",
     action: "Approved permit PMT-44021",
     target: "TT-8421-LG",
     ip: "102.89.x.x",
@@ -31,7 +31,7 @@ const rows = [
   },
   {
     at: "2024-09-24 16:30",
-    actor: "Officer A. Nwosu",
+    actor: "Officer Rahul Verma",
     action: "Bulk import 1,402 parcels",
     target: "Rivers State",
     ip: "102.89.x.x",

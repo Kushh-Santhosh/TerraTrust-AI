@@ -219,7 +219,7 @@ export function getOwnershipHistory(p: Property): OwnershipRecord[] {
       owner: `${p.region} Estates Holdings Ltd.`,
       event: "Corporate sale",
       confidence: 91,
-      evidence: "Deed of Assignment · CAC-validated",
+      evidence: "Registered Sale Deed · registration-record validated",
     },
     {
       year: mid2,

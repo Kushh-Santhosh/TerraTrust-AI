@@ -21,7 +21,7 @@ const events = [
     role: "citizen",
     icon: Sparkles,
     actor: "Ananya Sharma",
-    text: "Uploaded Tax Clearance 2024.",
+    text: "Uploaded Property Tax Receipt 2024.",
   },
   {
     at: "2024-04-02",
@@ -41,7 +41,7 @@ const events = [
     at: "2024-03-15",
     role: "surveyor",
     icon: Briefcase,
-    actor: "Surveyor Idris A.",
+    actor: "Surveyor Arjun Nair",
     text: "GIS boundary uploaded and verified (±0.4m).",
   },
   {

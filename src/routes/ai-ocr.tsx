@@ -59,7 +59,7 @@ function OCRPage() {
         <div className="surface-card p-6">
           <SectionTitle
             eyebrow="Source · page 2"
-            title="Certificate of Occupancy.pdf"
+            title="Registered Sale Deed.pdf"
             action={<AIBadge>OCR v3.1</AIBadge>}
           />
           <div className="relative overflow-hidden rounded-xl border border-border bg-[oklch(0.985_0.005_95)] p-6">
@@ -71,7 +71,7 @@ function OCRPage() {
             <p className="text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               Karnataka Revenue Office
             </p>
-            <p className="mt-1 text-center font-display text-2xl">Certificate of Occupancy</p>
+            <p className="mt-1 text-center font-display text-2xl">Registered Sale Deed</p>
             <p className="mt-1 text-center text-xs text-muted-foreground">Ref. KAR-2024-00831</p>
             <div className="mt-6 space-y-3 text-sm">
               {ocrFields.map((f, i) => (

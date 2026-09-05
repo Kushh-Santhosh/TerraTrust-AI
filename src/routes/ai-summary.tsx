@@ -15,7 +15,7 @@ export const Route = createFileRoute("/ai-summary")({
   component: SummaryPage,
 });
 
-const summary = `This is a Certificate of Occupancy issued by the Karnataka Revenue Office on 14 March 2024 in favour of Ananya N. Sharma. It grants statutory right of occupancy over a 540.20 m² residential parcel at Block 14, Plot 7B, 4th Cross, Ramamurthy Nagar, Bengaluru, registered under record reference KAR-2024-00831. The document carries a valid state stamp matching the Q1-2024 issuance template, an embedded coordinate of 12.9567°N, 77.6200°E, and a clean ownership chain traceable to a 2002 corporate acquisition by Bengaluru Property Trust. There are no encumbrances, court annotations, or competing claims recorded against this title as of the scan date.`;
+const summary = `This is a Registered Sale Deed issued through the Karnataka property-registration workflow on 14 March 2024 in favour of Ananya N. Sharma. It records the transfer of a 540.20 m² residential parcel at Block 14, Plot 7B, 4th Cross, Ramamurthy Nagar, Bengaluru, under record reference KAR-2024-00831. The document carries a valid registration stamp matching the Q1-2024 issuance template, an embedded coordinate of 12.9567°N, 77.6200°E, and a clean ownership chain traceable to a 2002 corporate acquisition by Bengaluru Property Trust. There are no encumbrances, court annotations, or competing claims recorded against this title as of the scan date.`;
 
 const obligations = [
   "Annual property tax payable to Karnataka State by 31 March each year.",
@@ -80,7 +80,7 @@ function SummaryPage() {
           <div className="surface-card p-6">
             <SectionTitle
               eyebrow="Plain-English summary"
-              title="Certificate of Occupancy.pdf"
+              title="Registered Sale Deed.pdf"
               action={<AIBadge>Summary v2.3</AIBadge>}
             />
             <p className="text-[15px] leading-relaxed text-foreground">{summary}</p>

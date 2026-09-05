@@ -22,7 +22,7 @@ const events = [
   },
   {
     at: "2024-09-15",
-    actor: "Counter-party S. Bello",
+    actor: "Counter-party S. Mehta",
     text: "Claims rightful ownership based on a 2023 transaction. Documents under OCR review.",
   },
   {
@@ -83,7 +83,7 @@ function Page() {
                 Ananya Sharma <Pill tone="primary">Claimant</Pill>
               </li>
               <li>
-                S. Bello <Pill tone="warning">Counter-party</Pill>
+                S. Mehta <Pill tone="warning">Counter-party</Pill>
               </li>
               <li>
                 Gurugram Land Registry <Pill tone="info">Mediator</Pill>

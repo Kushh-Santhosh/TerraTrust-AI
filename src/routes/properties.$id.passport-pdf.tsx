@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { properties } from "@/lib/mock-data";
+import { formatInr } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Download, ShieldCheck, ArrowLeft, Printer } from "lucide-react";
 import { useEffect } from "react";
@@ -193,6 +194,7 @@ function PassportPDF() {
                 </dd>
                 <dt className="text-[#0a1224]/60">AI valuation</dt>{" "}
                 <dd>₹{p.valuation.toLocaleString()}</dd>
+                <dd>{formatInr(p.valuation)}</dd>
               </dl>
             </section>
 

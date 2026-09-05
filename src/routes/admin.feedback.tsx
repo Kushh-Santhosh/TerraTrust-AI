@@ -10,7 +10,7 @@ export const Route = createFileRoute("/admin/feedback")({
 
 const items = [
   {
-    name: "Tunde A.",
+    name: "Aditi S.",
     role: "Citizen",
     rating: 5,
     text: "The Property Passport got my Ramamurthy Nagar property verified in 4 days. Wild.",
@@ -24,7 +24,7 @@ const items = [
     at: "2024-09-22",
   },
   {
-    name: "K. Bello",
+    name: "R. Mehta",
     role: "Officer",
     rating: 5,
     text: "Dispute mediation queue cut our backlog by 60% this quarter.",

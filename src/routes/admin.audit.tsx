@@ -17,7 +17,7 @@ const rows = [
   },
   {
     at: "2024-09-25 14:21",
-    actor: "K. Bello (officer)",
+    actor: "Kavya Rao (officer)",
     level: "info",
     action: "Approved permit",
     target: "PMT-44021",

@@ -9,29 +9,62 @@ export const Route = createFileRoute("/admin/system")({
 });
 
 const services = [
-  { name: "API gateway", status: "Healthy", uptime: "99.99%", latency: "84ms", icon: Cloud },
+  {
+    name: "API gateway",
+    status: "Healthy",
+    uptime: "Prototype",
+    latency: "Not measured",
+    icon: Cloud,
+  },
   {
     name: "Postgres (primary)",
     status: "Healthy",
-    uptime: "99.5%",
-    latency: "1.2ms",
+    uptime: "Prototype",
+    latency: "Not measured",
     icon: Database,
   },
-  { name: "GIS engine", status: "Healthy", uptime: "99.97%", latency: "120ms", icon: Activity },
-  { name: "AI Gateway", status: "Degraded", uptime: "99.81%", latency: "2.1s", icon: Cpu },
-  { name: "OCR pipeline", status: "Healthy", uptime: "99.95%", latency: "1.4s", icon: Cpu },
-  { name: "Notification queue", status: "Healthy", uptime: "99.99%", latency: "32ms", icon: Cloud },
+  {
+    name: "GIS engine",
+    status: "Healthy",
+    uptime: "Prototype",
+    latency: "Not measured",
+    icon: Activity,
+  },
+  {
+    name: "AI Gateway",
+    status: "Available",
+    uptime: "Prototype",
+    latency: "Not measured",
+    icon: Cpu,
+  },
+  {
+    name: "OCR pipeline",
+    status: "Healthy",
+    uptime: "Prototype",
+    latency: "Not measured",
+    icon: Cpu,
+  },
+  {
+    name: "Notification queue",
+    status: "Healthy",
+    uptime: "Prototype",
+    latency: "Not measured",
+    icon: Cloud,
+  },
 ];
 
 function Page() {
   return (
-    <AppShell title="System health" subtitle="Live status across every backend service.">
+    <AppShell
+      title="System health"
+      subtitle="Prototype status across the configured service surfaces."
+    >
       <KpiRow
         items={[
-          { label: "Overall uptime", value: "99.5%" },
-          { label: "Active incidents", value: "1" },
-          { label: "AI requests/sec", value: "284" },
-          { label: "Background jobs", value: "12,884" },
+          { label: "Overall status", value: "Prototype" },
+          { label: "Active incidents", value: "Demo" },
+          { label: "AI workflow", value: "Ready" },
+          { label: "Background jobs", value: "Demo" },
         ]}
       />
       <div className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-3">

@@ -1,3 +1,4 @@
+import { formatInr } from "./utils";
 // Explainable AI valuation engine.
 
 import type { Property } from "./types";
@@ -60,7 +61,7 @@ export function getValuationReport(p: Property): ValuationReport {
     {
       label: "Recent comparable sales",
       weight: 18,
-      reasoning: `12 verified sales within 1km in the last 90 days · median $${Math.round((p.valuation / 1000) * 0.92)}k.`,
+      reasoning: `12 comparable sales within 1km in the last 90 days · median ${formatInr(Math.round(p.valuation * 0.92))}.`,
     },
     {
       label: "Property size",
@@ -105,7 +106,7 @@ export function getValuationReport(p: Property): ValuationReport {
   }));
 
   const narrative =
-    `Composite of comparable sales, infrastructure quality, and registry-confirmed area yields a central estimate of $${estimate.toLocaleString()} ` +
+    `Composite of comparable sales, infrastructure quality, and registry-confirmed area yields a central estimate of ${formatInr(estimate)} ` +
     `with a ${Math.round(spread * 100)}% confidence band. Headline driver: ${factors.sort((a, b) => Math.abs(b.weight) - Math.abs(a.weight))[0].label.toLowerCase()}.`;
 
   return { estimate, low, high, confidence, factors, comparables, narrative };

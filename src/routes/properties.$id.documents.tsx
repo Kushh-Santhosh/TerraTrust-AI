@@ -15,7 +15,7 @@ export const Route = createFileRoute("/properties/$id/documents")({
 
 const docs = [
   {
-    name: "Certificate of Occupancy.pdf",
+    name: "Registered Sale Deed.pdf",
     kind: "Deed",
     size: "2.4 MB",
     at: "2024-03-14",
@@ -31,7 +31,7 @@ const docs = [
     verified: true,
   },
   {
-    name: "Tax Clearance 2024.pdf",
+    name: "Property Tax Receipt 2024.pdf",
     kind: "Tax",
     size: "640 KB",
     at: "2024-08-19",

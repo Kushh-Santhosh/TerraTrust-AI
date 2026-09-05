@@ -16,17 +16,17 @@ export const properties: Property[] = [
     ownerSince: "2019-06-14",
     valuation: 24000000,
     aiConfidence: 92,
-    coords: { lat: 6.4413, lng: 3.4709 },
+    coords: { lat: 12.9567, lng: 77.62 },
     boundary: [
-      { lat: 6.4414, lng: 3.4707 },
-      { lat: 6.4415, lng: 3.4712 },
-      { lat: 6.4411, lng: 3.4713 },
-      { lat: 6.441, lng: 3.4708 },
+      { lat: 12.9568, lng: 77.6198 },
+      { lat: 12.9569, lng: 77.6203 },
+      { lat: 12.9565, lng: 77.6204 },
+      { lat: 12.9564, lng: 77.6199 },
     ],
     documents: [
       {
         id: "d1",
-        name: "Certificate of Occupancy.pdf",
+        name: "Registered Sale Deed.pdf",
         kind: "deed",
         uploadedAt: "2024-03-14",
         verified: true,
@@ -40,7 +40,7 @@ export const properties: Property[] = [
       },
       {
         id: "d3",
-        name: "Tax Clearance 2024.pdf",
+        name: "Property Tax Receipt 2024.pdf",
         kind: "tax",
         uploadedAt: "2024-08-19",
         verified: true,
@@ -56,7 +56,7 @@ export const properties: Property[] = [
       },
       {
         id: "t2",
-        actor: "Surveyor Idris A.",
+        actor: "Surveyor Arjun Nair",
         role: "surveyor",
         action: "GIS boundary uploaded & verified",
         at: "2024-03-15",
@@ -98,7 +98,7 @@ export const properties: Property[] = [
     documents: [
       {
         id: "d4",
-        name: "Customary right of occupancy.pdf",
+        name: "Record of Rights (RoR).pdf",
         kind: "deed",
         uploadedAt: "2024-09-10",
         verified: false,
@@ -142,7 +142,7 @@ export const properties: Property[] = [
     documents: [
       {
         id: "d5",
-        name: "Deed of Assignment.pdf",
+        name: "Registered Sale Deed.pdf",
         kind: "deed",
         uploadedAt: "2023-02-11",
         verified: true,
@@ -255,24 +255,25 @@ export const citizenKpis: KPI[] = [
 ];
 
 export const govKpis: KPI[] = [
-  { label: "Registered parcels", value: "24.1k", delta: "+180", trend: "up" },
-  { label: "Verifications / day", value: "9,184", delta: "+12%", trend: "up" },
-  { label: "Disputes resolved", value: "612", delta: "+44", trend: "up" },
-  { label: "Fraud flags", value: "27", delta: "-9", trend: "down" },
+  { label: "Registered parcels", value: "Demo", trend: "flat", hint: "prototype dataset" },
+  { label: "Verification flow", value: "Ready", trend: "flat", hint: "explainable workflow" },
+  { label: "Review queue", value: "Demo", trend: "flat", hint: "human review workspace" },
+  { label: "Fraud signals", value: "Demo", trend: "flat", hint: "risk review examples" },
 ];
 
 export const surveyorKpis: KPI[] = [
   { label: "Active assignments", value: "12", trend: "flat" },
   { label: "Completed this month", value: "38", delta: "+5", trend: "up" },
   { label: "Avg. turnaround", value: "2.4d", delta: "-0.3d", trend: "down" },
-  { label: "Quality score", value: "4.92", delta: "+0.04", trend: "up" },
+  { label: "Quality review", value: "Demo", trend: "flat", hint: "prototype workspace" },
 ];
 
 export const adminKpis: KPI[] = [
   { label: "Active users", value: "1,842", delta: "+3.1%", trend: "up" },
-  { label: "Properties indexed", value: "24.1k", delta: "+0.7%", trend: "up" },
-  { label: "AI requests / day", value: "1.2k", delta: "+8%", trend: "up" },
-  { label: "Uptime", value: "99.5%", trend: "flat" },
+  { label: "User management", value: "Demo", trend: "flat", hint: "prototype workspace" },
+  { label: "Property records", value: "Demo", trend: "flat", hint: "sample dataset" },
+  { label: "AI workflow", value: "Ready", trend: "flat", hint: "explainable review" },
+  { label: "System status", value: "Demo", trend: "flat", hint: "local environment view" },
 ];
 
 export const verificationsOverTime = [

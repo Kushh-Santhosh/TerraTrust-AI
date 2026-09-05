@@ -85,8 +85,8 @@ function TimelinePage() {
               <li>· 1998 Federal allocation gazette (vol. 89, no. 14)</li>
               <li>· 2002 Adebayo Estates incorporation filings</li>
               <li>· 2011 Deed of assignment — Land Registry</li>
-              <li>· 2019 Certificate of Occupancy (LSLB)</li>
-              <li>· 3 corroborating tax clearances</li>
+              <li>· 2019 Registered Sale Deed</li>
+              <li>· 3 corroborating property tax receipts</li>
               <li>· 2 sworn community attestations</li>
             </ul>
           </div>

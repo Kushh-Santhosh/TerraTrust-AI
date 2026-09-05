@@ -16,6 +16,7 @@ import type {
   RiskIndicator,
   OwnershipRecord,
 } from "@/lib/property-intel";
+import { formatInr } from "@/lib/utils";
 
 export function EncumbrancePanel({ items }: { items: Encumbrance[] }) {
   return (
@@ -39,7 +40,7 @@ export function EncumbrancePanel({ items }: { items: Encumbrance[] }) {
                 <span className="text-[11px] capitalize text-muted-foreground">{e.status}</span>
                 {e.amount && (
                   <span className="ml-auto text-sm font-medium text-foreground">
-                    ${e.amount.toLocaleString()}
+                    {formatInr(e.amount)}
                   </span>
                 )}
               </div>

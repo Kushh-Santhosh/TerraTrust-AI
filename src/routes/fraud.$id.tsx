@@ -49,7 +49,7 @@ function Page() {
           <div className="mt-5 grid gap-3 md:grid-cols-2">
             {[
               "Deed A — filed 2023-02-11 by O. Adeyemi",
-              "Deed B — filed 2023-02-25 by S. Bello",
+              "Deed B — filed 2023-02-25 by S. Mehta",
               "Boundary overlap: 38% of parcel area",
               "Survey plans cite different surveyors",
             ].map((x, i) => (

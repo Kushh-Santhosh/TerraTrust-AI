@@ -1,3 +1,4 @@
+import { formatInr } from "@/lib/utils";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppShell, StatusBadge } from "@/components/layout/AppShell";
 import { StatCard } from "@/components/ui-ext/StatCard";
@@ -151,7 +152,7 @@ function Dashboard() {
                       <TrustPill v={p.trustScore} />
                     </td>
                     <td className="px-2 py-3 text-right font-medium">
-                      ${(p.valuation / 1000).toFixed(0)}k
+                      ${(p.valuation / 1000).toFixed(0)}k{formatInr(p.valuation)}
                     </td>
                   </tr>
                 ))}

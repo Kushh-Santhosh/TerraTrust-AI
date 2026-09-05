@@ -63,7 +63,7 @@ function Page() {
           { label: "Active", value: "12" },
           { label: "Due this week", value: "4" },
           { label: "Avg. turnaround", value: "2.4d" },
-          { label: "Quality score", value: "4.92 / 5" },
+          { label: "Quality review", value: "Prototype" },
         ]}
       />
       <div className="mt-6">

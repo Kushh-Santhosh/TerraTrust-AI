@@ -36,7 +36,7 @@ const rows = [
     from: "1978-01-15",
     to: "1994-11-08",
     owner: "Karnataka State Government",
-    method: "C of O issued",
+    method: "Registration recorded",
     price: "—",
     source: "Federal Gazette",
   },

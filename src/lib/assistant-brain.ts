@@ -7,6 +7,7 @@ import { computeConfidence } from "./confidence-engine";
 import { getFraudReport } from "./fraud-engine";
 import { getValuationReport } from "./valuation-engine";
 import { getEncumbrances, getRiskIndicators } from "./property-intel";
+import { formatInr } from "./utils";
 
 export interface AssistantResponse {
   text: string;
@@ -85,8 +86,8 @@ export function answer(q: string): AssistantResponse {
   if (KEYWORDS.value.some((k) => lo.includes(k))) {
     return {
       text:
-        `**AI valuation** for ${target.title}: **$${val.estimate.toLocaleString()}** ` +
-        `(range $${val.low.toLocaleString()}–$${val.high.toLocaleString()}, confidence ${val.confidence}%).\n\n` +
+        `**AI valuation** for ${target.title}: **${formatInr(val.estimate)}** ` +
+        `(range ${formatInr(val.low)}–${formatInr(val.high)}, confidence ${val.confidence}%).\n\n` +
         val.narrative,
       citations: [{ label: target.title, passportId: target.passportId }],
       suggestions: ["Show comparable sales", "Why is the confidence not higher?"],
@@ -110,7 +111,7 @@ export function answer(q: string): AssistantResponse {
     return {
       text:
         target.status === "disputed"
-          ? `**${target.title}** has an active dispute. To file a response, head to **Disputes → New filing**, attach your deed and survey, and the bureau auto-routes to the FCT mediation desk.`
+          ? `**${target.title}** has an active dispute. To file a response, head to **Disputes → New filing**, attach your deed and survey, and the bureau auto-routes to the Gurugram mediation desk.`
           : `No active dispute on **${target.title}**. If you want to *raise* one against another parcel, use **Disputes → New filing** with the conflicting passport ID.`,
     };
   }

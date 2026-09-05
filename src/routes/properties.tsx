@@ -3,6 +3,7 @@ import { AppShell, StatusBadge } from "@/components/layout/AppShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { properties } from "@/lib/mock-data";
+import { formatInr } from "@/lib/utils";
 import { Grid3x3, List, Plus, Search, MapPin } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -92,6 +93,7 @@ function PropertiesPage() {
                       AI valuation
                     </p>
                     <p className="font-display text-xl">₹{(p.valuation / 100000).toFixed(1)} L</p>
+                    <p className="font-display text-xl">{formatInr(p.valuation)}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -141,7 +143,7 @@ function PropertiesPage() {
                   </td>
                   <td className="px-4 py-3">{p.trustScore}</td>
                   <td className="px-4 py-3 text-right font-medium">
-                    ₹{(p.valuation / 100000).toFixed(1)} L
+                    ₹{(p.valuation / 100000).toFixed(1)} L{formatInr(p.valuation)}
                   </td>
                 </tr>
               ))}

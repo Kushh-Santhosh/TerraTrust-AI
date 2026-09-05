@@ -26,7 +26,7 @@ const items = [
     region: "Pune",
     neighbours: 9,
     attestations: 6,
-    owner: "C. Olawale",
+    owner: "C. Kulkarni",
     years: 14,
   },
   {
