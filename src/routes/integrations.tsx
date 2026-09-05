@@ -29,20 +29,20 @@ export const Route = createFileRoute("/integrations")({
 const integrations = [
   {
     icon: Database,
-    name: "Lagos State Registry",
-    desc: "Two-way sync of cadastral records.",
-    connected: true,
+    name: "Karnataka Land Records (planned)",
+    desc: "Designed for future cadastral-record integration; not connected in this prototype.",
+    connected: false,
   },
   {
     icon: Banknote,
-    name: "Access Bank",
-    desc: "Share passports for mortgage origination.",
-    connected: true,
+    name: "Bank lending workflows (planned)",
+    desc: "Shareable passports for future mortgage workflows; no bank API is connected.",
+    connected: false,
   },
   {
     icon: Building2,
-    name: "FCT Land Bureau",
-    desc: "Submit permits and receive approvals.",
+    name: "State land-record systems (planned)",
+    desc: "Designed to integrate with official records; no live government API is connected.",
     connected: false,
   },
   {

@@ -44,7 +44,7 @@ function Page() {
           <p className="font-display text-lg">Send to institution</p>
           {[
             { icon: Banknote, name: "Access Bank — Mortgage" },
-            { icon: Building2, name: "Lagos Land Bureau" },
+            { icon: Building2, name: "Bengaluru Revenue Office" },
             { icon: Mail, name: "Custom email" },
           ].map((o) => (
             <button

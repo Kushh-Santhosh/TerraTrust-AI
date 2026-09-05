@@ -12,50 +12,50 @@ export const Route = createFileRoute("/government/parcels")({
 const rows = [
   {
     id: "TT-8421-LG",
-    region: "Lagos",
-    lga: "Eti-Osa",
+    region: "Bengaluru",
+    lga: "Bengaluru East",
     area: "540 sqm",
-    owner: "Amara Okonkwo",
+    owner: "Ananya Sharma",
     status: "Verified",
   },
   {
     id: "TT-7188-LG",
-    region: "Lagos",
-    lga: "Ikoyi",
+    region: "Pune",
+    lga: "Baner",
     area: "1,240 sqm",
-    owner: "B. Adetola",
+    owner: "N. Iyer",
     status: "Verified",
   },
   {
     id: "TT-5512-AB",
-    region: "FCT",
-    lga: "Wuse",
+    region: "Gurugram",
+    lga: "Sector 29",
     area: "1,800 sqm",
     owner: "Disputed",
     status: "Disputed",
   },
   {
     id: "TT-2210-KD",
-    region: "Kaduna",
-    lga: "Birnin Gwari",
+    region: "Mysuru",
+    lga: "Hunsur Road",
     area: "1.24 ha",
-    owner: "Amara Okonkwo",
+    owner: "Ravi Kumar",
     status: "Pending",
   },
   {
     id: "TT-9930-OY",
-    region: "Oyo",
-    lga: "Ibadan North",
+    region: "Pune",
+    lga: "Baner",
     area: "880 sqm",
-    owner: "Amara Okonkwo",
+    owner: "Meera Iyer",
     status: "Verified",
   },
   {
     id: "TT-4422-RV",
-    region: "Rivers",
-    lga: "Port Harcourt",
+    region: "Hyderabad",
+    lga: "Gachibowli",
     area: "620 sqm",
-    owner: "K. Fubara",
+    owner: "S. Reddy",
     status: "Verified",
   },
 ];
@@ -64,7 +64,7 @@ function Page() {
   return (
     <AppShell
       title="Parcel registry"
-      subtitle="Read-only access to the national parcel registry. 2,418,332 entries indexed."
+      subtitle="Read-only access to the demo parcel registry. 24,188 entries indexed."
       actions={
         <Button variant="outline">
           <Download className="h-4 w-4" /> Export region
@@ -73,7 +73,7 @@ function Page() {
     >
       <KpiRow
         items={[
-          { label: "Total parcels", value: "2.41M" },
+          { label: "Total parcels", value: "24.1k" },
           { label: "Verified", value: "91.5%" },
           { label: "Pending", value: "6.2%" },
           { label: "Disputed", value: "1.2%" },

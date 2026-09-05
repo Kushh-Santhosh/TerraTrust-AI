@@ -17,7 +17,7 @@ function MapPage() {
   return (
     <AppShell
       title="GIS Map"
-      subtitle="Spatial view of every parcel in your portfolio and pilot regions."
+      subtitle="Spatial view of every parcel in your portfolio and demo regions."
       actions={
         <>
           <Button variant="outline" className="rounded-full">

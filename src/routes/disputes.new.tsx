@@ -21,7 +21,7 @@ function Page() {
       <div className="surface-card space-y-4 p-6">
         <div className="grid gap-3 md:grid-cols-2">
           <Field label="Property">
-            <Input defaultValue="TT-5512-AB — Abuja Commercial Plot" />
+            <Input defaultValue="TT-5512-AB — Gurugram Commercial Plot" />
           </Field>
           <Field label="Dispute type">
             <Input defaultValue="Ownership overlap" />
@@ -30,7 +30,7 @@ function Page() {
         <Field label="Summary" hint="Describe the issue clearly. Mediators will see this first.">
           <Textarea
             rows={5}
-            defaultValue="An unrelated party filed a Deed of Assignment claiming the same plot at Wuse II. The boundary overlaps with mine by 38%."
+            defaultValue="An unrelated party filed a Deed of Assignment claiming the same plot in Sector 29. The boundary overlaps with mine by 38%."
           />
         </Field>
         <Field label="Counter-party (optional)">

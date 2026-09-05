@@ -2,16 +2,16 @@
 
 export const valuationFactors = [
   {
-    label: "Location desirability (Lekki Phase 1)",
+    label: "Location desirability (Ramamurthy Nagar)",
     weight: 32,
     direction: "up" as const,
-    note: "Top 5% premium corridor in Lagos coastal zone.",
+    note: "Established residential corridor with strong neighborhood demand.",
   },
   {
     label: "Recent comparable sales (12 nearby)",
     weight: 24,
     direction: "up" as const,
-    note: "Median sale ₦125M · 90-day window.",
+    note: "Median sale ₹1.25 Cr · 90-day window.",
   },
   {
     label: "Verified title chain",
@@ -20,10 +20,10 @@ export const valuationFactors = [
     note: "Unbroken transfer history since 2002.",
   },
   {
-    label: "Macro headwinds (FX volatility)",
+    label: "Macro headwinds (rate sensitivity)",
     weight: -9,
     direction: "down" as const,
-    note: "USD/NGN swings reduce dollar-equivalent value.",
+    note: "Interest-rate movement slightly reduces near-term value sentiment.",
   },
   {
     label: "Distance to flood risk zone",
@@ -62,9 +62,14 @@ export const fraudSignals = [
     label: "Bureau cross-validation",
     weight: 10,
     direction: "up" as const,
-    note: "Lagos Bureau acknowledges parcel exists.",
+    note: "State revenue office acknowledges parcel exists.",
   },
-  { label: "Owner verified ID", weight: 8, direction: "up" as const, note: "NIN + BVN matched." },
+  {
+    label: "Owner verified ID",
+    weight: 8,
+    direction: "up" as const,
+    note: "Aadhaar + PAN matched.",
+  },
 ];
 
 export const valuationHistory = [
@@ -98,17 +103,17 @@ export const ndviSeries = [
 ];
 
 export const ownershipChain = [
-  { year: 1998, owner: "Federal Land Registry", event: "Original allocation", confidence: 88 },
-  { year: 2002, owner: "Adebayo Estates Ltd.", event: "Corporate acquisition", confidence: 91 },
-  { year: 2011, owner: "Chinedu Okafor", event: "Private transfer", confidence: 94 },
-  { year: 2019, owner: "Amara Okonkwo", event: "Verified deed transfer", confidence: 96 },
+  { year: 1998, owner: "State Revenue Office", event: "Original allocation", confidence: 88 },
+  { year: 2002, owner: "Bengaluru Property Trust", event: "Corporate acquisition", confidence: 91 },
+  { year: 2011, owner: "Kiran Menon", event: "Private transfer", confidence: 94 },
+  { year: 2019, owner: "Ananya Sharma", event: "Verified deed transfer", confidence: 96 },
 ];
 
 export const aiRecommendations = [
   {
     id: "r1",
     priority: "high" as const,
-    title: "Upload tax clearance for Kaduna Farmland",
+    title: "Upload tax clearance for Mysuru Farm Parcel",
     impact: "+13 trust pts",
     reason: "Closes the documentation gap and unlocks bank-collateral eligibility.",
     cta: "Upload now",
@@ -132,7 +137,7 @@ export const aiRecommendations = [
   {
     id: "r4",
     priority: "medium" as const,
-    title: "Add second attestor to Abuja plot",
+    title: "Add second attestor to Gurugram Commercial Plot",
     impact: "Reaches community gold tier",
     reason: "Properties with ≥3 community attestations clear bureau review 2.3× faster.",
     cta: "Invite attestor",
@@ -148,20 +153,20 @@ export const aiRecommendations = [
 ];
 
 export const ocrFields = [
-  { label: "Owner name", value: "Amara N. Okonkwo", confidence: 98 },
+  { label: "Owner name", value: "Ananya N. Sharma", confidence: 98 },
   { label: "Plot number", value: "Block 14 / Plot 7B", confidence: 96 },
-  { label: "Survey ref.", value: "LG/SUR/2023/8421", confidence: 99 },
+  { label: "Survey ref.", value: "KA/SUR/2023/8421", confidence: 99 },
   { label: "Area (sqm)", value: "540.20", confidence: 94 },
   { label: "Issued date", value: "14 March 2024", confidence: 92 },
-  { label: "Issuing authority", value: "Lagos State Land Bureau", confidence: 97 },
-  { label: "Bureau stamp ID", value: "LSLB-2024-00831", confidence: 88 },
-  { label: "Coordinates (centroid)", value: "6.4413° N, 3.4709° E", confidence: 91 },
+  { label: "Issuing authority", value: "Karnataka Revenue Office", confidence: 97 },
+  { label: "Record ID", value: "KAR-2024-00831", confidence: 88 },
+  { label: "Coordinates (centroid)", value: "12.9567° N, 77.6200° E", confidence: 91 },
 ];
 
 export const verificationSuggestions = [
   {
     id: "v1",
-    action: "Cross-check coordinates with Bureau dataset",
+    action: "Cross-check coordinates with state land dataset",
     confidence: 96,
     status: "Auto-passed" as const,
   },
@@ -211,7 +216,7 @@ export const landHealth = {
 
 export const recommendationsForDoc = [
   "Owner name matches NIN registry — high confidence.",
-  "Survey reference cross-validates with Lagos Bureau dataset.",
+  "Survey reference cross-validates with Karnataka Revenue dataset.",
   "Plot coordinates within stated boundary polygon (0.4m drift).",
   "Stamp ID matches valid issuance window (Q1 2024).",
 ];

@@ -63,7 +63,7 @@ export function getEncumbrances(p: Property): Encumbrance[] {
       id: "e1",
       kind: "caveat",
       status: "active",
-      party: "FCT Land Registry",
+      party: "Gurugram Land Registry",
       filedAt: "2024-07-30",
       note: "Caveat lodged pending boundary overlap resolution.",
     });
@@ -94,7 +94,7 @@ export function getEncumbrances(p: Property): Encumbrance[] {
       id: "e4",
       kind: "tax-arrears",
       status: "active",
-      party: "Kaduna IRS",
+      party: "Karnataka Revenue Office",
       amount: Math.round(p.area * 0.12),
       filedAt: "2024-01-10",
       note: "Land use charge unpaid for FY2024 — settle to lift encumbrance.",
@@ -108,13 +108,13 @@ const POOLS: Record<NearbyInfra["category"], string[]> = {
     "Greenwood International School",
     "Children's Aid College",
     "St. Saviour's Primary",
-    "Lekki British",
+    "Whitefield International School",
   ],
   hospital: ["Reddington Hospital", "Lagoon Specialist Centre", "Federal Medical Centre"],
-  transit: ["BRT Lekki Phase 1 Station", "Ikoyi Ferry Terminal", "Lagos Light Rail – Blue Line"],
-  road: ["Lekki–Epe Expressway", "Admiralty Way", "Ahmadu Bello Way"],
-  market: ["Lekki Market", "Wuse Market", "Bodija Market"],
-  utility: ["IKEDC 33kV substation", "Lagos Water Corp pump station"],
+  transit: ["Namma Metro Whitefield Line", "Bengaluru Airport Metro", "Outer Ring Road Bus Depot"],
+  road: ["Outer Ring Road", "4th Cross Road", "Bannerghatta Main Road"],
+  market: ["KR Market", "Gandhi Bazaar", "Avenue Road Market"],
+  utility: ["Bescom 33kV substation", "BWSSB pumping station"],
 };
 
 export function getNearbyInfra(p: Property): NearbyInfra[] {

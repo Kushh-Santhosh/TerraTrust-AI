@@ -18,17 +18,17 @@ export const Route = createFileRoute("/about")({
 
 const team = [
   {
-    name: "Dr. Adaora Eze",
+    name: "Dr. Anika Rao",
     role: "CEO · GIS scientist",
-    bio: "20y in cadastral systems across West Africa.",
+    bio: "20y in cadastral systems across India and South Asia.",
   },
-  { name: "Tunde Akinwale", role: "CTO · AI", bio: "Ex-Google Maps, built TerraTrust's Geo-LLM." },
+  { name: "Vikram Nair", role: "CTO · AI", bio: "Ex-Google Maps, built TerraTrust's Geo-LLM." },
   {
-    name: "Hauwa Bello",
+    name: "Meera Iyer",
     role: "Head of Policy",
-    bio: "Former senior advisor to the Nigerian Land Bureau.",
+    bio: "Former senior advisor to Karnataka land administration.",
   },
-  { name: "Chinwe Okafor", role: "Head of Design", bio: "Shipped fintech products to 30M+ users." },
+  { name: "Rohit Sethi", role: "Head of Design", bio: "Shipped fintech products to 30M+ users." },
 ];
 
 function Page() {
@@ -51,8 +51,8 @@ function Page() {
         <div className="mx-auto mt-16 grid max-w-5xl gap-4 md:grid-cols-3">
           {[
             { label: "Founded", v: "2023" },
-            { label: "Team", v: "42 across 6 countries" },
-            { label: "Parcels indexed", v: "2.41M" },
+            { label: "Team", v: "42 across India" },
+            { label: "Parcels indexed", v: "2.41L" },
           ].map((s) => (
             <div key={s.label} className="surface-card p-6 text-center">
               <p className="text-xs uppercase tracking-wider text-muted-foreground">{s.label}</p>

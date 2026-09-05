@@ -38,11 +38,11 @@ export const Route = createFileRoute("/ai-valuation")({
 });
 
 const comps = [
-  { id: "C-1", addr: "8 Admiralty Way", area: 510, price: 298, dist: 0.2 },
-  { id: "C-2", addr: "21 Fola Osibo Rd", area: 560, price: 322, dist: 0.4 },
-  { id: "C-3", addr: "4 Bisi Williams Rd", area: 495, price: 281, dist: 0.6 },
-  { id: "C-4", addr: "16 Olukunle St", area: 600, price: 348, dist: 0.7 },
-  { id: "C-5", addr: "11 Yusuf Adesoji", area: 530, price: 305, dist: 0.9 },
+  { id: "C-1", addr: "8 80 Feet Road", area: 510, price: 298, dist: 0.2 },
+  { id: "C-2", addr: "21 Inner Ring Road", area: 560, price: 322, dist: 0.4 },
+  { id: "C-3", addr: "4 5th Main Road", area: 495, price: 281, dist: 0.6 },
+  { id: "C-4", addr: "16 1st Cross Street", area: 600, price: 348, dist: 0.7 },
+  { id: "C-5", addr: "11 Residency Road", area: 530, price: 305, dist: 0.9 },
 ];
 
 function ValuationEnginePage() {
@@ -61,14 +61,14 @@ function ValuationEnginePage() {
           <form className="mt-5 grid gap-4">
             <div className="grid gap-2">
               <Label>Region</Label>
-              <Select defaultValue="lagos">
+              <Select defaultValue="bengaluru">
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="lagos">Lagos</SelectItem>
-                  <SelectItem value="abuja">Abuja</SelectItem>
-                  <SelectItem value="kaduna">Kaduna</SelectItem>
+                  <SelectItem value="bengaluru">Bengaluru</SelectItem>
+                  <SelectItem value="gurugram">Gurugram</SelectItem>
+                  <SelectItem value="mysuru">Mysuru</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -126,22 +126,22 @@ function ValuationEnginePage() {
             <AIInsightCard
               icon={<TrendingUp className="h-3 w-3 text-success" />}
               title="Point estimate"
-              value="₦312M"
+              value="₹3.12 Cr"
               delta={{ value: 8.4, label: "YoY" }}
               tone="success"
             />
             <AIInsightCard
               icon={<Building2 className="h-3 w-3 text-primary" />}
               title="Range"
-              value="₦298M – ₦326M"
+              value="₹2.98 Cr – ₹3.26 Cr"
               hint="80% confidence interval"
               tone="primary"
             />
             <AIInsightCard
               icon={<MapPin className="h-3 w-3 text-primary" />}
               title="Price / m²"
-              value="₦577K"
-              hint="vs. corridor median ₦548K"
+              value="₹57.7k"
+              hint="vs. corridor median ₹54.8k"
               tone="accent"
             />
           </div>
@@ -202,7 +202,7 @@ function ValuationEnginePage() {
                       <Pill>{c.id}</Pill> {c.addr}
                     </span>
                     <span className="text-muted-foreground">
-                      {c.area} m² · ₦{c.price}M · {c.dist}km
+                      {c.area} m² · ₹{c.price}L · {c.dist}km
                     </span>
                   </li>
                 ))}
@@ -211,7 +211,7 @@ function ValuationEnginePage() {
           </div>
 
           <div className="surface-card p-5">
-            <SectionTitle eyebrow="Reasoning" title="How the engine arrived at ₦312M" />
+            <SectionTitle eyebrow="Reasoning" title="How the engine arrived at ₹3.12 Cr" />
             <ReasoningTrace
               steps={[
                 {
@@ -220,7 +220,7 @@ function ValuationEnginePage() {
                 },
                 {
                   label: "Geographic adjustment",
-                  detail: "Lekki Phase 1 corridor premium: +18% over Lagos median.",
+                  detail: "Koramangala corridor premium: +18% over Bengaluru median.",
                 },
                 {
                   label: "Document trust adjustment",
@@ -228,11 +228,11 @@ function ValuationEnginePage() {
                 },
                 {
                   label: "Macro overlay",
-                  detail: "Applied -3.1% FX volatility damper (60-day NGN/USD vol).",
+                  detail: "Applied -3.1% currency volatility damper (60-day INR volatility).",
                 },
                 {
                   label: "Calibration",
-                  detail: "Model RMSE 4.2% on holdout comps. Final: ₦312M ±₦14M.",
+                  detail: "Model RMSE 4.2% on holdout comps. Final: ₹3.12 Cr ±₹14 L.",
                 },
               ]}
             />

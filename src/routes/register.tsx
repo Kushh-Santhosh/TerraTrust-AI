@@ -27,7 +27,7 @@ function RegisterPage() {
       password: String(form.get("password")),
       fullName: `${form.get("firstName")} ${form.get("lastName")}`,
       role: "citizen",
-      region: "Lagos",
+      region: "Bengaluru",
     });
     setBusy(false);
     if (result.error) setError(result.error);

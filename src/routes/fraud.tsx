@@ -13,7 +13,7 @@ const cases = [
   {
     id: "F-9821",
     parcel: "TT-5512-AB",
-    region: "FCT Abuja",
+    region: "Gurugram",
     risk: 92,
     kind: "Duplicate deed",
     flagged: "2024-09-21",
@@ -40,7 +40,7 @@ const cases = [
   {
     id: "F-9712",
     parcel: "TT-2200-LG",
-    region: "Lagos",
+    region: "Bengaluru",
     risk: 55,
     kind: "Owner identity mismatch",
     flagged: "2024-09-12",

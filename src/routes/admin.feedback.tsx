@@ -13,7 +13,7 @@ const items = [
     name: "Tunde A.",
     role: "Citizen",
     rating: 5,
-    text: "The Property Passport got my Lekki place verified in 4 days. Wild.",
+    text: "The Property Passport got my Ramamurthy Nagar property verified in 4 days. Wild.",
     at: "2024-09-23",
   },
   {
@@ -31,7 +31,7 @@ const items = [
     at: "2024-09-20",
   },
   {
-    name: "M. Yusuf",
+    name: "R. Menon",
     role: "Citizen",
     rating: 3,
     text: "Trust score logic isn't clear enough. Needs a plain-language explanation.",

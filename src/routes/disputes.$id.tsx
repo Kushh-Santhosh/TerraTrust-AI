@@ -12,12 +12,12 @@ export const Route = createFileRoute("/disputes/$id")({
 const events = [
   {
     at: "2024-09-25",
-    actor: "Mediator J. Adeyemi",
-    text: "Hearing scheduled for 2024-10-08 at the FCT Land Registry.",
+    actor: "Mediator R. Nair",
+    text: "Hearing scheduled for 2024-10-08 at the Gurugram Land Registry.",
   },
   {
     at: "2024-09-20",
-    actor: "Amara Okonkwo",
+    actor: "Ananya Sharma",
     text: "Submitted original Deed of Assignment and 2021 survey plan as evidence.",
   },
   {
@@ -73,20 +73,20 @@ function Page() {
               params={{ id: "p_003" }}
               className="mt-1 block font-medium hover:text-primary"
             >
-              Abuja Commercial Plot
+              Gurugram Commercial Plot
             </Link>
           </div>
           <div className="surface-card p-5">
             <p className="text-xs font-medium text-muted-foreground">Parties</p>
             <ul className="mt-2 space-y-1 text-sm">
               <li>
-                Amara Okonkwo <Pill tone="primary">Claimant</Pill>
+                Ananya Sharma <Pill tone="primary">Claimant</Pill>
               </li>
               <li>
                 S. Bello <Pill tone="warning">Counter-party</Pill>
               </li>
               <li>
-                FCT Land Registry <Pill tone="info">Mediator</Pill>
+                Gurugram Land Registry <Pill tone="info">Mediator</Pill>
               </li>
             </ul>
           </div>

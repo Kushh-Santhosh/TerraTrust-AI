@@ -11,21 +11,21 @@ export const Route = createFileRoute("/admin/api-keys")({
 
 const rows = [
   {
-    name: "Lagos Land Bureau",
+    name: "Karnataka Land Records",
     token: "Managed securely",
     scopes: ["registry:read", "registry:write"],
     created: "2024-01-12",
     last: "2024-09-25 12:08",
   },
   {
-    name: "Access Bank Origination",
+    name: "HDFC Housing Origination",
     token: "Managed securely",
     scopes: ["passport:read"],
     created: "2024-05-30",
     last: "2024-09-25 14:01",
   },
   {
-    name: "FCT Land Registry",
+    name: "Tamil Nadu Revenue",
     token: "Managed securely",
     scopes: ["registry:read", "disputes:write"],
     created: "2024-02-08",

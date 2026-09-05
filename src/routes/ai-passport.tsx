@@ -51,15 +51,15 @@ function PassportPage() {
           <div className="relative">
             <AIBadge tone="primary">Signed · 2026-06-29</AIBadge>
             <p className="mt-3 font-display text-3xl text-foreground">TT-8421-LG</p>
-            <p className="text-sm text-muted-foreground">Lekki Phase 1 Residence · 540 m²</p>
+            <p className="text-sm text-muted-foreground">Ramamurthy Nagar Residence · 540 m²</p>
             <div className="mt-5 grid place-items-center">
-              <ScoreRing value={96} label="Composite" sublabel="Verified · Lagos Bureau" />
+              <ScoreRing value={96} label="Composite" sublabel="Verified · Karnataka Revenue" />
             </div>
             <dl className="mt-6 space-y-2 text-sm">
               {[
-                { icon: MapPin, k: "Coordinates", v: "6.4413° N, 3.4709° E" },
+                { icon: MapPin, k: "Coordinates", v: "12.9567° N, 77.6200° E" },
                 { icon: Calendar, k: "Owner since", v: "14 June 2019" },
-                { icon: Coins, k: "AI valuation", v: "₦312,000,000" },
+                { icon: Coins, k: "AI valuation", v: "₹3.12 Cr" },
                 { icon: Layers, k: "Documents", v: "3 verified" },
                 { icon: ShieldCheck, k: "Last verified", v: "20 Mar 2024" },
               ].map((r) => (

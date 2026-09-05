@@ -43,7 +43,7 @@ function Page() {
           <h3 className="mt-6 font-display text-xl">What the AI found</h3>
           <p className="mt-1 text-sm text-muted-foreground">
             Two distinct Deed of Assignment documents were filed within 14 days of each other
-            claiming overlapping ownership on the same parcel at Wuse II, Abuja. OCR-extracted
+            claiming overlapping ownership on the same parcel at Sector 29, Gurugram. OCR-extracted
             signatures show a 0.83 similarity score (false-positive likelihood &lt; 2%).
           </p>
           <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -70,9 +70,9 @@ function Page() {
               params={{ id: "p_003" }}
               className="mt-1 block font-medium hover:text-primary"
             >
-              Abuja Commercial Plot
+              Gurugram Commercial Plot
             </Link>
-            <p className="text-xs text-muted-foreground">Plot 88, Wuse II — TT-5512-AB</p>
+            <p className="text-xs text-muted-foreground">Plot 88, Sector 29 — TT-5512-AB</p>
           </div>
           <div className="surface-card p-5">
             <p className="text-xs font-medium text-muted-foreground">Timeline</p>

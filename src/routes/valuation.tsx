@@ -34,15 +34,15 @@ function ValuationPage() {
           <form className="mt-5 grid gap-4">
             <div className="grid gap-2">
               <Label>Region</Label>
-              <Select defaultValue="lagos">
+              <Select defaultValue="bengaluru">
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="lagos">Lagos</SelectItem>
-                  <SelectItem value="abuja">Abuja</SelectItem>
-                  <SelectItem value="oyo">Oyo</SelectItem>
-                  <SelectItem value="kaduna">Kaduna</SelectItem>
+                  <SelectItem value="bengaluru">Bengaluru</SelectItem>
+                  <SelectItem value="gurugram">Gurugram</SelectItem>
+                  <SelectItem value="pune">Pune</SelectItem>
+                  <SelectItem value="mysuru">Mysuru</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -83,13 +83,13 @@ function ValuationPage() {
               AI valuation result
             </p>
             <div className="mt-2 flex flex-wrap items-end gap-4">
-              <p className="font-display text-6xl">$285,000</p>
+              <p className="font-display text-6xl">₹2.85 Cr</p>
               <span className="mb-2 inline-flex items-center gap-1 rounded-full bg-success/10 px-2 py-0.5 text-xs text-success">
                 <TrendingUp className="h-3 w-3" /> +9.2% YoY
               </span>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">
-              95% confidence interval · $268k – $302k
+              95% confidence interval · ₹2.68 Cr – ₹3.02 Cr
             </p>
             <div className="mt-6 h-44">
               <ResponsiveContainer>
@@ -131,16 +131,16 @@ function ValuationPage() {
               {[
                 [
                   "Local comparables",
-                  "+$112k",
+                  "+₹1.12 Cr",
                   "From 28 nearby transactions in the last 24 months.",
                 ],
-                ["Infrastructure quality", "+$48k", "Paved access, water, grid power."],
+                ["Infrastructure quality", "+₹48 L", "Paved access, water, grid power."],
                 [
                   "Macro & FX adjustment",
-                  "-$12k",
+                  "-₹12 L",
                   "Inflation and currency effects, last 12 months.",
                 ],
-                ["Zoning & permitted use", "+$22k", "Mixed-use residential overlay."],
+                ["Zoning & permitted use", "+₹22 L", "Mixed-use residential overlay."],
               ].map(([t, v, d]) => (
                 <div key={t} className="rounded-lg border border-border p-4">
                   <div className="flex items-center justify-between">

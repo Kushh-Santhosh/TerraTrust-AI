@@ -11,21 +11,31 @@ export const Route = createFileRoute("/properties/$id/gis-layers")({
 const layers = [
   {
     name: "Cadastral parcels",
-    source: "Lagos State Bureau",
+    source: "Bengaluru Urban Development Authority",
     on: true,
     color: "oklch(0.55 0.18 250)",
   },
   {
     name: "Zoning (residential)",
-    source: "Lagos Urban Planning",
+    source: "Karnataka Urban Planning",
     on: true,
     color: "oklch(0.65 0.18 60)",
   },
   { name: "Flood risk", source: "NOAA + local", on: false, color: "oklch(0.55 0.18 30)" },
   { name: "Power grid proximity", source: "PHCN open data", on: true, color: "oklch(0.7 0.16 90)" },
   { name: "Road network", source: "OpenStreetMap", on: true, color: "oklch(0.4 0.02 250)" },
-  { name: "Schools (1km)", source: "Lagos MoE", on: false, color: "oklch(0.6 0.16 200)" },
-  { name: "Hospitals (3km)", source: "Lagos MoH", on: false, color: "oklch(0.6 0.18 350)" },
+  {
+    name: "Schools (1km)",
+    source: "Karnataka Education Dept.",
+    on: false,
+    color: "oklch(0.6 0.16 200)",
+  },
+  {
+    name: "Hospitals (3km)",
+    source: "Bengaluru Health Dept.",
+    on: false,
+    color: "oklch(0.6 0.18 350)",
+  },
 ];
 
 function Page() {

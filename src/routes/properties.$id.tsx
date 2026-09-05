@@ -113,7 +113,7 @@ function PassportPage() {
             <h2 className="font-display mt-3 text-4xl">{p.title}</h2>
             <p className="text-sm text-muted-foreground">{p.address}</p>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <KV k="AI valuation" v={`$${p.valuation.toLocaleString()}`} tone="primary" />
+              <KV k="AI valuation" v={`₹${p.valuation.toLocaleString()}`} tone="primary" />
               <KV k="Area" v={`${p.area.toLocaleString()} m²`} />
               <KV k="Type" v={p.type} />
               <KV

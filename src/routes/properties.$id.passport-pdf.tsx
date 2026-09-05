@@ -192,7 +192,7 @@ function PassportPDF() {
                   {p.coords.lat.toFixed(4)}, {p.coords.lng.toFixed(4)}
                 </dd>
                 <dt className="text-[#0a1224]/60">AI valuation</dt>{" "}
-                <dd>${p.valuation.toLocaleString()} USD</dd>
+                <dd>₹{p.valuation.toLocaleString()}</dd>
               </dl>
             </section>
 

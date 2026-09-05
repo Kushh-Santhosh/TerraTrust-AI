@@ -149,7 +149,7 @@ export function answer(q: string): AssistantResponse {
     suggestions: [
       `What's the trust score on ${properties[0].title}?`,
       "What documents am I missing?",
-      "Estimate the value of my Abuja plot",
+      "Estimate the value of my Bengaluru residence",
       "Any fraud signals on my portfolio?",
     ],
   };

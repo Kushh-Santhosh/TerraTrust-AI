@@ -29,9 +29,9 @@ const filters = [
   "Agricultural",
   "Verified",
   "Disputed",
-  "Lagos",
-  "Abuja",
-  "Kaduna",
+  "Bengaluru",
+  "Mysuru",
+  "Gurugram",
 ];
 
 type SearchMode = "auto" | "passport" | "gps" | "owner" | "survey" | "address";
@@ -103,7 +103,7 @@ function SearchPage() {
   return (
     <AppShell
       title="Smart search"
-      subtitle="2.4M registered parcels — searchable by passport ID, GPS, owner, survey number, or address."
+      subtitle="24.1k demo parcels — searchable by passport ID, GPS, owner, survey number, or address."
     >
       <div className="surface-card p-5">
         <div className="flex gap-2">
@@ -113,7 +113,7 @@ function SearchPage() {
               value={q}
               onChange={(e) => setQ(e.target.value)}
               className="h-12 pl-10 pr-32 text-base"
-              placeholder="Try TT-8421-LG · 6.4413, 3.4709 · Amara Okonkwo · LG/SUR/2023/8421"
+              placeholder="Try TT-8421-BN · 12.9567, 77.6200 · Ananya Sharma · KA/SUR/2023/8421"
             />
             <span className="absolute right-3 top-1/2 inline-flex -translate-y-1/2 items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-[11px] text-primary ring-1 ring-primary/20">
               <ModeIcon className="h-3 w-3" /> {modeMeta.label}

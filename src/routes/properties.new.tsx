@@ -19,8 +19,8 @@ function Page() {
   const [s, setS] = useState(0);
   const [title, setTitle] = useState("");
   const [area, setArea] = useState("540");
-  const [region, setRegion] = useState("Lagos");
-  const [address, setAddress] = useState("12 Admiralty Way, Lekki Phase 1");
+  const [region, setRegion] = useState("Karnataka");
+  const [address, setAddress] = useState("12, 4th Cross, Ramamurthy Nagar, Bengaluru");
   const [saving, setSaving] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -41,7 +41,7 @@ function Page() {
       owner_id: user.id,
       property_name: title.trim(),
       passport_id: `TT-${Date.now().toString(36).toUpperCase()}`,
-      location: { region: region.trim(), address: address.trim(), country: "Nigeria" },
+      location: { region: region.trim(), address: address.trim(), country: "India" },
       area: Number(area),
       status: "pending",
       trust_score: 0,
@@ -65,7 +65,7 @@ function Page() {
                 <Input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. Lekki Phase 1 Residence"
+                  placeholder="e.g. Ramamurthy Nagar Residence"
                 />
               </Field>
               <Field label="Property type">
@@ -74,8 +74,8 @@ function Page() {
               <Field label="Area (sqm)">
                 <Input value={area} onChange={(e) => setArea(e.target.value)} />
               </Field>
-              <Field label="Estimated value (USD)">
-                <Input defaultValue="280000" />
+              <Field label="Estimated value (INR)">
+                <Input defaultValue="2800000" />
               </Field>
             </div>
             <Field label="Description">
@@ -86,7 +86,7 @@ function Page() {
         {s === 1 && (
           <div className="grid gap-3 md:grid-cols-2">
             <Field label="Country">
-              <Input defaultValue="Nigeria" />
+              <Input defaultValue="India" />
             </Field>
             <Field label="Region/State">
               <Input value={region} onChange={(e) => setRegion(e.target.value)} />
@@ -95,7 +95,7 @@ function Page() {
               <Input value={address} onChange={(e) => setAddress(e.target.value)} />
             </Field>
             <Field label="GPS coordinates">
-              <Input defaultValue="6.4413, 3.4709" />
+              <Input defaultValue="12.9567, 77.6200" />
             </Field>
           </div>
         )}

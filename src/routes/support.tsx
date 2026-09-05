@@ -36,7 +36,7 @@ const rows = [
   },
   {
     id: "TKT-8791",
-    subject: "Boundary on Kaduna farm differs from registry",
+    subject: "Boundary on Mysuru farm differs from registry",
     category: "GIS",
     at: "2024-09-15",
     status: "Awaiting you",

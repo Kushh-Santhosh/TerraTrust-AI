@@ -11,8 +11,8 @@ const pipeline = [
   {
     id: "MTG-7821",
     parcel: "TT-8421-LG",
-    borrower: "Amara Okonkwo",
-    amount: "$184,000",
+    borrower: "Ananya Sharma",
+    amount: "₹18,40,000",
     ltv: "65%",
     trust: 96,
     decision: "Approved",
@@ -20,8 +20,8 @@ const pipeline = [
   {
     id: "MTG-7815",
     parcel: "TT-7188-LG",
-    borrower: "B. Adetola",
-    amount: "$220,000",
+    borrower: "R. Natarajan",
+    amount: "₹22,00,000",
     ltv: "60%",
     trust: 92,
     decision: "Approved",
@@ -29,8 +29,8 @@ const pipeline = [
   {
     id: "MTG-7809",
     parcel: "TT-2210-KD",
-    borrower: "M. Yusuf",
-    amount: "$32,000",
+    borrower: "M. Iqbal",
+    amount: "₹3,20,000",
     ltv: "70%",
     trust: 71,
     decision: "Review",
@@ -38,8 +38,8 @@ const pipeline = [
   {
     id: "MTG-7795",
     parcel: "TT-5512-AB",
-    borrower: "S. Bello",
-    amount: "$420,000",
+    borrower: "S. Reddy",
+    amount: "₹42,00,000",
     ltv: "68%",
     trust: 42,
     decision: "Declined",
@@ -59,7 +59,7 @@ function Page() {
           { label: "Active applications", value: "184" },
           { label: "Avg. underwrite time", value: "1.8d", hint: "↓ 32% YoY" },
           { label: "Auto-approved rate", value: "62%" },
-          { label: "Portfolio value", value: "$28.4M" },
+          { label: "Portfolio value", value: "₹284 Cr" },
         ]}
       />
       <div className="mt-6 flex gap-2">

@@ -147,7 +147,7 @@ TerraTrust AI is building an **evidence-first property verification layer**.
 
 ## 5. User Personas
 
-### 5.1 Amara — Citizen (Lagos)
+### 5.1 Ananya — Citizen (Bengaluru, Karnataka)
 
 - **Goals:** Prove inherited land, get a mortgage.
 - **Pain:** Papers are 30 years old; bureau is unresponsive.
@@ -161,14 +161,14 @@ TerraTrust AI is building an **evidence-first property verification layer**.
 - **Workflow:** Accept assignment → field capture → upload polygon → sign report.
 - **Permissions:** Manage assignments, submit boundary reports, sign attestations.
 
-### 5.3 Ngozi — Government Land Officer
+### 5.3 Kavya — Government Land Officer
 
 - **Goals:** Clear backlog, prevent fraud on her watch.
 - **Pain:** Multiple legacy systems; no cross-check.
 - **Workflow:** Queue → review AI dossier → approve or return → issue passport.
 - **Permissions:** Approve/reject, issue passports, view audit, resolve disputes.
 
-### 5.4 Kwame — Bank Underwriter
+### 5.4 Rohan — Bank Underwriter
 
 - **Goals:** Confidently underwrite land-collateralised loans.
 - **Pain:** Cannot trust deeds; site visits are expensive.
@@ -182,14 +182,14 @@ TerraTrust AI is building an **evidence-first property verification layer**.
 - **Workflow:** Manage users, roles, regions, API keys, feedback.
 - **Permissions:** Full admin surface incl. audit.
 
-### 5.6 Musa — Community Verifier
+### 5.6 Arjun — Community Verifier
 
 - **Goals:** Protect neighbourhood from land grabs.
 - **Pain:** No formal channel to speak.
 - **Workflow:** Receive attestation request → confirm or dispute → earn reputation.
 - **Permissions:** Attest within geo-radius; cannot approve.
 
-### 5.7 Aisha — Support Agent
+### 5.7 Neha — Support Agent
 
 - **Goals:** Resolve tickets fast with context.
 - **Workflow:** Triage tickets → escalate → close with resolution notes.
@@ -956,20 +956,20 @@ _© 2026 TerraTrust AI. Built for a world where every parcel has a passport._
 6. **Premium citizen features** — priority verification, notarised export packs.
 7. **Data insights** — anonymised, aggregated market analytics for policy & research.
 
-### A1.2 Pricing (indicative USD)
+### A1.2 Pricing (illustrative INR, not live pricing)
 
 | Tier                   | Audience              | Price                    | Includes                                       |
 | ---------------------- | --------------------- | ------------------------ | ---------------------------------------------- |
-| **Gov · Municipality** | Single city bureau    | $6k / month              | 20 seats, unlimited parcels, audit, SLA 99.9%  |
-| **Gov · State**        | State-level authority | $28k / month             | 200 seats, GIS, dispute engine, dedicated CSM  |
-| **Gov · National**     | Federal registry      | Custom (from $250k / yr) | Unlimited, on-prem option, custom integrations |
-| **Bank · Starter**     | Micro-lenders         | $0.80 / pull             | Confidence + valuation, 100 free pulls/mo      |
-| **Bank · Growth**      | Mid-market lenders    | $0.40 / pull, $2k min    | Portfolio dashboard, webhooks                  |
+| **Gov · Municipality** | Single city bureau    | ₹5 L / month             | 20 seats, audit, and review workflow           |
+| **Gov · State**         | State-level authority | ₹24 L / month            | 200 seats, GIS, dispute workflow               |
+| **Gov · National**      | Future registry use   | Illustrative / custom    | Future integration and deployment planning     |
+| **Bank · Starter**      | Micro-lenders         | ₹65 / pull              | Confidence + valuation, 100 free pulls/mo      |
+| **Bank · Growth**       | Mid-market lenders    | ₹35 / pull, ₹1.5 L min  | Portfolio dashboard, webhooks                  |
 | **Bank · Enterprise**  | Tier-1 banks          | Volume tiered            | Dedicated infra, SLA, co-branded UX            |
-| **Enterprise API**     | Insurers / notaries   | From $1.5k / mo          | 5k pulls, sandbox, SDKs                        |
+| **Enterprise API**     | Insurers / notaries   | From ₹1.25 L / mo       | Sandbox and SDKs                               |
 | **White-label**        | Sovereign deploy      | Custom                   | Rebrand, on-prem, source escrow                |
-| **Citizen Free**       | Individuals           | $0                       | 1 property, standard verification              |
-| **Citizen Premium**    | Individuals           | $4.99 / mo               | Priority queue, notarised PDF packs            |
+| **Citizen Free**       | Individuals           | ₹0                       | 1 property, standard verification              |
+| **Citizen Premium**    | Individuals           | ₹399 / mo                | Priority queue, notarised PDF packs            |
 
 ### A1.3 API Licensing
 
@@ -987,9 +987,9 @@ Full theming, custom domain, sovereign data residency, source escrow, quarterly 
 
 | Layer          | Definition                                                                | Size              |
 | -------------- | ------------------------------------------------------------------------- | ----------------- |
-| **TAM**        | Global land registry, title verification & related fintech                | **~$78B / year**  |
-| **SAM**        | Emerging markets (Africa, LATAM, SEA) government + bank land verification | **~$14B / year**  |
-| **SOM (5-yr)** | Realistic capture in 3 pilot countries + regional banks                   | **~$420M / year** |
+| **TAM**        | India-focused property verification and related fintech                    | Illustrative only |
+| **SAM**        | Indian state, community, and lending workflows                             | Illustrative only |
+| **SOM (5-yr)** | Future adoption scenario, not a production forecast                         | Not estimated     |
 
 ### A2.2 Competitor Comparison
 
@@ -1029,11 +1029,11 @@ TerraTrust AI is designed as a **horizontal (citizen ↔ surveyor ↔ reviewer �
 | ------------------------ | :--------------: | :---------------------------------: | ---------------------------------------------------------------------------------- |
 | **Innovation**           |       20%        |            **9.5 / 10**             | First horizontal explainable-AI land trust layer + community attestation primitive |
 | **Technical Complexity** |       15%        |             **9 / 10**              | 5 deterministic engines, TanStack Start edge SSR, RLS, HMAC webhooks, PDF signing  |
-| **Scalability**          |       15%        |             **9 / 10**              | Edge-first, RLS partitioning, stateless engines, 10M-parcel target                 |
+| **Scalability**          |       15%        |             **Prototype review**     | Edge-first, RLS partitioning, and stateless engines                                |
 | **Social Impact**        |       20%        |             **Prototype evidence**  | Human-review workflow supports safer property decisions; field impact not yet measured |
 | **Feasibility**          |       10%        |             **9 / 10**              | Runs today; mock engines swap to real models via same contract                     |
 | **UI / UX**              |       10%        |            **Prototype review**      | Focused role workspaces, guided demo mode, and explicit fallback states             |
-| **Business Potential**   |       10%        |             **9 / 10**              | 7 revenue streams; $420M SOM in 5 yrs                                              |
+| **Business Potential**   |       10%        |             **Prototype review**     | Future pricing and integration options are illustrative                             |
 | **Total weighted**       |     **100%**     |           **≈ 9.4 / 10**            | —                                                                                  |
 
 ---
@@ -1095,7 +1095,7 @@ Every AI output in TerraTrust AI is **reason-traced** — no black boxes.
 
 **Scene 1 — 0:00–0:20 · Landing** — Open `/`, show hero + impact strip. "Every parcel deserves a passport."
 
-**Scene 2 — 0:20–0:40 · Register** — `/login` (prefilled) → `/dashboard` → `/properties/new`. Register a parcel in Lagos.
+**Scene 2 — 0:20–0:40 · Register** — `/login` (prefilled) → `/dashboard` → `/properties/new`. Register a parcel in Bengaluru.
 
 **Scene 3 — 0:40–1:00 · Upload & OCR** — Upload deed → `/ai-ocr` extracts plot no, grantor, grantee.
 

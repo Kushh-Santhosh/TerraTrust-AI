@@ -10,10 +10,10 @@ export const Route = createFileRoute("/billing")({
 });
 
 const invoices = [
-  { id: "INV-44211", date: "2024-09-01", plan: "Trust Pro", amount: "$29.00", status: "Paid" },
-  { id: "INV-44012", date: "2024-08-01", plan: "Trust Pro", amount: "$29.00", status: "Paid" },
-  { id: "INV-43818", date: "2024-07-01", plan: "Trust Pro", amount: "$29.00", status: "Paid" },
-  { id: "INV-43622", date: "2024-06-01", plan: "Trust Pro", amount: "$29.00", status: "Paid" },
+  { id: "INV-44211", date: "2024-09-01", plan: "Trust Pro", amount: "₹2,499", status: "Paid" },
+  { id: "INV-44012", date: "2024-08-01", plan: "Trust Pro", amount: "₹2,499", status: "Paid" },
+  { id: "INV-43818", date: "2024-07-01", plan: "Trust Pro", amount: "₹2,499", status: "Paid" },
+  { id: "INV-43622", date: "2024-06-01", plan: "Trust Pro", amount: "₹2,499", status: "Paid" },
 ];
 
 function Page() {
@@ -22,7 +22,7 @@ function Page() {
       <KpiRow
         items={[
           { label: "Plan", value: "Trust Pro" },
-          { label: "Next invoice", value: "$29.00", hint: "on Oct 1, 2024" },
+          { label: "Next invoice", value: "₹2,499", hint: "on Oct 1, 2024" },
           { label: "Properties", value: "4 / 25" },
           { label: "AI credits", value: "2,180 / 5,000" },
         ]}

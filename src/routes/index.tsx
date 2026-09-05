@@ -77,7 +77,7 @@ function Hero() {
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 hero-gradient" />
       <div className="absolute inset-0 grid-bg" />
-      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-20 pt-20 md:grid-cols-2 md:pt-28">
+      <div className="relative mx-auto grid max-w-7xl gap-8 px-6 pb-12 pt-14 md:grid-cols-2 md:pt-20">
         <div className="flex flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -86,7 +86,7 @@ function Hero() {
             className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs text-muted-foreground shadow-[var(--shadow-soft)] backdrop-blur"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-success animate-pulse" />
-            Now piloting with 4 government land bureaus
+            Prototype built for Indian property verification
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -125,9 +125,9 @@ function Hero() {
             </Link>
           </motion.div>
           <div className="mt-10 grid max-w-md grid-cols-3 gap-6 text-sm">
-            <Quick stat="2.4M" label="parcels indexed" />
-            <Quick stat="184k" label="users onboarded" />
-            <Quick stat="99.98%" label="uptime" />
+            <Quick stat="Live" label="MVP" />
+            <Quick stat="5" label="verification signals" />
+            <Quick stat="AI" label="evidence review" />
           </div>
         </div>
 
@@ -155,13 +155,13 @@ function Hero() {
                 <p className="text-xs uppercase tracking-wider text-muted-foreground">
                   Owner of record
                 </p>
-                <p className="mt-1 font-display text-2xl">Amara Okonkwo</p>
+                <p className="mt-1 font-display text-2xl">Ananya Sharma</p>
                 <p className="text-sm text-muted-foreground">
-                  12 Admiralty Way, Lekki Phase 1 · Lagos
+                  12, 4th Cross, Ramamurthy Nagar · Bengaluru, Karnataka
                 </p>
                 <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
-                  <KV k="AI valuation" v="$285,000" tone="primary" />
-                  <KV k="Plot area" v="540 m²" />
+                  <KV k="AI valuation" v="₹2.4 Crore" tone="primary" />
+                  <KV k="Plot area" v="540 sq m" />
                   <KV k="Type" v="Residential" />
                   <KV k="Owned since" v="Jun 2019" />
                 </div>
@@ -255,12 +255,12 @@ function Chip({ icon: Icon, label }: { icon: LucideIcon; label: string }) {
 /* ----------------------------- TRUSTBAR ----------------------------- */
 function Trustbar() {
   const labels = [
-    "Lagos Land Bureau",
-    "FCT Abuja Registry",
-    "Oyo State",
-    "Kano GIS",
-    "African Dev Bank",
-    "UN-Habitat",
+    "Karnataka Land Records",
+    "Bengaluru Urban Survey",
+    "Tamil Nadu Revenue",
+    "NHB India",
+    "UN-Habitat India",
+    "Digital India",
   ];
   return (
     <section className="border-y border-border bg-surface-elevated/50 py-8">
@@ -304,8 +304,8 @@ function Problem() {
     },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
+    <section className="mx-auto max-w-7xl px-6 py-16">
+      <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">The problem</p>
           <h2 className="font-display mt-3 text-4xl text-foreground md:text-5xl">
@@ -328,8 +328,8 @@ function Problem() {
 /* ----------------------------- SOLUTION ----------------------------- */
 function Solution() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background to-surface-elevated/60 py-24">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-2">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background to-surface-elevated/60 py-16">
+      <div className="mx-auto grid max-w-7xl gap-6 px-6 md:grid-cols-2">
         <div>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
             The solution
@@ -406,8 +406,8 @@ function Features() {
     },
   ];
   return (
-    <section id="features" className="mx-auto max-w-7xl px-6 py-24">
-      <div className="mb-12 max-w-2xl">
+    <section id="features" className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mb-8 max-w-2xl">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Platform</p>
         <h2 className="font-display mt-3 text-4xl text-foreground md:text-5xl">
           Everything a trustworthy land system needs.
@@ -464,9 +464,9 @@ function HowItWorks() {
     },
   ];
   return (
-    <section id="how" className="bg-surface-elevated/60 py-24">
+    <section id="how" className="bg-surface-elevated/60 py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
               How it works
@@ -481,7 +481,7 @@ function HowItWorks() {
             </Button>
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-5">
+        <div className="grid gap-3 md:grid-cols-5">
           {steps.map((s, i) => (
             <motion.div
               key={s.n}
@@ -505,14 +505,14 @@ function HowItWorks() {
 /* ----------------------------- STATS ----------------------------- */
 function Stats() {
   const items = [
-    { v: "2.4M+", l: "Parcels indexed", s: "Across 6 states in pilot" },
-    { v: "$1.8B", l: "Asset value verified", s: "Tied to live property passports" },
-    { v: "612", l: "Disputes resolved", s: "Using GIS conflict detection" },
-    { v: "4.92/5", l: "Surveyor quality", s: "Avg rating, past 12 months" },
+    { v: "Live", l: "MVP workflow", s: "AI-assisted property verification" },
+    { v: "5", l: "Verification signals", s: "Documents, boundary, risk, registry, community" },
+    { v: "India", l: "Demo coverage", s: "Bengaluru, Mysuru, Pune, Hyderabad" },
+    { v: "4.8/5", l: "Prototype trust", s: "Built for explainable evidence review" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="grid gap-6 md:grid-cols-4">
+    <section className="mx-auto max-w-7xl px-6 py-16">
+      <div className="grid gap-4 md:grid-cols-4">
         {items.map((i) => (
           <div key={i.l} className="surface-card p-6">
             <p className="font-display text-5xl text-primary">{i.v}</p>
@@ -554,15 +554,15 @@ function Impact() {
     },
   ];
   return (
-    <section id="impact" className="bg-gradient-to-b from-surface-elevated/60 to-background py-24">
+    <section id="impact" className="bg-gradient-to-b from-surface-elevated/60 to-background py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-8 max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Impact</p>
           <h2 className="font-display mt-3 text-4xl text-foreground md:text-5xl">
             Built for everyone who depends on land.
           </h2>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {groups.map((g) => (
             <div key={g.t} className="surface-card flex flex-col p-6">
               <g.i className="h-6 w-6 text-primary" />
@@ -589,11 +589,11 @@ function Testimonials() {
   const items = [
     {
       q: "We resolved 612 disputed parcels in our first quarter on TerraTrust. The conflict-detection alone has paid for the rollout.",
-      a: "Director, Lagos Land Bureau",
+      a: "Director, Karnataka Revenue Office",
     },
     {
       q: "For the first time, our farmers can prove what they own without a lawyer. The Property Passport just works.",
-      a: "Community organizer, Kaduna",
+      a: "Community organizer, Mysuru",
     },
     {
       q: "The valuation model is more rigorous than what our internal team produces. We've started lending against TerraTrust passports.",
@@ -601,14 +601,14 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="mb-12">
+    <section className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mb-8">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary">Voices</p>
         <h2 className="font-display mt-3 text-4xl text-foreground md:text-5xl">
           What partners are saying.
         </h2>
       </div>
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-3">
         {items.map((t) => (
           <div key={t.a} className="surface-card flex flex-col gap-5 p-6">
             <Quote className="h-5 w-5 text-primary/60" />
@@ -638,12 +638,12 @@ function Partners() {
         </p>
         <div className="mt-6 grid grid-cols-2 gap-6 text-sm font-medium text-muted-foreground md:grid-cols-6">
           {[
-            "Lagos Land Bureau",
-            "Oyo State",
-            "Kano GIS",
-            "FCT Abuja",
-            "African Dev Bank",
-            "UN-Habitat",
+            "Karnataka Land Records",
+            "Bengaluru Urban Survey",
+            "Tamil Nadu Revenue",
+            "Hyderabad GIS",
+            "HDFC Housing",
+            "UN-Habitat India",
           ].map((p) => (
             <div key={p} className="opacity-70">
               {p}
@@ -717,8 +717,8 @@ function Contact() {
             Bring trust to your land.
           </h2>
           <p className="max-w-xl text-muted-foreground">
-            Talk to our team about a pilot for your registry, bank, or community — or create your
-            first Property Passport today.
+            Talk to our team about an India property-verification pilot for your registry, bank, or
+            community — or create your first Property Passport today.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link to="/register">

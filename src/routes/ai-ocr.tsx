@@ -69,10 +69,10 @@ function OCRPage() {
               </Pill>
             </div>
             <p className="text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-              Lagos State Land Bureau
+              Karnataka Revenue Office
             </p>
             <p className="mt-1 text-center font-display text-2xl">Certificate of Occupancy</p>
-            <p className="mt-1 text-center text-xs text-muted-foreground">Ref. LSLB-2024-00831</p>
+            <p className="mt-1 text-center text-xs text-muted-foreground">Ref. KAR-2024-00831</p>
             <div className="mt-6 space-y-3 text-sm">
               {ocrFields.map((f, i) => (
                 <div

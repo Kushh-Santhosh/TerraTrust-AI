@@ -4,17 +4,17 @@ export const properties: Property[] = [
   {
     id: "p_001",
     passportId: "TT-8421-LG",
-    title: "Lekki Phase 1 Residence",
+    title: "Ramamurthy Nagar Residence",
     type: "residential",
     status: "verified",
     trustScore: 96,
     area: 540,
-    address: "12 Admiralty Way, Lekki Phase 1",
-    region: "Lagos",
-    country: "Nigeria",
-    owner: "Amara Okonkwo",
+    address: "12, 4th Cross, Ramamurthy Nagar, Bengaluru",
+    region: "Bengaluru",
+    country: "India",
+    owner: "Ananya Sharma",
     ownerSince: "2019-06-14",
-    valuation: 285000,
+    valuation: 24000000,
     aiConfidence: 92,
     coords: { lat: 6.4413, lng: 3.4709 },
     boundary: [
@@ -49,7 +49,7 @@ export const properties: Property[] = [
     timeline: [
       {
         id: "t1",
-        actor: "Lagos Land Bureau",
+        actor: "Bengaluru Revenue Office",
         role: "officer",
         action: "Ownership confirmed on registry",
         at: "2024-03-20",
@@ -81,17 +81,17 @@ export const properties: Property[] = [
   {
     id: "p_002",
     passportId: "TT-2210-KD",
-    title: "Kaduna Farmland Parcel",
+    title: "Mysuru Farm Parcel",
     type: "agricultural",
     status: "pending",
     trustScore: 71,
     area: 12400,
-    address: "Plot 14, Birnin Gwari Road",
-    region: "Kaduna",
-    country: "Nigeria",
-    owner: "Amara Okonkwo",
+    address: "Plot 14, Hunsur Road, Mysuru",
+    region: "Mysuru",
+    country: "India",
+    owner: "Ravi Kumar",
     ownerSince: "2022-01-09",
-    valuation: 48500,
+    valuation: 4850000,
     aiConfidence: 78,
     coords: { lat: 10.5105, lng: 7.4165 },
     boundary: [],
@@ -107,7 +107,7 @@ export const properties: Property[] = [
     timeline: [
       {
         id: "t5",
-        actor: "Amara Okonkwo",
+        actor: "Ravi Kumar",
         role: "citizen",
         action: "Property submitted for verification",
         at: "2024-09-10",
@@ -125,17 +125,17 @@ export const properties: Property[] = [
   {
     id: "p_003",
     passportId: "TT-5512-AB",
-    title: "Abuja Commercial Plot",
+    title: "Gurugram Commercial Plot",
     type: "commercial",
     status: "disputed",
     trustScore: 42,
     area: 1800,
-    address: "Plot 88, Wuse II",
-    region: "FCT Abuja",
-    country: "Nigeria",
-    owner: "Amara Okonkwo",
+    address: "Plot 88, Sector 29, Gurugram",
+    region: "Gurugram",
+    country: "India",
+    owner: "Priya Reddy",
     ownerSince: "2021-05-22",
-    valuation: 612000,
+    valuation: 61200000,
     aiConfidence: 65,
     coords: { lat: 9.0765, lng: 7.3986 },
     boundary: [],
@@ -158,7 +158,7 @@ export const properties: Property[] = [
     timeline: [
       {
         id: "t7",
-        actor: "FCT Land Registry",
+        actor: "Gurugram Land Registry",
         role: "officer",
         action: "Dispute flagged — overlapping claim detected",
         at: "2024-07-30",
@@ -176,17 +176,17 @@ export const properties: Property[] = [
   {
     id: "p_004",
     passportId: "TT-9930-OY",
-    title: "Ibadan Family Compound",
+    title: "Pune Family Compound",
     type: "residential",
     status: "verified",
     trustScore: 88,
     area: 880,
-    address: "23 Bodija Estate",
-    region: "Oyo",
-    country: "Nigeria",
-    owner: "Amara Okonkwo",
+    address: "23 Baner Road, Pune",
+    region: "Pune",
+    country: "India",
+    owner: "Meera Iyer",
     ownerSince: "2015-11-30",
-    valuation: 142000,
+    valuation: 14200000,
     aiConfidence: 90,
     coords: { lat: 7.4378, lng: 3.8966 },
     boundary: [],
@@ -202,7 +202,7 @@ export const properties: Property[] = [
     timeline: [
       {
         id: "t9",
-        actor: "Oyo State Bureau",
+        actor: "Pune Revenue Office",
         role: "officer",
         action: "Title confirmed",
         at: "2022-04-12",
@@ -216,7 +216,7 @@ export const notifications: NotificationItem[] = [
   {
     id: "n1",
     title: "Verification complete",
-    body: "Lekki Phase 1 Residence trust score updated to 96.",
+    body: "Koramangala Residence trust score updated to 96.",
     at: "2 hours ago",
     read: false,
     kind: "success",
@@ -224,7 +224,7 @@ export const notifications: NotificationItem[] = [
   {
     id: "n2",
     title: "New community attestation",
-    body: "Bodija Compound received 3 neighborhood attestations.",
+    body: "Baner Compound received 3 neighborhood attestations.",
     at: "Yesterday",
     read: false,
     kind: "info",
@@ -232,7 +232,7 @@ export const notifications: NotificationItem[] = [
   {
     id: "n3",
     title: "Action needed",
-    body: "Upload tax clearance for Kaduna Farmland to raise trust score.",
+    body: "Upload tax clearance for Mysuru Farm to raise trust score.",
     at: "2 days ago",
     read: true,
     kind: "warning",
@@ -240,7 +240,7 @@ export const notifications: NotificationItem[] = [
   {
     id: "n4",
     title: "Dispute filed",
-    body: "An overlapping claim was registered on Abuja Commercial Plot.",
+    body: "An overlapping claim was registered on Gurugram Commercial Plot.",
     at: "Last week",
     read: true,
     kind: "alert",
@@ -250,12 +250,12 @@ export const notifications: NotificationItem[] = [
 export const citizenKpis: KPI[] = [
   { label: "Properties", value: "4", delta: "+1", trend: "up", hint: "in your portfolio" },
   { label: "Avg. trust score", value: "74", delta: "+6", trend: "up", hint: "rolling 30 days" },
-  { label: "Portfolio value", value: "$1.08M", delta: "+4.2%", trend: "up", hint: "AI estimate" },
+  { label: "Portfolio value", value: "₹1.08 Cr", delta: "+4.2%", trend: "up", hint: "AI estimate" },
   { label: "Open actions", value: "3", delta: "-1", trend: "down", hint: "verification tasks" },
 ];
 
 export const govKpis: KPI[] = [
-  { label: "Registered parcels", value: "2.4M", delta: "+18k", trend: "up" },
+  { label: "Registered parcels", value: "24.1k", delta: "+180", trend: "up" },
   { label: "Verifications / day", value: "9,184", delta: "+12%", trend: "up" },
   { label: "Disputes resolved", value: "612", delta: "+44", trend: "up" },
   { label: "Fraud flags", value: "27", delta: "-9", trend: "down" },
@@ -269,10 +269,10 @@ export const surveyorKpis: KPI[] = [
 ];
 
 export const adminKpis: KPI[] = [
-  { label: "Active users", value: "184,221", delta: "+3.1%", trend: "up" },
-  { label: "Properties indexed", value: "2.41M", delta: "+0.7%", trend: "up" },
-  { label: "AI requests / day", value: "1.2M", delta: "+8%", trend: "up" },
-  { label: "Uptime", value: "99.98%", trend: "flat" },
+  { label: "Active users", value: "1,842", delta: "+3.1%", trend: "up" },
+  { label: "Properties indexed", value: "24.1k", delta: "+0.7%", trend: "up" },
+  { label: "AI requests / day", value: "1.2k", delta: "+8%", trend: "up" },
+  { label: "Uptime", value: "99.5%", trend: "flat" },
 ];
 
 export const verificationsOverTime = [
@@ -303,10 +303,10 @@ export const trustDistribution = [
 ];
 
 export const regions = [
-  { name: "Lagos", verified: 412000, pending: 38000 },
-  { name: "Abuja FCT", verified: 184000, pending: 22000 },
-  { name: "Kano", verified: 268000, pending: 41000 },
-  { name: "Oyo", verified: 198000, pending: 27000 },
-  { name: "Kaduna", verified: 142000, pending: 35000 },
-  { name: "Rivers", verified: 156000, pending: 24000 },
+  { name: "Bengaluru", verified: 412000, pending: 38000 },
+  { name: "Gurugram", verified: 184000, pending: 22000 },
+  { name: "Mysuru", verified: 268000, pending: 41000 },
+  { name: "Pune", verified: 198000, pending: 27000 },
+  { name: "Karnataka", verified: 142000, pending: 35000 },
+  { name: "Hyderabad", verified: 156000, pending: 24000 },
 ];

@@ -19,22 +19,22 @@ const seed: Msg[] = [
   {
     role: "assistant",
     reply: {
-      text: `Hi Amara — I'm **Terra**, your property assistant. I'm grounded in the same engines as your passport: confidence, fraud, valuation, intel. Try a question, or pick a property below.`,
+      text: `Hi Ananya — I'm **Terra**, your property assistant. I'm grounded in the same engines as your passport: confidence, fraud, valuation, intel. Try a question, or pick a property below.`,
       suggestions: [
-        "What's the trust score on my Lekki property?",
+        "What's the trust score on my Ramamurthy Nagar property?",
         "Any fraud signals on my portfolio?",
-        "What documents am I missing for Kaduna farmland?",
-        "Estimate the value of my Abuja plot",
+        "What documents am I missing for Mysuru farm parcel?",
+        "Estimate the value of my Bengaluru residence",
       ],
     },
   },
 ];
 
 const examplePrompts = [
-  "Why is my Kaduna farmland confidence below 80?",
-  "Walk me through the next step for the Abuja plot",
-  "Any encumbrances on Lekki Phase 1?",
-  "How was the AI valuation calculated for Bodija?",
+  "Why is my Mysuru farm confidence below 80?",
+  "Walk me through the next step for the Gurugram plot",
+  "Any encumbrances on Ramamurthy Nagar?",
+  "How was the AI valuation calculated for Pune Compound?",
 ];
 
 function AssistantPage() {

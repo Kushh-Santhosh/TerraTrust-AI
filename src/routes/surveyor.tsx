@@ -53,9 +53,9 @@ function SurveyorPage() {
           <p className="font-medium">Boundary captures awaiting review</p>
           <ul className="mt-4 space-y-3">
             {[
-              "Kaduna Farmland — 14 boundary points",
-              "Ibadan Compound — 8 boundary points",
-              "Wuse II Commercial — 12 boundary points",
+              "Mysuru Farm Parcel — 14 boundary points",
+              "Pune Family Compound — 8 boundary points",
+              "Gurugram Commercial Plot — 12 boundary points",
             ].map((x) => (
               <li
                 key={x}

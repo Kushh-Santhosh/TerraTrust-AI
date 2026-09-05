@@ -77,7 +77,7 @@ function Page() {
           </p>
           <p className="font-display text-2xl">Portfolio statement</p>
           <p className="text-sm text-muted-foreground">
-            4 properties · $1.08M total estimated value · 3 verified, 1 pending
+            4 properties · ₹1.08 Cr total estimated value · 3 verified, 1 pending
           </p>
           <p className="text-xs text-muted-foreground">Estimated generation: ~12 seconds</p>
           <Link to="/reports/$id" params={{ id: "R-2242" }} className="mt-2">

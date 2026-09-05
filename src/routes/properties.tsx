@@ -91,7 +91,7 @@ function PropertiesPage() {
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
                       AI valuation
                     </p>
-                    <p className="font-display text-xl">${(p.valuation / 1000).toFixed(0)}k</p>
+                    <p className="font-display text-xl">₹{(p.valuation / 100000).toFixed(1)} L</p>
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] uppercase tracking-wider text-muted-foreground">
@@ -141,7 +141,7 @@ function PropertiesPage() {
                   </td>
                   <td className="px-4 py-3">{p.trustScore}</td>
                   <td className="px-4 py-3 text-right font-medium">
-                    ${(p.valuation / 1000).toFixed(0)}k
+                    ₹{(p.valuation / 100000).toFixed(1)} L
                   </td>
                 </tr>
               ))}

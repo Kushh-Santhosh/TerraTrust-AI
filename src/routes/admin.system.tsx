@@ -13,7 +13,7 @@ const services = [
   {
     name: "Postgres (primary)",
     status: "Healthy",
-    uptime: "99.98%",
+    uptime: "99.5%",
     latency: "1.2ms",
     icon: Database,
   },
@@ -28,7 +28,7 @@ function Page() {
     <AppShell title="System health" subtitle="Live status across every backend service.">
       <KpiRow
         items={[
-          { label: "Overall uptime", value: "99.98%" },
+          { label: "Overall uptime", value: "99.5%" },
           { label: "Active incidents", value: "1" },
           { label: "AI requests/sec", value: "284" },
           { label: "Background jobs", value: "12,884" },

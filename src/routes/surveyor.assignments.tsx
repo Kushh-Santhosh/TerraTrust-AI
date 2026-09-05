@@ -11,7 +11,7 @@ const rows = [
   {
     id: "S-2241",
     parcel: "TT-7188-LG",
-    region: "Lagos",
+    region: "Bengaluru",
     due: "2024-10-02",
     priority: "High",
     status: "In progress",
@@ -19,7 +19,7 @@ const rows = [
   {
     id: "S-2240",
     parcel: "TT-9930-OY",
-    region: "Oyo",
+    region: "Pune",
     due: "2024-10-05",
     priority: "Medium",
     status: "Scheduled",
@@ -27,7 +27,7 @@ const rows = [
   {
     id: "S-2238",
     parcel: "TT-2210-KD",
-    region: "Kaduna",
+    region: "Mysuru",
     due: "2024-10-09",
     priority: "Low",
     status: "Scheduled",
@@ -35,7 +35,7 @@ const rows = [
   {
     id: "S-2236",
     parcel: "TT-8421-LG",
-    region: "Lagos",
+    region: "Bengaluru",
     due: "2024-09-28",
     priority: "High",
     status: "Awaiting review",
@@ -43,7 +43,7 @@ const rows = [
   {
     id: "S-2230",
     parcel: "TT-5512-AB",
-    region: "FCT",
+    region: "Gurugram",
     due: "2024-09-22",
     priority: "High",
     status: "Completed",

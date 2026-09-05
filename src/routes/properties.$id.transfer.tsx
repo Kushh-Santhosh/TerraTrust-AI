@@ -35,7 +35,7 @@ function Page() {
         <Field label="Transfer type">
           <Input defaultValue="Sale" />
         </Field>
-        <Field label="Agreed price (USD)">
+        <Field label="Agreed price (INR)">
           <Input defaultValue="285000" />
         </Field>
         <div className="md:col-span-2">

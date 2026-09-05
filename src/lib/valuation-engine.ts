@@ -78,7 +78,7 @@ export function getValuationReport(p: Property): ValuationReport {
       reasoning:
         p.status === "disputed"
           ? "Active dispute compresses bid pool ~22%."
-          : "Minor FX exposure on USD-pegged buyers.",
+          : "Minor currency exposure among cross-border buyers.",
     },
     {
       label: "Market trend (12m)",

@@ -35,7 +35,7 @@ function Page() {
           { label: "Area to survey", value: "1,240 sqm" },
           { label: "GPS accuracy", value: "±0.6m" },
           { label: "Visits required", value: "1" },
-          { label: "Fee", value: "$140" },
+          { label: "Fee", value: "₹12,000" },
         ]}
       />
       <div className="mt-6 grid gap-4 lg:grid-cols-3">

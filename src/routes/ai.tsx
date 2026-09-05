@@ -47,7 +47,7 @@ const modules = [
     icon: Sparkles,
     title: "AI Valuation Engine",
     desc: "Defensible land values with comp & macro signals.",
-    stat: "₦312M",
+    stat: "₹3.12 Cr",
     tag: "+8.4% YoY",
   },
   {
@@ -161,7 +161,7 @@ function AIOverview() {
         <AIInsightCard
           icon={<Sparkles className="h-3 w-3 text-primary" />}
           title="Portfolio AV"
-          value="₦1.84B"
+          value="₹1.84 Cr"
           delta={{ value: 6, label: "QoQ" }}
           hint="AI-modeled valuation"
           tone="accent"

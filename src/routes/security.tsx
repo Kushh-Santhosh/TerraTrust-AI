@@ -10,9 +10,9 @@ export const Route = createFileRoute("/security")({
 });
 
 const sessions = [
-  { device: "MacBook Pro · Lagos", browser: "Chrome 127", at: "Active now", current: true },
-  { device: "iPhone 15 · Lagos", browser: "Safari Mobile", at: "2 hours ago" },
-  { device: "Windows 11 · Abuja", browser: "Edge 126", at: "Yesterday" },
+  { device: "MacBook Pro · Bengaluru", browser: "Chrome 127", at: "Active now", current: true },
+  { device: "iPhone 15 · Bengaluru", browser: "Safari Mobile", at: "2 hours ago" },
+  { device: "Windows 11 · Hyderabad", browser: "Edge 126", at: "Yesterday" },
 ];
 
 function Page() {

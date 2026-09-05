@@ -33,7 +33,7 @@ const plans = [
   },
   {
     name: "Trust Pro",
-    price: "$29/mo",
+    price: "₹2,999/mo",
     desc: "For owners with multiple properties.",
     popular: true,
     features: [
@@ -46,7 +46,7 @@ const plans = [
   },
   {
     name: "Surveyor",
-    price: "$59/mo",
+    price: "₹5,999/mo",
     desc: "For licensed field surveyors.",
     popular: false,
     features: [

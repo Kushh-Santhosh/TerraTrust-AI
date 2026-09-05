@@ -40,10 +40,10 @@ function Page() {
                 <Mail className="h-4 w-4 text-primary" /> hello@terratrust.ai
               </p>
               <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" /> +234 1 700 0044
+                <Phone className="h-4 w-4 text-primary" /> +91 80 4567 8900
               </p>
               <p className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" /> Lagos, Nairobi, Cape Town
+                <MapPin className="h-4 w-4 text-primary" /> Bengaluru, Hyderabad, Pune
               </p>
             </div>
           </div>

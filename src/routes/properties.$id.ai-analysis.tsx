@@ -9,7 +9,7 @@ export const Route = createFileRoute("/properties/$id/ai-analysis")({
 });
 
 const factors = [
-  { label: "Location score", value: 94, note: "Premium corridor — Lekki Phase 1" },
+  { label: "Location score", value: 94, note: "Premium corridor — Koramangala" },
   { label: "Document completeness", value: 100, note: "Deed, survey, tax, ID all on file" },
   { label: "Boundary integrity", value: 97, note: "GIS match within 0.4m of registry" },
   { label: "Ownership clarity", value: 99, note: "Single owner since 2019" },
@@ -35,7 +35,7 @@ function Page() {
         items={[
           { label: "Trust score", value: "96", hint: "+4 since last analysis" },
           { label: "AI confidence", value: "92%", hint: "high" },
-          { label: "AI valuation", value: "$285k", hint: "± $14k" },
+          { label: "AI valuation", value: "₹2.85 Cr", hint: "± ₹14 L" },
           { label: "Model", value: "Geo-LLM v2.1" },
         ]}
       />

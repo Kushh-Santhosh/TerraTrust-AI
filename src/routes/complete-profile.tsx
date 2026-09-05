@@ -42,31 +42,29 @@ function CompleteProfile() {
         <div className="grid grid-cols-2 gap-3">
           <div className="grid gap-2">
             <Label>Country</Label>
-            <Select defaultValue="ng">
+            <Select defaultValue="in">
               <SelectTrigger className="h-11">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="ng">Nigeria</SelectItem>
+                <SelectItem value="in">India</SelectItem>
                 <SelectItem value="ke">Kenya</SelectItem>
                 <SelectItem value="gh">Ghana</SelectItem>
-                <SelectItem value="za">South Africa</SelectItem>
-                <SelectItem value="in">India</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="grid gap-2">
             <Label>Region / State</Label>
-            <Input name="region" required className="h-11" defaultValue="Lagos" />
+            <Input name="region" required className="h-11" defaultValue="Karnataka" />
           </div>
         </div>
         <div className="grid gap-2">
           <Label>National ID number</Label>
-          <Input className="h-11" placeholder="NIN / Aadhaar / etc." />
+          <Input className="h-11" placeholder="Aadhaar / PAN / etc." />
         </div>
         <div className="grid gap-2">
           <Label>Phone</Label>
-          <Input className="h-11" placeholder="+234 ..." />
+          <Input className="h-11" placeholder="+91 ..." />
         </div>
         <div className="grid gap-2">
           <Label>Short bio (optional)</Label>

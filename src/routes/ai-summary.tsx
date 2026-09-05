@@ -15,10 +15,10 @@ export const Route = createFileRoute("/ai-summary")({
   component: SummaryPage,
 });
 
-const summary = `This is a Certificate of Occupancy issued by the Lagos State Land Bureau on 14 March 2024 in favour of Amara N. Okonkwo. It grants statutory right of occupancy over a 540.20 m² residential parcel at Block 14, Plot 7B, Admiralty Way, Lekki Phase 1, registered under bureau reference LSLB-2024-00831. The document carries a valid bureau stamp matching the Q1-2024 issuance template, an embedded coordinate of 6.4413°N, 3.4709°E, and a clean ownership chain traceable to a 2002 corporate acquisition by Adebayo Estates Ltd. There are no encumbrances, court annotations, or competing claims recorded against this title as of the scan date.`;
+const summary = `This is a Certificate of Occupancy issued by the Karnataka Revenue Office on 14 March 2024 in favour of Ananya N. Sharma. It grants statutory right of occupancy over a 540.20 m² residential parcel at Block 14, Plot 7B, 4th Cross, Ramamurthy Nagar, Bengaluru, registered under record reference KAR-2024-00831. The document carries a valid state stamp matching the Q1-2024 issuance template, an embedded coordinate of 12.9567°N, 77.6200°E, and a clean ownership chain traceable to a 2002 corporate acquisition by Bengaluru Property Trust. There are no encumbrances, court annotations, or competing claims recorded against this title as of the scan date.`;
 
 const obligations = [
-  "Annual ground rent payable to Lagos State by 31 March each year.",
+  "Annual property tax payable to Karnataka State by 31 March each year.",
   "Use restricted to residential dwellings — commercial conversion requires a Change of Use permit.",
   "Title is renewable after 99 years (expires 2123).",
   "Subject to government right of pre-emption on resale to non-citizens.",
@@ -88,7 +88,7 @@ function SummaryPage() {
               <Pill tone="primary">Residential</Pill>
               <Pill tone="success">Verified</Pill>
               <Pill>540 m²</Pill>
-              <Pill>Lekki Phase 1</Pill>
+              <Pill>Ramamurthy Nagar</Pill>
               <Pill>2024-03-14</Pill>
             </div>
           </div>

@@ -197,17 +197,17 @@ function Dashboard() {
           {[
             [
               "Upload tax clearance",
-              "Kaduna Farmland · raises trust by +12",
+              "Mysuru Farm · raises trust by +12",
               "/properties/p_002/documents",
             ],
             [
               "Confirm boundary walk",
-              "Lekki Phase 1 · surveyor visit Sat",
+              "Ramamurthy Nagar · surveyor visit Sat",
               "/properties/p_001/boundary",
             ],
             [
               "Respond to dispute",
-              "Abuja Commercial Plot · 3 days left",
+              "Gurugram Commercial Plot · 3 days left",
               "/properties/p_003/verify",
             ],
           ].map(([t, d, to]) => (

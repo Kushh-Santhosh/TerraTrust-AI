@@ -13,14 +13,14 @@ const events = [
     at: "2024-09-20",
     role: "officer",
     icon: Building2,
-    actor: "Lagos Land Bureau",
+    actor: "Bengaluru Revenue Office",
     text: "Annual registry sync confirmed ownership and boundary.",
   },
   {
     at: "2024-08-19",
     role: "citizen",
     icon: Sparkles,
-    actor: "Amara Okonkwo",
+    actor: "Ananya Sharma",
     text: "Uploaded Tax Clearance 2024.",
   },
   {
@@ -34,7 +34,7 @@ const events = [
     at: "2024-03-20",
     role: "officer",
     icon: ShieldCheck,
-    actor: "Lagos Land Bureau",
+    actor: "Bengaluru Revenue Office",
     text: "Ownership confirmed on registry — trust score raised to 96.",
   },
   {
@@ -49,13 +49,13 @@ const events = [
     role: "admin",
     icon: Sparkles,
     actor: "TerraTrust AI",
-    text: "Initial AI valuation generated — $268k.",
+    text: "Initial AI valuation generated — ₹2.68 Cr.",
   },
   {
     at: "2019-06-14",
     role: "citizen",
     icon: Sparkles,
-    actor: "Amara Okonkwo",
+    actor: "Ananya Sharma",
     text: "Property acquired and registered.",
   },
 ];

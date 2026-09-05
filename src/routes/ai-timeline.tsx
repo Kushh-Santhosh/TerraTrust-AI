@@ -33,7 +33,7 @@ function TimelinePage() {
         <div className="surface-card p-6">
           <SectionTitle
             eyebrow="Reconstructed chain"
-            title="Lekki Phase 1 Residence · TT-8421-LG"
+            title="Ramamurthy Nagar Residence · TT-8421-LG"
           />
           <ol className="relative space-y-8 pl-8">
             <div className="absolute left-3 top-2 h-[calc(100%-1rem)] w-px bg-gradient-to-b from-primary/40 via-primary/15 to-transparent" />
