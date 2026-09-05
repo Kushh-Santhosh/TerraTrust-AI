@@ -34,6 +34,11 @@ export function roleHome(role: Role): string {
             : "/dashboard";
 }
 
+export function authRedirectUrl(path: string): string {
+  if (typeof window !== "undefined") return `${window.location.origin}${path}`;
+  return `https://terratrust-ai.vercel.app${path}`;
+}
+
 interface AuthContextValue {
   session: Session | null;
   user: User | null;
@@ -48,6 +53,8 @@ interface AuthContextValue {
     role: Role;
     region: string;
   }) => Promise<{ needsEmailConfirmation: boolean; error: string | null }>;
+  requestPasswordReset: (email: string) => Promise<{ error: string | null }>;
+  updatePassword: (password: string) => Promise<{ error: string | null }>;
   saveProfile: (
     input: Partial<Pick<Profile, "full_name" | "role" | "region">>,
   ) => Promise<{ error: string | null }>;
@@ -145,7 +152,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullName, role, region } },
+        options: {
+          data: { full_name: fullName, role, region },
+          emailRedirectTo: authRedirectUrl("/login?confirmed=1"),
+        },
       });
       if (error) return { needsEmailConfirmation: false, error: error.message };
       if (data.user && data.session) {
@@ -158,6 +168,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         });
       }
       return { needsEmailConfirmation: !data.session, error: null };
+    },
+    async requestPasswordReset(email) {
+      if (configError) return { error: configError };
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: authRedirectUrl("/login?recovery=1"),
+      });
+      return { error: error?.message ?? null };
+    },
+    async updatePassword(password) {
+      if (configError) return { error: configError };
+      const { error } = await supabase.auth.updateUser({ password });
+      return { error: error?.message ?? null };
     },
     async saveProfile(input) {
       if (!session?.user) return { error: "You must be signed in." };
